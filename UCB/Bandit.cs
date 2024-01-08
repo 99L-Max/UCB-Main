@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace UCB
 {
@@ -119,12 +120,8 @@ namespace UCB
 
         public static void SetDeviations(double initialDeviation, double step, int count)
         {
-            deviations = new double[count];
+            deviations = Enumerable.Range(0, count).Select(i => Math.Round(initialDeviation + i * step, 1)).ToArray();
             StepDevition = step;
-            deviations[0] = initialDeviation;
-
-            for (int i = 1; i < count; i++)
-                deviations[i] = Math.Round(deviations[i - 1] + step, 1);
         }
 
         public static double GetDeviation(int i) => deviations[i];

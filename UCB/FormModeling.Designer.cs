@@ -89,7 +89,6 @@ namespace UCB
             this.groupBoxSimulationSettings = new System.Windows.Forms.GroupBox();
             this.labelInfo = new System.Windows.Forms.Label();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.panelInformation = new System.Windows.Forms.Panel();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.groupBoxTypeBandit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBanditArms)).BeginInit();
@@ -114,7 +113,6 @@ namespace UCB
             this.groupBoxHorizon.SuspendLayout();
             this.groupBoxSimulationSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
-            this.panelInformation.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxTypeBandit
@@ -948,13 +946,13 @@ namespace UCB
             // labelInfo
             // 
             this.labelInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelInfo.BackColor = System.Drawing.Color.White;
             this.labelInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.labelInfo.ForeColor = System.Drawing.Color.Black;
-            this.labelInfo.Location = new System.Drawing.Point(0, 0);
+            this.labelInfo.Location = new System.Drawing.Point(557, 521);
             this.labelInfo.Name = "labelInfo";
-            this.labelInfo.Size = new System.Drawing.Size(258, 235);
+            this.labelInfo.Size = new System.Drawing.Size(255, 235);
             this.labelInfo.TabIndex = 47;
             this.labelInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -1000,17 +998,6 @@ namespace UCB
             this.dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataGridView_DataError);
             this.dataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DataGridView_KeyDown);
             // 
-            // panelInformation
-            // 
-            this.panelInformation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelInformation.BackColor = System.Drawing.Color.DarkGray;
-            this.panelInformation.Controls.Add(this.labelInfo);
-            this.panelInformation.Location = new System.Drawing.Point(554, 524);
-            this.panelInformation.Name = "panelInformation";
-            this.panelInformation.Size = new System.Drawing.Size(258, 235);
-            this.panelInformation.TabIndex = 50;
-            // 
             // timer
             // 
             this.timer.Interval = 1000;
@@ -1022,7 +1009,7 @@ namespace UCB
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1100, 808);
-            this.Controls.Add(this.panelInformation);
+            this.Controls.Add(this.labelInfo);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.groupBoxSimulationSettings);
             this.Controls.Add(this.groupBoxHorizon);
@@ -1068,7 +1055,6 @@ namespace UCB
             this.groupBoxSimulationSettings.ResumeLayout(false);
             this.groupBoxSimulationSettings.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
-            this.panelInformation.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1126,7 +1112,6 @@ namespace UCB
         private System.Windows.Forms.Button buttonPause;
         private System.Windows.Forms.Label labelInfo;
         private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.Panel panelInformation;
         private System.Windows.Forms.Button buttonOpen;
         private System.Windows.Forms.Button buttonNew;
         private System.Windows.Forms.Label labelStateDispersion;

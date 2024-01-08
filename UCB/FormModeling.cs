@@ -43,9 +43,9 @@ namespace UCB
             buttonPause.Enabled = buttonCancel.Enabled = buttonSave.Enabled = false;
 
             NumericUpDownDeviationExp_ValueChanged(null, null);
-
-            CustomPanel.RoundBounds(panelInformation, 35);
         }
+
+        private string Time => $"{stopWatch.Elapsed.Hours:d2}:{stopWatch.Elapsed.Minutes:d2}:{stopWatch.Elapsed.Seconds:d2}";
 
         public bool IsFinished { private set; get; } = true;
 
@@ -181,7 +181,7 @@ namespace UCB
             dataGridView.Columns["Parameter"].DefaultCellStyle.Format = "f2";
         }
 
-        private void ShowResult()
+        private void ShowResult(string time = "")
         {
             double minMaxRegrets = bandits[0].MaxRegrets;
             IndexBestBandit = 0;
@@ -198,7 +198,12 @@ namespace UCB
             labelInfo.Text =
                 $"a = {bandits[IndexBestBandit].Parameter:f2}{Environment.NewLine}" +
                 $"l_max = {bandits[IndexBestBandit].MaxRegrets:f2}{Environment.NewLine}" +
-                $"d_max = {bandits[IndexBestBandit].MaxDeviation:f1}";
+                $"d_max = {bandits[IndexBestBandit].MaxDeviation:f1}{Environment.NewLine}";
+
+            if(time == "")
+                labelInfo.Text += $"Время {Time}";
+            else
+                labelInfo.Text += $"Время {time}";
         }
 
         private void ButtonSettingsEstimationDispersion_Click(object sender, EventArgs e)
@@ -314,7 +319,7 @@ namespace UCB
                 labelInfo.Text =
                     $"Обработано {countProcessedBandits} / {bandits.Length}{Environment.NewLine}" +
                     $"Выполнено {progressBar.Value}%{Environment.NewLine}" +
-                    $"Время {stopWatch.Elapsed.Hours:d2}:{stopWatch.Elapsed.Minutes:d2}:{stopWatch.Elapsed.Seconds:d2}";
+                    $"Время {Time}";
             }
             else
             {
@@ -430,7 +435,7 @@ namespace UCB
                     foreach (JObject jBandit in jArr)
                     {
                         banditsList.Add(new BanditGauss(
-                            jBandit["Arms"].Value<int>(),
+                            jBandit["CountArms"].Value<int>(),
                             jBandit["Horizon"].Value<int>(),
                             jBandit["Parameter"].Value<double>(),
                             jBandit["Regrets"].ToObject<double[]>()
@@ -442,7 +447,7 @@ namespace UCB
                     foreach (JObject jBandit in jArr)
                     {
                         banditsList.Add(new BatchProcessing(
-                            jBandit["Arms"].Value<int>(),
+                            jBandit["CountArms"].Value<int>(),
                             jBandit["NumberBatches"].Value<int>(),
                             jBandit["BatchSize"].Value<int>(),
                             jBandit["InitialDataSize"].Value<int>(),
@@ -485,7 +490,7 @@ namespace UCB
                 ControlsEnabled = false;
                 IsSaved = buttonSave.Enabled = true;
 
-                ShowResult();
+                ShowResult(jObj["Time"].Value<string>());
             }
             catch (Exception exc)
             {
@@ -541,6 +546,7 @@ namespace UCB
                     Bandit.StepDevition,
                     Bandit.NumberDeviations,
                     Bandit.NumberSimulations,
+                    Time,
                     banditsData
                 });
 

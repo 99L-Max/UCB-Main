@@ -27,7 +27,7 @@ namespace UCB
                 }
 
                 for (int i = 0; i < arms.Length; i++)
-                    arms[i] = new Arm(Expectation + (i == 0 ? GetDeviation(mainIndex) : -GetDeviation(mainIndex)) * SqrtDivDN, MaxDispersion);
+                    arms[i] = new Arm(Expectation + (i == 0 ? 1 : -1) * GetDeviation(mainIndex) * SqrtDivDN, MaxDispersion);
 
                 maxIncome = arms.Select(x => x.Expectation).Max() * Horizon;
 

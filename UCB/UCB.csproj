@@ -57,7 +57,6 @@
     <Compile Include="Bandit.cs" />
     <Compile Include="BatchProcessing.cs" />
     <Compile Include="BanditGauss.cs" />
-    <Compile Include="CustomPanel.cs" />
     <Compile Include="FormEstimationDispersion.cs">
       <SubType>Form</SubType>
     </Compile>
