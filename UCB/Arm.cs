@@ -11,12 +11,13 @@ namespace UCB
 
     class Arm
     {
-        private readonly Random random = new Random();
+        private readonly Random random;
 
         public readonly double Expectation;
 
         public Arm(double expectation, double dispersion)
         {
+            random = new Random();
             Expectation = expectation;
             Dispersion = dispersion;
         }

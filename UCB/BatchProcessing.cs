@@ -67,16 +67,19 @@ namespace UCB
             */
             int otherBatches = NumberBatches - (CountArms + otherMinBatches) * InitialDataSize / BatchSize;
             int initialIncrement, mainIncrement;
+            double dispersion;
 
             if (TypeProcessingData == TypeProcessingData.TotalNumberData)
             {
                 initialIncrement = InitialDataSize;
                 mainIncrement = BatchSize;
+                dispersion = MaxDispersion;
             }
             else
             {
                 initialIncrement = 1;
                 mainIncrement = BatchSize / InitialDataSize;
+                dispersion = MaxDispersion * BatchSize;
             }
 
             for (int mainIndex = 0; mainIndex < NumberDeviations; mainIndex++)
@@ -88,7 +91,7 @@ namespace UCB
                 }
 
                 for (int i = 0; i < arms.Length; i++)
-                    arms[i] = new Arm(Expectation + (i == 0 ? 1 : -1) * GetDeviation(mainIndex) * SqrtDivDN, MaxDispersion);
+                    arms[i] = new Arm(Expectation + (i == 0 ? 1 : -1) * GetDeviation(mainIndex) * SqrtDivDN, dispersion);
 
                 maxIncome = arms.Select(x => x.Expectation).Max() * Horizon;
 
