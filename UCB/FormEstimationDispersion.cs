@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace UCB
 {
@@ -25,12 +26,12 @@ namespace UCB
             this.labelInfo = labelInfo;
         }
 
-        private void RadioButton_CheckedChanged(object sender, System.EventArgs e)
+        private void OnRadioButtonChanged(object sender, EventArgs e)
         {
             BatchProcessing.EstimationDispersion = (EstimationDispersion)(sender as RadioButton).Tag;
         }
 
-        private void FormEstimationDispersion_FormClosing(object sender, FormClosingEventArgs e)
+        private void OnFormClosing(object sender, FormClosingEventArgs e)
         {
             if (BatchProcessing.EstimationDispersion == EstimationDispersion.Never)
                 labelInfo.Text = "Дисперсии известны";

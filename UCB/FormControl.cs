@@ -24,7 +24,7 @@ namespace UCB
             formModeling.BuildChart += BuildChart;
             formModeling.ClearChart += ClearChart;
 
-            MainToolStripMenuItem_Click(null, null);
+            OnMainToolClick(MainMenuStrip, EventArgs.Empty);
         }
 
         private void OpenChildForm(Form childform)
@@ -59,43 +59,43 @@ namespace UCB
             formChart = new FormChart();
         }
 
-        private void MenuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void OnMenuStripClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             if (e.ClickedItem.Name != ExitToolStripMenuItem.Name)
                 labelTitle.Text = e.ClickedItem.Text;
         }
 
-        private void MainToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OnMainToolClick(object sender, EventArgs e)
         {
             OpenChildForm(new FormMain());
         }
 
-        private void CalculateToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OnCalculateClick(object sender, EventArgs e)
         {
             OpenChildForm(formModeling);
         }
 
-        private void GraphToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OnChartClick(object sender, EventArgs e)
         {
             OpenChildForm(formChart);
         }
 
-        private void StrategyToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OnAboutStrategyClick(object sender, EventArgs e)
         {
             OpenChildForm(new FormInfo(Resources.AboutStrategy));
         }
 
-        private void AboutProgramToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OnAboutProgramClick(object sender, EventArgs e)
         {
             OpenChildForm(new FormInfo(Resources.AboutProgram));
         }
 
-        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OnExitClick(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void ButtonResize_Click(object sender, EventArgs e)
+        private void OnButtonResizeClick(object sender, EventArgs e)
         {
             if (WindowState == FormWindowState.Normal)
             {
@@ -111,17 +111,18 @@ namespace UCB
             panelResize.Visible = !panelResize.Visible;
         }
 
-        private void ButtonMinimaze_Click(object sender, EventArgs e)
+        private void OnButtonMinimazeClick(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
 
-        private void PanelFrame_MouseDown(object sender, MouseEventArgs e)
+        private void OnPanelFrameMouseDown(object sender, MouseEventArgs e)
         {
             isDrag = true;
             startPoint = new Point(e.X, e.Y);
         }
-        private void PanelFrame_MouseMove(object sender, MouseEventArgs e)
+
+        private void OnPanelFrameMouseMove(object sender, MouseEventArgs e)
         {
             if (isDrag)
             {
@@ -129,28 +130,29 @@ namespace UCB
                 Location = new Point(p.X - startPoint.X, p.Y - startPoint.Y);
             }
         }
-        private void PanelFrame_MouseUp(object sender, MouseEventArgs e)
+
+        private void OnPanelFrameMouseUp(object sender, MouseEventArgs e)
         {
             isDrag = false;
         }
 
-        private void PanelResize_MouseDown(object sender, MouseEventArgs e)
+        private void OnPanelResizeMouseDown(object sender, MouseEventArgs e)
         {
             isResize = true;
         }
 
-        private void PanelResize_MouseMove(object sender, MouseEventArgs e)
+        private void OnPanelResizeMouseMove(object sender, MouseEventArgs e)
         {
             if (isResize)
                 Size = new Size(Cursor.Position.X - Location.X, Cursor.Position.Y - Location.Y);
         }
 
-        private void PanelResize_MouseUp(object sender, MouseEventArgs e)
+        private void OnPanelResizeMouseUp(object sender, MouseEventArgs e)
         {
             isResize = false;
         }
 
-        private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
+        private void OnFormMainFormClosing(object sender, FormClosingEventArgs e)
         {
             if (formModeling.IsFinished && formModeling.IsSaved)
                 return;

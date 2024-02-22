@@ -67,7 +67,7 @@ namespace UCB
             this.menuStrip.Size = new System.Drawing.Size(205, 521);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip";
-            this.menuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MenuStrip_ItemClicked);
+            this.menuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.OnMenuStripClicked);
             // 
             // MainToolStripMenuItem
             // 
@@ -79,7 +79,7 @@ namespace UCB
             this.MainToolStripMenuItem.Size = new System.Drawing.Size(192, 61);
             this.MainToolStripMenuItem.Text = "Главная";
             this.MainToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.MainToolStripMenuItem.Click += new System.EventHandler(this.MainToolStripMenuItem_Click);
+            this.MainToolStripMenuItem.Click += new System.EventHandler(this.OnMainToolClick);
             // 
             // CalculateToolStripMenuItem
             // 
@@ -92,7 +92,7 @@ namespace UCB
             this.CalculateToolStripMenuItem.Size = new System.Drawing.Size(192, 61);
             this.CalculateToolStripMenuItem.Text = "Моделирование";
             this.CalculateToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CalculateToolStripMenuItem.Click += new System.EventHandler(this.CalculateToolStripMenuItem_Click);
+            this.CalculateToolStripMenuItem.Click += new System.EventHandler(this.OnCalculateClick);
             // 
             // GraphToolStripMenuItem
             // 
@@ -104,7 +104,7 @@ namespace UCB
             this.GraphToolStripMenuItem.Size = new System.Drawing.Size(192, 61);
             this.GraphToolStripMenuItem.Text = "График";
             this.GraphToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.GraphToolStripMenuItem.Click += new System.EventHandler(this.GraphToolStripMenuItem_Click);
+            this.GraphToolStripMenuItem.Click += new System.EventHandler(this.OnChartClick);
             // 
             // StrategyToolStripMenuItem
             // 
@@ -116,7 +116,7 @@ namespace UCB
             this.StrategyToolStripMenuItem.Size = new System.Drawing.Size(192, 61);
             this.StrategyToolStripMenuItem.Text = "Стратегия";
             this.StrategyToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.StrategyToolStripMenuItem.Click += new System.EventHandler(this.StrategyToolStripMenuItem_Click);
+            this.StrategyToolStripMenuItem.Click += new System.EventHandler(this.OnAboutStrategyClick);
             // 
             // AboutProgramToolStripMenuItem
             // 
@@ -128,7 +128,7 @@ namespace UCB
             this.AboutProgramToolStripMenuItem.Size = new System.Drawing.Size(192, 61);
             this.AboutProgramToolStripMenuItem.Text = "О программе";
             this.AboutProgramToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AboutProgramToolStripMenuItem.Click += new System.EventHandler(this.AboutProgramToolStripMenuItem_Click);
+            this.AboutProgramToolStripMenuItem.Click += new System.EventHandler(this.OnAboutProgramClick);
             // 
             // ExitToolStripMenuItem
             // 
@@ -140,7 +140,7 @@ namespace UCB
             this.ExitToolStripMenuItem.Size = new System.Drawing.Size(192, 36);
             this.ExitToolStripMenuItem.Text = "Выход";
             this.ExitToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
+            this.ExitToolStripMenuItem.Click += new System.EventHandler(this.OnExitClick);
             // 
             // panelDesctopPanel
             // 
@@ -164,9 +164,9 @@ namespace UCB
             this.panelResize.Size = new System.Drawing.Size(35, 35);
             this.panelResize.TabIndex = 0;
             this.panelResize.Visible = false;
-            this.panelResize.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelResize_MouseDown);
-            this.panelResize.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PanelResize_MouseMove);
-            this.panelResize.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PanelResize_MouseUp);
+            this.panelResize.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnPanelResizeMouseDown);
+            this.panelResize.MouseMove += new System.Windows.Forms.MouseEventHandler(this.OnPanelResizeMouseMove);
+            this.panelResize.MouseUp += new System.Windows.Forms.MouseEventHandler(this.OnPanelResizeMouseUp);
             // 
             // panelFrame
             // 
@@ -181,9 +181,9 @@ namespace UCB
             this.panelFrame.Name = "panelFrame";
             this.panelFrame.Size = new System.Drawing.Size(583, 70);
             this.panelFrame.TabIndex = 3;
-            this.panelFrame.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelFrame_MouseDown);
-            this.panelFrame.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PanelFrame_MouseMove);
-            this.panelFrame.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PanelFrame_MouseUp);
+            this.panelFrame.MouseDown += new System.Windows.Forms.MouseEventHandler(this.OnPanelFrameMouseDown);
+            this.panelFrame.MouseMove += new System.Windows.Forms.MouseEventHandler(this.OnPanelFrameMouseMove);
+            this.panelFrame.MouseUp += new System.Windows.Forms.MouseEventHandler(this.OnPanelFrameMouseUp);
             // 
             // buttonMinimaze
             // 
@@ -198,7 +198,7 @@ namespace UCB
             this.buttonMinimaze.Size = new System.Drawing.Size(35, 35);
             this.buttonMinimaze.TabIndex = 3;
             this.buttonMinimaze.UseVisualStyleBackColor = false;
-            this.buttonMinimaze.Click += new System.EventHandler(this.ButtonMinimaze_Click);
+            this.buttonMinimaze.Click += new System.EventHandler(this.OnButtonMinimazeClick);
             // 
             // buttonResize
             // 
@@ -213,7 +213,7 @@ namespace UCB
             this.buttonResize.Size = new System.Drawing.Size(35, 35);
             this.buttonResize.TabIndex = 2;
             this.buttonResize.UseVisualStyleBackColor = false;
-            this.buttonResize.Click += new System.EventHandler(this.ButtonResize_Click);
+            this.buttonResize.Click += new System.EventHandler(this.OnButtonResizeClick);
             // 
             // buttonClose
             // 
@@ -228,7 +228,7 @@ namespace UCB
             this.buttonClose.Size = new System.Drawing.Size(35, 35);
             this.buttonClose.TabIndex = 1;
             this.buttonClose.UseVisualStyleBackColor = false;
-            this.buttonClose.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
+            this.buttonClose.Click += new System.EventHandler(this.OnExitClick);
             // 
             // labelTitle
             // 
@@ -259,7 +259,7 @@ namespace UCB
             this.Name = "FormControl";
             this.Text = "UCB";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnFormMainFormClosing);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.panelDesctopPanel.ResumeLayout(false);

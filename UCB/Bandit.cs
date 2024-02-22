@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace UCB
 {
-    enum TypeBandit
+    enum Distribution
     {
         Gauss,
         Bernuolli
@@ -31,7 +31,7 @@ namespace UCB
 
         public static int NumberSimulations;
         public static double MaxDispersion;
-        public static TypeBandit TypeBandit;
+        public static Distribution Distribution;
 
         public delegate void EventStateChanged();
         public event EventStateChanged PointProcessed;
@@ -84,7 +84,7 @@ namespace UCB
         {
             set
             {
-                if (TypeBandit == TypeBandit.Bernuolli && (value > 1d || value < 0d))
+                if (Distribution == Distribution.Bernuolli && (value > 1d || value < 0d))
                     throw new ArgumentException("Для распределения Бернулли мат. ожидание p должно быть в пределах от 0 до 1 включительно.");
 
                 expectation = value;

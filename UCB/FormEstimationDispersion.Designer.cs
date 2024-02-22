@@ -29,55 +29,55 @@ namespace UCB
         /// </summary>
         private void InitializeComponent()
         {
-            this.radioButtonNever = new System.Windows.Forms.RadioButton();
-            this.radioButtonOnlyOnInitialStage = new System.Windows.Forms.RadioButton();
-            this.radioButtonAlways = new System.Windows.Forms.RadioButton();
+            this.rbNever = new System.Windows.Forms.RadioButton();
+            this.rbOnlyOnInitialStage = new System.Windows.Forms.RadioButton();
+            this.rbAlways = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
-            // radioButtonNever
+            // rbNever
             // 
-            this.radioButtonNever.AutoSize = true;
-            this.radioButtonNever.ForeColor = System.Drawing.Color.Black;
-            this.radioButtonNever.Location = new System.Drawing.Point(13, 14);
-            this.radioButtonNever.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.radioButtonNever.Name = "radioButtonNever";
-            this.radioButtonNever.Size = new System.Drawing.Size(364, 24);
-            this.radioButtonNever.TabIndex = 0;
-            this.radioButtonNever.TabStop = true;
-            this.radioButtonNever.Tag = UCB.EstimationDispersion.Never;
-            this.radioButtonNever.Text = "Дисперсии известны и равны максимальной";
-            this.radioButtonNever.UseVisualStyleBackColor = true;
-            this.radioButtonNever.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);
+            this.rbNever.AutoSize = true;
+            this.rbNever.ForeColor = System.Drawing.Color.Black;
+            this.rbNever.Location = new System.Drawing.Point(13, 14);
+            this.rbNever.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rbNever.Name = "rbNever";
+            this.rbNever.Size = new System.Drawing.Size(364, 24);
+            this.rbNever.TabIndex = 0;
+            this.rbNever.TabStop = true;
+            this.rbNever.Tag = UCB.EstimationDispersion.Never;
+            this.rbNever.Text = "Дисперсии известны и равны максимальной";
+            this.rbNever.UseVisualStyleBackColor = true;
+            this.rbNever.CheckedChanged += new System.EventHandler(this.OnRadioButtonChanged);
             // 
-            // radioButtonOnlyOnInitialStage
+            // rbOnlyOnInitialStage
             // 
-            this.radioButtonOnlyOnInitialStage.AutoSize = true;
-            this.radioButtonOnlyOnInitialStage.ForeColor = System.Drawing.Color.Black;
-            this.radioButtonOnlyOnInitialStage.Location = new System.Drawing.Point(13, 48);
-            this.radioButtonOnlyOnInitialStage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.radioButtonOnlyOnInitialStage.Name = "radioButtonOnlyOnInitialStage";
-            this.radioButtonOnlyOnInitialStage.Size = new System.Drawing.Size(413, 24);
-            this.radioButtonOnlyOnInitialStage.TabIndex = 1;
-            this.radioButtonOnlyOnInitialStage.TabStop = true;
-            this.radioButtonOnlyOnInitialStage.Tag = UCB.EstimationDispersion.OnlyOnInitialStage;
-            this.radioButtonOnlyOnInitialStage.Text = "Оценивать дисперсии только на начальном этапе";
-            this.radioButtonOnlyOnInitialStage.UseVisualStyleBackColor = true;
-            this.radioButtonOnlyOnInitialStage.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);
+            this.rbOnlyOnInitialStage.AutoSize = true;
+            this.rbOnlyOnInitialStage.ForeColor = System.Drawing.Color.Black;
+            this.rbOnlyOnInitialStage.Location = new System.Drawing.Point(13, 48);
+            this.rbOnlyOnInitialStage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rbOnlyOnInitialStage.Name = "rbOnlyOnInitialStage";
+            this.rbOnlyOnInitialStage.Size = new System.Drawing.Size(413, 24);
+            this.rbOnlyOnInitialStage.TabIndex = 1;
+            this.rbOnlyOnInitialStage.TabStop = true;
+            this.rbOnlyOnInitialStage.Tag = UCB.EstimationDispersion.OnlyOnInitialStage;
+            this.rbOnlyOnInitialStage.Text = "Оценивать дисперсии только на начальном этапе";
+            this.rbOnlyOnInitialStage.UseVisualStyleBackColor = true;
+            this.rbOnlyOnInitialStage.CheckedChanged += new System.EventHandler(this.OnRadioButtonChanged);
             // 
-            // radioButtonAlways
+            // rbAlways
             // 
-            this.radioButtonAlways.AutoSize = true;
-            this.radioButtonAlways.ForeColor = System.Drawing.Color.Black;
-            this.radioButtonAlways.Location = new System.Drawing.Point(13, 82);
-            this.radioButtonAlways.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.radioButtonAlways.Name = "radioButtonAlways";
-            this.radioButtonAlways.Size = new System.Drawing.Size(434, 24);
-            this.radioButtonAlways.TabIndex = 2;
-            this.radioButtonAlways.TabStop = true;
-            this.radioButtonAlways.Tag = UCB.EstimationDispersion.Always;
-            this.radioButtonAlways.Text = "Оценивать дисперсии на всём горизонте управления";
-            this.radioButtonAlways.UseVisualStyleBackColor = true;
-            this.radioButtonAlways.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);
+            this.rbAlways.AutoSize = true;
+            this.rbAlways.ForeColor = System.Drawing.Color.Black;
+            this.rbAlways.Location = new System.Drawing.Point(13, 82);
+            this.rbAlways.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rbAlways.Name = "rbAlways";
+            this.rbAlways.Size = new System.Drawing.Size(434, 24);
+            this.rbAlways.TabIndex = 2;
+            this.rbAlways.TabStop = true;
+            this.rbAlways.Tag = UCB.EstimationDispersion.Always;
+            this.rbAlways.Text = "Оценивать дисперсии на всём горизонте управления";
+            this.rbAlways.UseVisualStyleBackColor = true;
+            this.rbAlways.CheckedChanged += new System.EventHandler(this.OnRadioButtonChanged);
             // 
             // FormEstimationDispersion
             // 
@@ -85,9 +85,9 @@ namespace UCB
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(457, 123);
-            this.Controls.Add(this.radioButtonAlways);
-            this.Controls.Add(this.radioButtonOnlyOnInitialStage);
-            this.Controls.Add(this.radioButtonNever);
+            this.Controls.Add(this.rbAlways);
+            this.Controls.Add(this.rbOnlyOnInitialStage);
+            this.Controls.Add(this.rbNever);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -97,7 +97,7 @@ namespace UCB
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Оценка диспесрии";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormEstimationDispersion_FormClosing);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnFormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -105,8 +105,8 @@ namespace UCB
 
         #endregion
 
-        private System.Windows.Forms.RadioButton radioButtonNever;
-        private System.Windows.Forms.RadioButton radioButtonOnlyOnInitialStage;
-        private System.Windows.Forms.RadioButton radioButtonAlways;
+        private System.Windows.Forms.RadioButton rbNever;
+        private System.Windows.Forms.RadioButton rbOnlyOnInitialStage;
+        private System.Windows.Forms.RadioButton rbAlways;
     }
 }

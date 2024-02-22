@@ -39,10 +39,10 @@ namespace UCB
             InitializeComponent();
 
             dataGridView.BackgroundColor = FormControl.BackColorForm;
-            comboBoxTypeBandit.SelectedIndex = comboBoxTypeBernStrategy.SelectedIndex = 0;
-            buttonPause.Enabled = buttonCancel.Enabled = buttonSave.Enabled = false;
+            cmbDistribution.SelectedIndex = cmbTypeBernStrategy.SelectedIndex = 0;
+            btnPause.Enabled = btnCancel.Enabled = btnSave.Enabled = false;
 
-            NumericUpDownDeviationExp_ValueChanged(null, null);
+            DeviationChanged(numDeviationExp0, EventArgs.Empty);
         }
 
         private string Time => $"{stopWatch.Elapsed.Hours:d2}:{stopWatch.Elapsed.Minutes:d2}:{stopWatch.Elapsed.Seconds:d2}";
@@ -59,11 +59,11 @@ namespace UCB
         {
             get
             {
-                double[,] regrets = new double[bandits.Length, Bandit.NumberDeviations];
+                double[,] regrets = new double[Bandit.NumberDeviations, bandits.Length];
 
                 for (int row = 0; row < regrets.GetLength(0); row++)
                     for (int col = 0; col < regrets.GetLength(1); col++)
-                        regrets[row, col] = bandits[row].GetRegrets(col);
+                        regrets[row, col] = bandits[col].GetRegrets(row);
 
                 return regrets;
             }
@@ -73,12 +73,12 @@ namespace UCB
         {
             set
             {
-                groupBoxTypeBandit.Enabled = value;
-                groupBoxGeneralParameters.Enabled = value;
-                groupBoxBordersDeviationExp.Enabled = value;
-                groupBoxHorizon.Enabled = value;
-                groupBoxParameter.Enabled = value;
-                groupBoxSimulationSettings.Enabled = value;
+                grpTypeBandit.Enabled = value;
+                grpGeneralParameters.Enabled = value;
+                grpBordersDeviationExp.Enabled = value;
+                grpHorizon.Enabled = value;
+                grpParameter.Enabled = value;
+                grpSimulationSettings.Enabled = value;
                 dataGridView.CurrentCell.Selected = value;
 
                 for (int i = 1; i < dataGridView.ColumnCount; i++)
@@ -97,11 +97,11 @@ namespace UCB
         {
             set
             {
-                buttonNew.Enabled = value;
-                buttonOpen.Enabled = value;
+                btnNew.Enabled = value;
+                btnOpen.Enabled = value;
 
-                buttonPause.Enabled = !value;
-                buttonCancel.Enabled = !value;
+                btnPause.Enabled = !value;
+                btnCancel.Enabled = !value;
                 progressBar.Visible = !value;
             }
         }
@@ -132,8 +132,9 @@ namespace UCB
             }
         }
 
-        private void CreateTable(TypeBandit type)
+        private void CreateTable(Distribution distribution)
         {
+            dataTable?.Dispose();
             dataTable = new DataTable("Bandit");
             dataGridView.DataSource = dataTable;
 
@@ -142,7 +143,7 @@ namespace UCB
 
             DataColumn horizonColumn = new DataColumn("Horizon", typeof(int));
 
-            if (type == TypeBandit.Bernuolli)
+            if (distribution == Distribution.Bernuolli)
             {
                 dataTable.Columns.Add(new DataColumn("NumberBatches", typeof(int)));
                 dataTable.Columns.Add(new DataColumn("BatchSize", typeof(int)));
@@ -181,97 +182,87 @@ namespace UCB
             dataGridView.Columns["Parameter"].DefaultCellStyle.Format = "f2";
         }
 
-        private void ShowResult(string time = "")
+        private void ShowResult(string time)
         {
-            double minMaxRegrets = bandits[0].MaxRegrets;
-            IndexBestBandit = 0;
-
-            for (int i = 1; i < bandits.Length; i++)
-                if (minMaxRegrets > bandits[i].MaxRegrets)
-                {
-                    minMaxRegrets = bandits[i].MaxRegrets;
-                    IndexBestBandit = i;
-                }
+            double minMaxRegrets = bandits.Select(b => b.MaxRegrets).Min();
+            IndexBestBandit = bandits.Select((item, ind) => new { Item = item, Index = ind }).FirstOrDefault(x => x.Item.MaxRegrets == minMaxRegrets).Index;
 
             BuildChart.Invoke();
 
-            labelInfo.Text =
+            lblDialog.Text =
                 $"a = {bandits[IndexBestBandit].Parameter:f2}{Environment.NewLine}" +
                 $"l_max = {bandits[IndexBestBandit].MaxRegrets:f2}{Environment.NewLine}" +
-                $"d_max = {bandits[IndexBestBandit].MaxDeviation:f1}{Environment.NewLine}";
-
-            if(time == "")
-                labelInfo.Text += $"Время {Time}";
-            else
-                labelInfo.Text += $"Время {time}";
+                $"d_max = {bandits[IndexBestBandit].MaxDeviation:f1}{Environment.NewLine}" +
+                $"Время {time}";
         }
 
-        private void ButtonSettingsEstimationDispersion_Click(object sender, EventArgs e)
+        private void OnEstimationDispersionClick(object sender, EventArgs e)
         {
-            new FormEstimationDispersion(labelStateDispersion).Show();
+            new FormEstimationDispersion(lblStateDispersion).Show();
         }
 
-        private void ButtonNew_Click(object sender, EventArgs e)
+        private void ClearBandits()
+        {
+            foreach (var b in bandits)
+            {
+                b.PointProcessed -= UpdateCounterPoints;
+                b.SimulationFinished -= StartNextThread;
+            }
+        }
+
+        private void OnNewClick(object sender, EventArgs e)
         {
             if (!IsSaved && MessageBox.Show($"Несохранённые данные будут удалены.{Environment.NewLine}Продолжить?", "Данные не сохранены", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 return;
 
-            bandits = null;
+            ClearBandits();
             ClearChart.Invoke();
-            IsSaved = ControlsEnabled = buttonStart.Enabled = true;
-            buttonSave.Enabled = false;
-            labelInfo.Text = string.Empty;
+            IsSaved = ControlsEnabled = btnStart.Enabled = true;
+            btnSave.Enabled = false;
+            lblDialog.Text = string.Empty;
         }
 
-        private void ButtonStart_Click(object sender, EventArgs e)
+        private void OnStartClick(object sender, EventArgs e)
         {
             ControlsEnabled = IsFinished = IsSaved = false;
-            ButtonsEnabled = buttonStart.Enabled = false;
+            ButtonsEnabled = btnStart.Enabled = false;
 
-            Bandit.TypeBandit = (TypeBandit)comboBoxTypeBandit.SelectedIndex;
+            Bandit.Distribution = (Distribution)cmbDistribution.SelectedIndex;
 
-            if (Bandit.TypeBandit == TypeBandit.Bernuolli)
-                BatchProcessing.TypeProcessingData = (TypeProcessingData)comboBoxTypeBernStrategy.SelectedIndex;
+            if (Bandit.Distribution == Distribution.Bernuolli)
+                BatchProcessing.TypeProcessingData = (TypeProcessingData)cmbTypeBernStrategy.SelectedIndex;
 
-            Bandit.Expectation = (double)numericUpDownMathExp.Value;
-            Bandit.MaxDispersion = (double)numericUpDownMaxDispersion.Value;
-            Bandit.NumberSimulations = (int)numericUpDownNumberSimulations.Value;
-            Bandit.SetDeviations((double)numericUpDownDeviationExp0.Value, (double)numericUpDownDeviationExpDelta.Value, (int)numericUpDownDeviationExpCount.Value);
+            Bandit.Expectation = (double)numMathExp.Value;
+            Bandit.MaxDispersion = (double)numMaxDispersion.Value;
+            Bandit.NumberSimulations = (int)numNumberSimulations.Value;
+            Bandit.SetDeviations((double)numDeviationExp0.Value, (double)numDeviationExpDelta.Value, (int)numDeviationExpCount.Value);
 
             try
             {
                 bandits = new Bandit[dataGridView.Rows.Count];
 
                 //Бандит с распределением Гаусса
-                if (Bandit.TypeBandit == TypeBandit.Gauss)
+                if (Bandit.Distribution == Distribution.Gauss)
                 {
                     for (int i = 0; i < bandits.Length; i++)
                     {
                         bandits[i] = new BanditGauss(
                             Convert.ToInt32(dataGridView.Rows[i].Cells["Arms"].Value),
                             Convert.ToInt32(dataGridView.Rows[i].Cells["Horizon"].Value),
-                            Math.Round(Convert.ToDouble(dataGridView.Rows[i].Cells["Parameter"].Value), 2)
-                            );
+                            Math.Round(Convert.ToDouble(dataGridView.Rows[i].Cells["Parameter"].Value), 2));
                     }
                 }
                 //Бандит с распределением Бернулли
                 else
                 {
-                    int[] batchSize = new int[bandits.Length];
-                    int[] initialDataSize = new int[bandits.Length];
-
                     for (int i = 0; i < bandits.Length; i++)
                     {
-                        batchSize[i] = Convert.ToInt32(dataGridView.Rows[i].Cells["BatchSize"].Value);
-                        initialDataSize[i] = Convert.ToInt32(dataGridView.Rows[i].Cells["InitialDataSize"].Value);
-
                         bandits[i] = new BatchProcessing(
                             Convert.ToInt32(dataGridView.Rows[i].Cells["Arms"].Value),
                             Convert.ToInt32(dataGridView.Rows[i].Cells["NumberBatches"].Value),
-                            batchSize[i],
-                            initialDataSize[i],
-                            Math.Round(Convert.ToDouble(dataGridView.Rows[i].Cells["Parameter"].Value), 2)
-                            );
+                            Convert.ToInt32(dataGridView.Rows[i].Cells["BatchSize"].Value),
+                            Convert.ToInt32(dataGridView.Rows[i].Cells["InitialDataSize"].Value),
+                            Math.Round(Convert.ToDouble(dataGridView.Rows[i].Cells["Parameter"].Value), 2));
                     }
                 }
 
@@ -287,7 +278,7 @@ namespace UCB
 
                 bandits = null;
                 ControlsEnabled = IsFinished = IsSaved = true;
-                ButtonsEnabled = buttonStart.Enabled = true;
+                ButtonsEnabled = btnStart.Enabled = true;
 
                 return;
             }
@@ -297,7 +288,7 @@ namespace UCB
             countProcessedBandits = countProcessedPoints = 0;
             totalCountPoints = Bandit.NumberDeviations * bandits.Length;
 
-            int maxCountThreads = Math.Min((int)numericUpDownCountThreads.Value, threads.Count);
+            int maxCountThreads = Math.Min((int)numCountThreads.Value, threads.Count);
 
             while (maxCountThreads-- > 0)
             {
@@ -307,16 +298,16 @@ namespace UCB
 
             stopWatch.Restart();
 
-            Timer_Tick(null, null);
+            OnTimerTick(timer, EventArgs.Empty);
 
             timer.Start();
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
+        private void OnTimerTick(object sender, EventArgs e)
         {
             if (countProcessedBandits < bandits.Length)
             {
-                labelInfo.Text =
+                lblDialog.Text =
                     $"Обработано {countProcessedBandits} / {bandits.Length}{Environment.NewLine}" +
                     $"Выполнено {progressBar.Value}%{Environment.NewLine}" +
                     $"Время {Time}";
@@ -328,13 +319,13 @@ namespace UCB
         }
 
         [Obsolete]
-        private void ButtonCancel_Click(object sender, EventArgs e)
+        private void OnCancelClick(object sender, EventArgs e)
         {
             if (MessageBox.Show("Вы действительно хотите отменить вычисления?", "Отмена операции", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 return;
 
             if (isPaused)
-                ButtonPause_Click(null, null);
+                OnPauseClick(btnPause, EventArgs.Empty);
 
             runningThreads.ForEach(t => t.Abort());
 
@@ -353,29 +344,29 @@ namespace UCB
 
             ButtonsEnabled = IsFinished = true;
 
-            buttonSave.Enabled = isCorrect;
-            buttonStart.Enabled = ControlsEnabled = IsSaved = !isCorrect;
+            btnSave.Enabled = isCorrect;
+            btnStart.Enabled = ControlsEnabled = IsSaved = !isCorrect;
 
             if (isCorrect)
             {
-                ShowResult();
-                CheckBoxSoundPlay_CheckedChanged(null, null);
+                ShowResult(Time);
+                OnCheckBoxCheckedChanged(chkSoundPlay, EventArgs.Empty);
             }
             else
             {
-                bandits = null;
-                labelInfo.Text = string.Empty;
+                ClearBandits();
+                lblDialog.Text = string.Empty;
             }
         }
 
         [Obsolete]
-        private void ButtonPause_Click(object sender, EventArgs e)
+        private void OnPauseClick(object sender, EventArgs e)
         {
             if (isPaused)
             {
                 runningThreads.ForEach(t => { if (t.IsAlive) t.Resume(); });
 
-                buttonPause.Text = "Пауза";
+                btnPause.Text = "Пауза";
                 stopWatch.Start();
                 timer.Start();
 
@@ -385,7 +376,7 @@ namespace UCB
             {
                 runningThreads.ForEach(t => { if (t.IsAlive) t.Suspend(); });
 
-                buttonPause.Text = "Продолжить";
+                btnPause.Text = "Продолжить";
                 stopWatch.Stop();
                 timer.Stop();
 
@@ -395,252 +386,239 @@ namespace UCB
             isPaused = !isPaused;
         }
 
-        private void ButtonOpen_Click(object sender, EventArgs e)
+        private void OnOpenClick(object sender, EventArgs e)
         {
             if (!IsSaved && MessageBox.Show($"Несохранённые данные будут удалены.{Environment.NewLine}Продолжить?", "Данные не сохранены", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 return;
 
-            OpenFileDialog openFileDialog = new OpenFileDialog
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                Filter = "Файлы Json|*.json"
-            };
+                openFileDialog.Filter = "Файлы Json|*.json";
 
-            if (openFileDialog.ShowDialog() != DialogResult.OK)
-                return;
+                if (openFileDialog.ShowDialog() != DialogResult.OK)
+                    return;
 
-            try
-            {
-                string jsonStr = File.ReadAllText(openFileDialog.FileName);
-                JObject jObj = JObject.Parse(jsonStr);
-
-                Bandit.TypeBandit = (TypeBandit)jObj["TypeBandit"].Value<int>();
-                BatchProcessing.TypeProcessingData = (TypeProcessingData)jObj["TypeProcessingData"].Value<int>();
-                Bandit.Expectation = jObj["Expectation"].Value<double>();
-                Bandit.MaxDispersion = jObj["MaxDispersion"].Value<double>();
-                BatchProcessing.EstimationDispersion = (EstimationDispersion)jObj["EstimationDispersion"].Value<int>();
-
-                Bandit.SetDeviations(
-                    jObj["InitialDeviation"].Value<double>(),
-                    jObj["StepDevition"].Value<double>(),
-                    jObj["NumberDeviations"].Value<int>()
-                );
-
-                Bandit.NumberSimulations = jObj["NumberSimulations"].Value<int>();
-
-                JArray jArr = JArray.Parse(JToken.FromObject(jObj.SelectToken("banditsData")).ToString());
-                List<Bandit> banditsList = new List<Bandit>();
-
-                if (Bandit.TypeBandit == TypeBandit.Gauss)
+                try
                 {
-                    foreach (JObject jBandit in jArr)
+                    JObject jObj = JObject.Parse(File.ReadAllText(openFileDialog.FileName));
+
+                    Bandit.Distribution = (Distribution)jObj["Distribution"].Value<int>();
+                    BatchProcessing.TypeProcessingData = (TypeProcessingData)jObj["TypeProcessingData"].Value<int>();
+                    Bandit.Expectation = jObj["Expectation"].Value<double>();
+                    Bandit.MaxDispersion = jObj["MaxDispersion"].Value<double>();
+                    BatchProcessing.EstimationDispersion = (EstimationDispersion)jObj["EstimationDispersion"].Value<int>();
+
+                    Bandit.SetDeviations(
+                        jObj["InitialDeviation"].Value<double>(),
+                        jObj["StepDevition"].Value<double>(),
+                        jObj["NumberDeviations"].Value<int>());
+
+                    Bandit.NumberSimulations = jObj["NumberSimulations"].Value<int>();
+
+                    JArray jArr = JArray.Parse(JToken.FromObject(jObj.SelectToken("banditsData")).ToString());
+
+                    if (Bandit.Distribution == Distribution.Gauss)
                     {
-                        banditsList.Add(new BanditGauss(
-                            jBandit["CountArms"].Value<int>(),
-                            jBandit["Horizon"].Value<int>(),
-                            jBandit["Parameter"].Value<double>(),
-                            jBandit["Regrets"].ToObject<double[]>()
-                            ));
+                        bandits = jArr.Select(b => new BanditGauss(
+                            b["CountArms"].Value<int>(),
+                            b["Horizon"].Value<int>(),
+                            b["Parameter"].Value<double>(),
+                            b["Regrets"].ToObject<double[]>())).ToArray();
                     }
-                }
-                else
-                {
-                    foreach (JObject jBandit in jArr)
+                    else
                     {
-                        banditsList.Add(new BatchProcessing(
-                            jBandit["CountArms"].Value<int>(),
-                            jBandit["NumberBatches"].Value<int>(),
-                            jBandit["BatchSize"].Value<int>(),
-                            jBandit["InitialDataSize"].Value<int>(),
-                            jBandit["Parameter"].Value<double>(),
-                            jBandit["Regrets"].ToObject<double[]>()
-                            ));
+                        bandits = jArr.Select(b => new BatchProcessing(
+                            b["CountArms"].Value<int>(),
+                            b["NumberBatches"].Value<int>(),
+                            b["BatchSize"].Value<int>(),
+                            b["InitialDataSize"].Value<int>(),
+                            b["Parameter"].Value<double>(),
+                            b["Regrets"].ToObject<double[]>())).ToArray();
                     }
+
+                    cmbDistribution.SelectedIndexChanged -= DistributionChanged;
+                    numBanditsCount.ValueChanged -= BanditsCountChanged;
+
+                    cmbDistribution.SelectedIndex = (int)Bandit.Distribution;
+                    cmbTypeBernStrategy.SelectedIndex = (int)BatchProcessing.TypeProcessingData;
+                    numBanditsCount.Value = bandits.Length;
+                    numMathExp.Value = (decimal)Bandit.Expectation;
+                    numMaxDispersion.Value = (decimal)Bandit.MaxDispersion;
+                    numNumberSimulations.Value = Bandit.NumberSimulations;
+                    numDeviationExp0.Value = (decimal)jObj["InitialDeviation"].Value<double>();
+                    numDeviationExpDelta.Value = (decimal)jObj["StepDevition"].Value<double>();
+                    numDeviationExpCount.Value = (decimal)jObj["NumberDeviations"].Value<double>();
+                    lblStateDispersion.Text = BatchProcessing.EstimationDispersion == EstimationDispersion.Never ? "Дисперсии известны" : "Дисперсии неизвестны";
+
+                    cmbDistribution.SelectedIndexChanged += DistributionChanged;
+                    numBanditsCount.ValueChanged += BanditsCountChanged;
+
+                    CreateTable(Bandit.Distribution);
+
+                    int num = 0;
+
+                    if (Bandit.Distribution == Distribution.Gauss)
+                        foreach (var b in bandits)
+                            dataTable.Rows.Add(++num, b.CountArms, b.Horizon, b.Parameter);
+                    else
+                        foreach (var b in bandits.Select(b => b as BatchProcessing).ToList())
+                            dataTable.Rows.Add(++num, b.CountArms, b.NumberBatches, b.BatchSize, b.InitialDataSize, b.Horizon, b.Parameter);
+
+                    ControlsEnabled = false;
+                    IsSaved = btnSave.Enabled = true;
+
+                    ShowResult(jObj["Time"].Value<string>());
                 }
-
-                bandits = banditsList.ToArray();
-
-                CreateTable(Bandit.TypeBandit);
-
-                if (Bandit.TypeBandit == TypeBandit.Gauss)
+                catch (Exception exc)
                 {
-                    for (int i = 0; i < bandits.Length; i++)
-                        dataTable.Rows.Add(i + 1, bandits[i].CountArms, bandits[i].Horizon, bandits[i].Parameter);
+                    MessageBox.Show(exc.Message, "Ошибка чтения файла", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else
-                {
-                    BatchProcessing batchProcessing;
-
-                    for (int i = 0; i < bandits.Length; i++)
-                    {
-                        batchProcessing = bandits[i] as BatchProcessing;
-                        dataTable.Rows.Add(i + 1, batchProcessing.CountArms, batchProcessing.NumberBatches, batchProcessing.BatchSize, batchProcessing.InitialDataSize, batchProcessing.Horizon, batchProcessing.Parameter);
-                    }
-                }
-
-                comboBoxTypeBandit.SelectedIndex = (int)Bandit.TypeBandit;
-                comboBoxTypeBernStrategy.SelectedIndex = (int)BatchProcessing.TypeProcessingData;
-                numericUpDownMathExp.Value = (decimal)Bandit.Expectation;
-                numericUpDownMaxDispersion.Value = (decimal)Bandit.MaxDispersion;
-                numericUpDownNumberSimulations.Value = Bandit.NumberSimulations;
-                numericUpDownDeviationExp0.Value = (decimal)jObj["InitialDeviation"].Value<double>();
-                numericUpDownDeviationExpDelta.Value = (decimal)jObj["StepDevition"].Value<double>();
-                numericUpDownDeviationExpCount.Value = (decimal)jObj["NumberDeviations"].Value<double>();
-                labelStateDispersion.Text = BatchProcessing.EstimationDispersion == EstimationDispersion.Never ? "Дисперсии известны" : "Дисперсии неизвестны";
-
-                ControlsEnabled = false;
-                IsSaved = buttonSave.Enabled = true;
-
-                ShowResult(jObj["Time"].Value<string>());
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message, "Ошибка чтения файла", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void ButtonSave_Click(object sender, EventArgs e)
+        private void OnSaveClick(object sender, EventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
-                Filter = "Файлы Json|*.json"
-            };
+                saveFileDialog.Filter = "Файлы Json|*.json";
 
-            if (saveFileDialog.ShowDialog() != DialogResult.OK)
-                return;
+                if (saveFileDialog.ShowDialog() != DialogResult.OK)
+                    return;
 
-            try
-            {
-                IEnumerable banditsData;
-
-                if (Bandit.TypeBandit == TypeBandit.Gauss)
+                try
                 {
-                    banditsData = bandits.Select(b => new
+                    IEnumerable banditsData;
+
+                    if (Bandit.Distribution == Distribution.Gauss)
                     {
-                        b.CountArms,
-                        b.Horizon,
-                        b.Parameter,
-                        b.Regrets
-                    });
-                }
-                else
-                {
-                    banditsData = bandits.Select(b => new
+                        banditsData = bandits.Select(b => new
+                        {
+                            b.CountArms,
+                            b.Horizon,
+                            b.Parameter,
+                            b.Regrets
+                        });
+                    }
+                    else
                     {
-                        b.CountArms,
-                        (b as BatchProcessing).NumberBatches,
-                        (b as BatchProcessing).BatchSize,
-                        (b as BatchProcessing).InitialDataSize,
-                        b.Parameter,
-                        b.Regrets
+                        banditsData = bandits.Select(b => b as BatchProcessing).Select(b => new
+                        {
+                            b.CountArms,
+                            b.NumberBatches,
+                            b.BatchSize,
+                            b.InitialDataSize,
+                            b.Parameter,
+                            b.Regrets
+                        });
+                    }
+
+                    string data = JsonConvert.SerializeObject(new
+                    {
+                        Bandit.Distribution,
+                        BatchProcessing.TypeProcessingData,
+                        Bandit.Expectation,
+                        Bandit.MaxDispersion,
+                        BatchProcessing.EstimationDispersion,
+                        InitialDeviation = Bandit.GetDeviation(0),
+                        Bandit.StepDevition,
+                        Bandit.NumberDeviations,
+                        Bandit.NumberSimulations,
+                        Time,
+                        banditsData
                     });
+
+                    File.WriteAllText(saveFileDialog.FileName, data);
+                    IsSaved = true;
                 }
-
-                string data = JsonConvert.SerializeObject(new
+                catch (Exception exc)
                 {
-                    Bandit.TypeBandit,
-                    BatchProcessing.TypeProcessingData,
-                    Bandit.Expectation,
-                    Bandit.MaxDispersion,
-                    BatchProcessing.EstimationDispersion,
-                    InitialDeviation = Bandit.GetDeviation(0),
-                    Bandit.StepDevition,
-                    Bandit.NumberDeviations,
-                    Bandit.NumberSimulations,
-                    Time,
-                    banditsData
-                });
-
-                File.WriteAllText(saveFileDialog.FileName, data);
-                IsSaved = true;
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message, "Ошибка записи файла", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(exc.Message, "Ошибка записи файла", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
-        private void ComboBoxTagBandit_SelectedIndexChanged(object sender, EventArgs e)
+        private void DistributionChanged(object sender, EventArgs e)
         {
-            TypeBandit type = (TypeBandit)comboBoxTypeBandit.SelectedIndex;
-            bool isGauss = type == TypeBandit.Gauss;
+            Distribution dist = (Distribution)cmbDistribution.SelectedIndex;
+            bool isGauss = dist == Distribution.Gauss;
 
-            buttonSettingsEstimationDispersion.Enabled = !isGauss;
-            comboBoxTypeBernStrategy.Enabled = !isGauss;
-            numericUpDownNumberBatches.Enabled = !isGauss;
-            numericUpDownBatchSize.Enabled = !isGauss;
-            numericUpDownInitialDataSize.Enabled = !isGauss;
-            numericUpDownHorizon.Enabled = isGauss;
+            btnEstimationDispersion.Enabled = !isGauss;
+            cmbTypeBernStrategy.Enabled = !isGauss;
+            numNumberBatches.Enabled = !isGauss;
+            numBatchSize.Enabled = !isGauss;
+            numInitialDataSize.Enabled = !isGauss;
+            numHorizon.Enabled = isGauss;
 
-            CreateTable(type);
-            NumericUpDownBanditsCount_ValueChanged(null, null);
-            NumericUpDownParameter_ValueChanged(null, null);
+            CreateTable(dist);
+            BanditsCountChanged(numBanditsCount, EventArgs.Empty);
+            ChangeParameters(numParameter0, EventArgs.Empty);
 
-            if (type == TypeBandit.Gauss)
+            if (dist == Distribution.Gauss)
             {
                 BatchProcessing.EstimationDispersion = EstimationDispersion.Never;
 
-                labelStateDispersion.Text = "Дисперсии известны";
+                lblStateDispersion.Text = "Дисперсии известны";
 
-                numericUpDownMathExp.Minimum = decimal.MinValue;
-                numericUpDownMathExp.Maximum = decimal.MaxValue;
-                numericUpDownMaxDispersion.Maximum = decimal.MaxValue;
-                numericUpDownMathExp.Value = 0m;
-                numericUpDownMaxDispersion.Value = 1m;
+                numMathExp.Minimum = decimal.MinValue;
+                numMathExp.Maximum = decimal.MaxValue;
+                numMaxDispersion.Maximum = decimal.MaxValue;
+                numMathExp.Value = 0m;
+                numMaxDispersion.Value = 1m;
 
                 labelMathExp.Text = "Мат. ожидание m:";
             }
             else
             {
-                numericUpDownMathExp.Minimum = 0m;
-                numericUpDownMathExp.Maximum = 1m;
-                numericUpDownMaxDispersion.Maximum = 0.25m;
-                numericUpDownMathExp.Value = 0.5m;
-                numericUpDownMaxDispersion.Value = 0.25m;
+                numMathExp.Minimum = 0m;
+                numMathExp.Maximum = 1m;
+                numMaxDispersion.Maximum = 0.25m;
+                numMathExp.Value = 0.5m;
+                numMaxDispersion.Value = 0.25m;
 
                 labelMathExp.Text = "Мат. ожидание p:";
             }
         }
 
-        private void NumericUpDownBanditArms_ValueChanged(object sender, EventArgs e)
+        private void BanditArmsChanged(object sender, EventArgs e)
         {
-            for (int i = 0; i < dataGridView.Rows.Count; i++)
-                dataGridView.Rows[i].Cells["Arms"].Value = (int)numericUpDownBanditArms.Value;
+            foreach (DataGridViewRow row in dataGridView.Rows)
+                row.Cells["Arms"].Value = (int)numBanditArms.Value;
         }
 
-        private void NumericUpDownHorizon_ValueChanged(object sender, EventArgs e)
+        private void HorizonChanged(object sender, EventArgs e)
         {
-            if (comboBoxTypeBandit.SelectedIndex == 0)
-                for (int i = 0; i < dataGridView.Rows.Count; i++)
-                    dataGridView.Rows[i].Cells["Horizon"].Value = (int)numericUpDownHorizon.Value;
+            if (cmbDistribution.SelectedIndex == 0)
+                foreach (DataGridViewRow row in dataGridView.Rows)
+                    row.Cells["Horizon"].Value = (int)numHorizon.Value;
         }
 
-        private void NumericUpDownInitialDataSize_ValueChanged(object sender, EventArgs e)
+        private void InitialDataSizeChanged(object sender, EventArgs e)
         {
-            for (int i = 0; i < dataGridView.Rows.Count; i++)
-                dataGridView.Rows[i].Cells["InitialDataSize"].Value = (int)numericUpDownInitialDataSize.Value;
+            foreach (DataGridViewRow row in dataGridView.Rows)
+                row.Cells["InitialDataSize"].Value = (int)numInitialDataSize.Value;
         }
 
-        private void NumericUpDownNumberBatches_ValueChanged(object sender, EventArgs e)
+        private void NumberBatchesChanged(object sender, EventArgs e)
         {
-            for (int i = 0; i < dataGridView.Rows.Count; i++)
-                dataGridView.Rows[i].Cells["NumberBatches"].Value = (int)numericUpDownNumberBatches.Value;
+            foreach (DataGridViewRow row in dataGridView.Rows)
+                row.Cells["NumberBatches"].Value = (int)numNumberBatches.Value;
         }
 
-        private void NumericUpDownBatchSize_ValueChanged(object sender, EventArgs e)
+        private void BatchSizeChanged(object sender, EventArgs e)
         {
-            for (int i = 0; i < dataGridView.Rows.Count; i++)
-                dataGridView.Rows[i].Cells["BatchSize"].Value = (int)numericUpDownBatchSize.Value;
+            foreach (DataGridViewRow row in dataGridView.Rows)
+                row.Cells["BatchSize"].Value = (int)numBatchSize.Value;
         }
 
-        private void NumericUpDownDeviationExp_ValueChanged(object sender, EventArgs e)
+        private void DeviationChanged(object sender, EventArgs e)
         {
-            textBoxFinalDeviation.Text = $"{(numericUpDownDeviationExp0.Value + numericUpDownDeviationExpDelta.Value * (numericUpDownDeviationExpCount.Value - 1)):f1}";
+            txtFinalDeviation.Text = $"{(numDeviationExp0.Value + numDeviationExpDelta.Value * (numDeviationExpCount.Value - 1)):f1}";
         }
 
-        private void NumericUpDownParameter_ValueChanged(object sender, EventArgs e)
+        private void ChangeParameters(object sender, EventArgs e)
         {
-            double a = (double)numericUpDownParameter0.Value;
-            double da = (double)numericUpDownParameterDelta.Value;
+            double a = (double)numParameter0.Value;
+            double da = (double)numParameterDelta.Value;
 
             dataGridView.Rows[0].Cells["Parameter"].Value = a;
 
@@ -651,26 +629,26 @@ namespace UCB
             }
         }
 
-        private void NumericUpDownBanditsCount_ValueChanged(object sender, EventArgs e)
+        private void BanditsCountChanged(object sender, EventArgs e)
         {
-            int delta = (int)numericUpDownBanditsCount.Value - dataGridView.RowCount;
+            int delta = (int)numBanditsCount.Value - dataGridView.RowCount;
 
             if (delta > 0)
             {
                 int numberRow = dataGridView.RowCount;
-                int banditArms = (int)numericUpDownBanditArms.Value;
+                int banditArms = (int)numBanditArms.Value;
 
-                if (comboBoxTypeBandit.SelectedIndex == 0)
+                if (cmbDistribution.SelectedIndex == 0)
                 {
-                    int horizon = (int)numericUpDownHorizon.Value;
+                    int horizon = (int)numHorizon.Value;
                     while (delta-- > 0)
                         dataTable.Rows.Add(++numberRow, banditArms, horizon, 0);
                 }
                 else
                 {
-                    int numberBatches = (int)numericUpDownNumberBatches.Value;
-                    int batchSize = (int)numericUpDownBatchSize.Value;
-                    int initialDataSize = (int)numericUpDownInitialDataSize.Value;
+                    int numberBatches = (int)numNumberBatches.Value;
+                    int batchSize = (int)numBatchSize.Value;
+                    int initialDataSize = (int)numInitialDataSize.Value;
                     int horizon = numberBatches * batchSize;
 
                     while (delta-- > 0)
@@ -679,28 +657,26 @@ namespace UCB
             }
             else
             {
-                int indexRow = dataGridView.RowCount - 1;
-
                 while (delta++ < 0)
-                    dataGridView.Rows.RemoveAt(indexRow--);
+                    dataGridView.Rows.RemoveAt(dataGridView.RowCount - 1);
             }
         }
 
-        private void CheckBoxSoundPlay_CheckedChanged(object sender, EventArgs e)
+        private void OnCheckBoxCheckedChanged(object sender, EventArgs e)
         {
-            if (checkBoxSoundPlay.Checked)
+            if (chkSoundPlay.Checked)
                 using (MemoryStream fileOut = new MemoryStream(Resources.SoundDone))
                 using (GZipStream gz = new GZipStream(fileOut, CompressionMode.Decompress))
                     new SoundPlayer(gz).Play();
         }
 
-        private void Button_EnabledChanged(object sender, EventArgs e)
+        private void OnButtonEnabledChanged(object sender, EventArgs e)
         {
-            Button button = (sender as Button);
-            button.BackColor = button.Enabled ? Color.White : Color.Gray;
+            Button btn = sender as Button;
+            btn.BackColor = btn.Enabled ? Color.White : Color.Gray;
         }
 
-        private void DataGridView_KeyDown(object sender, KeyEventArgs e)
+        private void OnKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control && e.KeyCode == Keys.V)
             {
@@ -727,7 +703,7 @@ namespace UCB
             }
         }
 
-        private void DataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        private void OnCellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex == -1)
                 return;
@@ -745,6 +721,7 @@ namespace UCB
                             throw new ArgumentException($"Число рук J должно быть не меньше {Bandit.MinBanditArms}.");
                         }
                         break;
+
                     case "NumberBatches":
                     case "BatchSize":
                     case "InitialDataSize":
@@ -755,10 +732,11 @@ namespace UCB
                             throw new ArgumentException($"Значение \"{dataGridView.Columns[nameCollumn].HeaderText}\" должно быть положительным.");
                         }
                         break;
+
                     case "Parameter":
                         if (Convert.ToDouble(dataGridView.Rows[e.RowIndex].Cells["Parameter"].Value) < 0)
                         {
-                            dataGridView.Rows[e.RowIndex].Cells["Parameter"].Value = numericUpDownParameter0.Value;
+                            dataGridView.Rows[e.RowIndex].Cells["Parameter"].Value = numParameter0.Value;
                             throw new ArgumentException("Параметр стратегии \"а\" не может быть отрицательным.");
                         }
                         break;
@@ -770,7 +748,7 @@ namespace UCB
             }
         }
 
-        private void DataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        private void DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             MessageBox.Show(e.Exception.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }

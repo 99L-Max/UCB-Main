@@ -30,108 +30,108 @@ namespace UCB
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.groupBoxTypeBandit = new System.Windows.Forms.GroupBox();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.grpTypeBandit = new System.Windows.Forms.GroupBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.comboBoxTypeBernStrategy = new System.Windows.Forms.ComboBox();
+            this.cmbTypeBernStrategy = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.comboBoxTypeBandit = new System.Windows.Forms.ComboBox();
+            this.cmbDistribution = new System.Windows.Forms.ComboBox();
             this.label24 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.numericUpDownBanditArms = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownMaxDispersion = new System.Windows.Forms.NumericUpDown();
+            this.numBanditArms = new System.Windows.Forms.NumericUpDown();
+            this.numMaxDispersion = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.labelMathExp = new System.Windows.Forms.Label();
-            this.numericUpDownMathExp = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownNumberSimulations = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownBatchSize = new System.Windows.Forms.NumericUpDown();
+            this.numMathExp = new System.Windows.Forms.NumericUpDown();
+            this.numNumberSimulations = new System.Windows.Forms.NumericUpDown();
+            this.numBatchSize = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
-            this.numericUpDownNumberBatches = new System.Windows.Forms.NumericUpDown();
+            this.numNumberBatches = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.numericUpDownInitialDataSize = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownHorizon = new System.Windows.Forms.NumericUpDown();
+            this.numInitialDataSize = new System.Windows.Forms.NumericUpDown();
+            this.numHorizon = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
-            this.groupBoxBordersDeviationExp = new System.Windows.Forms.GroupBox();
-            this.numericUpDownDeviationExpCount = new System.Windows.Forms.NumericUpDown();
+            this.grpBordersDeviationExp = new System.Windows.Forms.GroupBox();
+            this.numDeviationExpCount = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
-            this.numericUpDownDeviationExpDelta = new System.Windows.Forms.NumericUpDown();
+            this.numDeviationExpDelta = new System.Windows.Forms.NumericUpDown();
             this.label9 = new System.Windows.Forms.Label();
-            this.numericUpDownDeviationExp0 = new System.Windows.Forms.NumericUpDown();
+            this.numDeviationExp0 = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBoxFinalDeviation = new System.Windows.Forms.TextBox();
+            this.txtFinalDeviation = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.groupBoxParameter = new System.Windows.Forms.GroupBox();
-            this.numericUpDownParameter0 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownParameterDelta = new System.Windows.Forms.NumericUpDown();
+            this.grpParameter = new System.Windows.Forms.GroupBox();
+            this.numParameter0 = new System.Windows.Forms.NumericUpDown();
+            this.numParameterDelta = new System.Windows.Forms.NumericUpDown();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.numericUpDownBanditsCount = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDownCountThreads = new System.Windows.Forms.NumericUpDown();
+            this.numBanditsCount = new System.Windows.Forms.NumericUpDown();
+            this.numCountThreads = new System.Windows.Forms.NumericUpDown();
             this.label16 = new System.Windows.Forms.Label();
-            this.buttonStart = new System.Windows.Forms.Button();
-            this.buttonSave = new System.Windows.Forms.Button();
-            this.buttonCancel = new System.Windows.Forms.Button();
-            this.groupBoxButtons = new System.Windows.Forms.GroupBox();
-            this.buttonNew = new System.Windows.Forms.Button();
-            this.buttonOpen = new System.Windows.Forms.Button();
-            this.buttonPause = new System.Windows.Forms.Button();
+            this.btnStart = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.grpButtons = new System.Windows.Forms.GroupBox();
+            this.btnNew = new System.Windows.Forms.Button();
+            this.btnOpen = new System.Windows.Forms.Button();
+            this.btnPause = new System.Windows.Forms.Button();
             this.progressBar = new System.Windows.Forms.ProgressBar();
-            this.checkBoxSoundPlay = new System.Windows.Forms.CheckBox();
-            this.groupBoxGeneralParameters = new System.Windows.Forms.GroupBox();
-            this.buttonSettingsEstimationDispersion = new System.Windows.Forms.Button();
-            this.labelStateDispersion = new System.Windows.Forms.Label();
-            this.groupBoxHorizon = new System.Windows.Forms.GroupBox();
-            this.groupBoxSimulationSettings = new System.Windows.Forms.GroupBox();
-            this.labelInfo = new System.Windows.Forms.Label();
+            this.chkSoundPlay = new System.Windows.Forms.CheckBox();
+            this.grpGeneralParameters = new System.Windows.Forms.GroupBox();
+            this.btnEstimationDispersion = new System.Windows.Forms.Button();
+            this.lblStateDispersion = new System.Windows.Forms.Label();
+            this.grpHorizon = new System.Windows.Forms.GroupBox();
+            this.grpSimulationSettings = new System.Windows.Forms.GroupBox();
+            this.lblDialog = new System.Windows.Forms.Label();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.groupBoxTypeBandit.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBanditArms)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxDispersion)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMathExp)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumberSimulations)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBatchSize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumberBatches)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownInitialDataSize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHorizon)).BeginInit();
-            this.groupBoxBordersDeviationExp.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDeviationExpCount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDeviationExpDelta)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDeviationExp0)).BeginInit();
-            this.groupBoxParameter.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownParameter0)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownParameterDelta)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBanditsCount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCountThreads)).BeginInit();
-            this.groupBoxButtons.SuspendLayout();
-            this.groupBoxGeneralParameters.SuspendLayout();
-            this.groupBoxHorizon.SuspendLayout();
-            this.groupBoxSimulationSettings.SuspendLayout();
+            this.grpTypeBandit.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numBanditArms)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMaxDispersion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMathExp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numNumberSimulations)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numBatchSize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numNumberBatches)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numInitialDataSize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numHorizon)).BeginInit();
+            this.grpBordersDeviationExp.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numDeviationExpCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numDeviationExpDelta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numDeviationExp0)).BeginInit();
+            this.grpParameter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numParameter0)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numParameterDelta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numBanditsCount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numCountThreads)).BeginInit();
+            this.grpButtons.SuspendLayout();
+            this.grpGeneralParameters.SuspendLayout();
+            this.grpHorizon.SuspendLayout();
+            this.grpSimulationSettings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBoxTypeBandit
+            // grpTypeBandit
             // 
-            this.groupBoxTypeBandit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxTypeBandit.Controls.Add(this.label25);
-            this.groupBoxTypeBandit.Controls.Add(this.comboBoxTypeBernStrategy);
-            this.groupBoxTypeBandit.Controls.Add(this.label17);
-            this.groupBoxTypeBandit.Controls.Add(this.comboBoxTypeBandit);
-            this.groupBoxTypeBandit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.groupBoxTypeBandit.ForeColor = System.Drawing.Color.White;
-            this.groupBoxTypeBandit.Location = new System.Drawing.Point(557, 11);
-            this.groupBoxTypeBandit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTypeBandit.Name = "groupBoxTypeBandit";
-            this.groupBoxTypeBandit.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBoxTypeBandit.Size = new System.Drawing.Size(531, 94);
-            this.groupBoxTypeBandit.TabIndex = 0;
-            this.groupBoxTypeBandit.TabStop = false;
-            this.groupBoxTypeBandit.Text = "Тип бандита";
+            this.grpTypeBandit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpTypeBandit.Controls.Add(this.label25);
+            this.grpTypeBandit.Controls.Add(this.cmbTypeBernStrategy);
+            this.grpTypeBandit.Controls.Add(this.label17);
+            this.grpTypeBandit.Controls.Add(this.cmbDistribution);
+            this.grpTypeBandit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.grpTypeBandit.ForeColor = System.Drawing.Color.White;
+            this.grpTypeBandit.Location = new System.Drawing.Point(557, 11);
+            this.grpTypeBandit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grpTypeBandit.Name = "grpTypeBandit";
+            this.grpTypeBandit.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grpTypeBandit.Size = new System.Drawing.Size(531, 94);
+            this.grpTypeBandit.TabIndex = 0;
+            this.grpTypeBandit.TabStop = false;
+            this.grpTypeBandit.Text = "Тип бандита";
             // 
             // label25
             // 
@@ -142,17 +142,17 @@ namespace UCB
             this.label25.TabIndex = 34;
             this.label25.Text = "Тип обработки:";
             // 
-            // comboBoxTypeBernStrategy
+            // cmbTypeBernStrategy
             // 
-            this.comboBoxTypeBernStrategy.BackColor = System.Drawing.Color.White;
-            this.comboBoxTypeBernStrategy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxTypeBernStrategy.Items.AddRange(new object[] {
+            this.cmbTypeBernStrategy.BackColor = System.Drawing.Color.White;
+            this.cmbTypeBernStrategy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTypeBernStrategy.Items.AddRange(new object[] {
             "Размер пакета",
             "Число данных"});
-            this.comboBoxTypeBernStrategy.Location = new System.Drawing.Point(267, 55);
-            this.comboBoxTypeBernStrategy.Name = "comboBoxTypeBernStrategy";
-            this.comboBoxTypeBernStrategy.Size = new System.Drawing.Size(146, 28);
-            this.comboBoxTypeBernStrategy.TabIndex = 28;
+            this.cmbTypeBernStrategy.Location = new System.Drawing.Point(267, 55);
+            this.cmbTypeBernStrategy.Name = "cmbTypeBernStrategy";
+            this.cmbTypeBernStrategy.Size = new System.Drawing.Size(146, 28);
+            this.cmbTypeBernStrategy.TabIndex = 28;
             // 
             // label17
             // 
@@ -163,18 +163,18 @@ namespace UCB
             this.label17.TabIndex = 13;
             this.label17.Text = "Распределение:";
             // 
-            // comboBoxTypeBandit
+            // cmbDistribution
             // 
-            this.comboBoxTypeBandit.BackColor = System.Drawing.Color.White;
-            this.comboBoxTypeBandit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxTypeBandit.Items.AddRange(new object[] {
+            this.cmbDistribution.BackColor = System.Drawing.Color.White;
+            this.cmbDistribution.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDistribution.Items.AddRange(new object[] {
             "Гаусса",
             "Бернулли"});
-            this.comboBoxTypeBandit.Location = new System.Drawing.Point(267, 20);
-            this.comboBoxTypeBandit.Name = "comboBoxTypeBandit";
-            this.comboBoxTypeBandit.Size = new System.Drawing.Size(146, 28);
-            this.comboBoxTypeBandit.TabIndex = 2;
-            this.comboBoxTypeBandit.SelectedIndexChanged += new System.EventHandler(this.ComboBoxTagBandit_SelectedIndexChanged);
+            this.cmbDistribution.Location = new System.Drawing.Point(267, 20);
+            this.cmbDistribution.Name = "cmbDistribution";
+            this.cmbDistribution.Size = new System.Drawing.Size(146, 28);
+            this.cmbDistribution.TabIndex = 2;
+            this.cmbDistribution.SelectedIndexChanged += new System.EventHandler(this.DistributionChanged);
             // 
             // label24
             // 
@@ -194,54 +194,54 @@ namespace UCB
             this.label20.TabIndex = 29;
             this.label20.Text = "Число рук J:";
             // 
-            // numericUpDownBanditArms
+            // numBanditArms
             // 
-            this.numericUpDownBanditArms.Location = new System.Drawing.Point(184, 21);
-            this.numericUpDownBanditArms.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numericUpDownBanditArms.Maximum = new decimal(new int[] {
+            this.numBanditArms.Location = new System.Drawing.Point(184, 21);
+            this.numBanditArms.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numBanditArms.Maximum = new decimal(new int[] {
             2147483647,
             0,
             0,
             0});
-            this.numericUpDownBanditArms.Minimum = new decimal(new int[] {
+            this.numBanditArms.Minimum = new decimal(new int[] {
             2,
             0,
             0,
             0});
-            this.numericUpDownBanditArms.Name = "numericUpDownBanditArms";
-            this.numericUpDownBanditArms.Size = new System.Drawing.Size(65, 26);
-            this.numericUpDownBanditArms.TabIndex = 30;
-            this.numericUpDownBanditArms.Value = new decimal(new int[] {
+            this.numBanditArms.Name = "numBanditArms";
+            this.numBanditArms.Size = new System.Drawing.Size(65, 26);
+            this.numBanditArms.TabIndex = 30;
+            this.numBanditArms.Value = new decimal(new int[] {
             2,
             0,
             0,
             0});
-            this.numericUpDownBanditArms.ValueChanged += new System.EventHandler(this.NumericUpDownBanditArms_ValueChanged);
+            this.numBanditArms.ValueChanged += new System.EventHandler(this.BanditArmsChanged);
             // 
-            // numericUpDownMaxDispersion
+            // numMaxDispersion
             // 
-            this.numericUpDownMaxDispersion.DecimalPlaces = 2;
-            this.numericUpDownMaxDispersion.Increment = new decimal(new int[] {
+            this.numMaxDispersion.DecimalPlaces = 2;
+            this.numMaxDispersion.Increment = new decimal(new int[] {
             1,
             0,
             0,
             131072});
-            this.numericUpDownMaxDispersion.Location = new System.Drawing.Point(184, 81);
-            this.numericUpDownMaxDispersion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numericUpDownMaxDispersion.Maximum = new decimal(new int[] {
+            this.numMaxDispersion.Location = new System.Drawing.Point(184, 81);
+            this.numMaxDispersion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numMaxDispersion.Maximum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDownMaxDispersion.Minimum = new decimal(new int[] {
+            this.numMaxDispersion.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             131072});
-            this.numericUpDownMaxDispersion.Name = "numericUpDownMaxDispersion";
-            this.numericUpDownMaxDispersion.Size = new System.Drawing.Size(65, 26);
-            this.numericUpDownMaxDispersion.TabIndex = 33;
-            this.numericUpDownMaxDispersion.Value = new decimal(new int[] {
+            this.numMaxDispersion.Name = "numMaxDispersion";
+            this.numMaxDispersion.Size = new System.Drawing.Size(65, 26);
+            this.numMaxDispersion.TabIndex = 33;
+            this.numMaxDispersion.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -265,72 +265,72 @@ namespace UCB
             this.labelMathExp.TabIndex = 1;
             this.labelMathExp.Text = "Мат. ожидание m:";
             // 
-            // numericUpDownMathExp
+            // numMathExp
             // 
-            this.numericUpDownMathExp.DecimalPlaces = 2;
-            this.numericUpDownMathExp.Increment = new decimal(new int[] {
+            this.numMathExp.DecimalPlaces = 2;
+            this.numMathExp.Increment = new decimal(new int[] {
             1,
             0,
             0,
             131072});
-            this.numericUpDownMathExp.Location = new System.Drawing.Point(184, 51);
-            this.numericUpDownMathExp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numericUpDownMathExp.Name = "numericUpDownMathExp";
-            this.numericUpDownMathExp.Size = new System.Drawing.Size(65, 26);
-            this.numericUpDownMathExp.TabIndex = 2;
+            this.numMathExp.Location = new System.Drawing.Point(184, 51);
+            this.numMathExp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numMathExp.Name = "numMathExp";
+            this.numMathExp.Size = new System.Drawing.Size(65, 26);
+            this.numMathExp.TabIndex = 2;
             // 
-            // numericUpDownNumberSimulations
+            // numNumberSimulations
             // 
-            this.numericUpDownNumberSimulations.Increment = new decimal(new int[] {
+            this.numNumberSimulations.Increment = new decimal(new int[] {
             50000,
             0,
             0,
             0});
-            this.numericUpDownNumberSimulations.Location = new System.Drawing.Point(171, 81);
-            this.numericUpDownNumberSimulations.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numericUpDownNumberSimulations.Maximum = new decimal(new int[] {
+            this.numNumberSimulations.Location = new System.Drawing.Point(171, 81);
+            this.numNumberSimulations.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numNumberSimulations.Maximum = new decimal(new int[] {
             1000000,
             0,
             0,
             0});
-            this.numericUpDownNumberSimulations.Minimum = new decimal(new int[] {
+            this.numNumberSimulations.Minimum = new decimal(new int[] {
             50000,
             0,
             0,
             0});
-            this.numericUpDownNumberSimulations.Name = "numericUpDownNumberSimulations";
-            this.numericUpDownNumberSimulations.ReadOnly = true;
-            this.numericUpDownNumberSimulations.Size = new System.Drawing.Size(87, 26);
-            this.numericUpDownNumberSimulations.TabIndex = 6;
-            this.numericUpDownNumberSimulations.Value = new decimal(new int[] {
+            this.numNumberSimulations.Name = "numNumberSimulations";
+            this.numNumberSimulations.ReadOnly = true;
+            this.numNumberSimulations.Size = new System.Drawing.Size(87, 26);
+            this.numNumberSimulations.TabIndex = 6;
+            this.numNumberSimulations.Value = new decimal(new int[] {
             400000,
             0,
             0,
             0});
             // 
-            // numericUpDownBatchSize
+            // numBatchSize
             // 
-            this.numericUpDownBatchSize.Location = new System.Drawing.Point(184, 82);
-            this.numericUpDownBatchSize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numericUpDownBatchSize.Maximum = new decimal(new int[] {
+            this.numBatchSize.Location = new System.Drawing.Point(184, 82);
+            this.numBatchSize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numBatchSize.Maximum = new decimal(new int[] {
             2147483647,
             0,
             0,
             0});
-            this.numericUpDownBatchSize.Minimum = new decimal(new int[] {
+            this.numBatchSize.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDownBatchSize.Name = "numericUpDownBatchSize";
-            this.numericUpDownBatchSize.Size = new System.Drawing.Size(65, 26);
-            this.numericUpDownBatchSize.TabIndex = 8;
-            this.numericUpDownBatchSize.Value = new decimal(new int[] {
+            this.numBatchSize.Name = "numBatchSize";
+            this.numBatchSize.Size = new System.Drawing.Size(65, 26);
+            this.numBatchSize.TabIndex = 8;
+            this.numBatchSize.Value = new decimal(new int[] {
             100,
             0,
             0,
             0});
-            this.numericUpDownBatchSize.ValueChanged += new System.EventHandler(this.NumericUpDownBatchSize_ValueChanged);
+            this.numBatchSize.ValueChanged += new System.EventHandler(this.BatchSizeChanged);
             // 
             // label5
             // 
@@ -341,29 +341,29 @@ namespace UCB
             this.label5.TabIndex = 9;
             this.label5.Text = "Размер пакета M:";
             // 
-            // numericUpDownNumberBatches
+            // numNumberBatches
             // 
-            this.numericUpDownNumberBatches.Location = new System.Drawing.Point(184, 51);
-            this.numericUpDownNumberBatches.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numericUpDownNumberBatches.Maximum = new decimal(new int[] {
+            this.numNumberBatches.Location = new System.Drawing.Point(184, 51);
+            this.numNumberBatches.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numNumberBatches.Maximum = new decimal(new int[] {
             2147483647,
             0,
             0,
             0});
-            this.numericUpDownNumberBatches.Minimum = new decimal(new int[] {
+            this.numNumberBatches.Minimum = new decimal(new int[] {
             3,
             0,
             0,
             0});
-            this.numericUpDownNumberBatches.Name = "numericUpDownNumberBatches";
-            this.numericUpDownNumberBatches.Size = new System.Drawing.Size(65, 26);
-            this.numericUpDownNumberBatches.TabIndex = 7;
-            this.numericUpDownNumberBatches.Value = new decimal(new int[] {
+            this.numNumberBatches.Name = "numNumberBatches";
+            this.numNumberBatches.Size = new System.Drawing.Size(65, 26);
+            this.numNumberBatches.TabIndex = 7;
+            this.numNumberBatches.Value = new decimal(new int[] {
             50,
             0,
             0,
             0});
-            this.numericUpDownNumberBatches.ValueChanged += new System.EventHandler(this.NumericUpDownNumberBatches_ValueChanged);
+            this.numNumberBatches.ValueChanged += new System.EventHandler(this.NumberBatchesChanged);
             // 
             // label3
             // 
@@ -383,53 +383,53 @@ namespace UCB
             this.label6.TabIndex = 11;
             this.label6.Text = "Нач. данные M0:";
             // 
-            // numericUpDownInitialDataSize
+            // numInitialDataSize
             // 
-            this.numericUpDownInitialDataSize.Location = new System.Drawing.Point(184, 112);
-            this.numericUpDownInitialDataSize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numericUpDownInitialDataSize.Maximum = new decimal(new int[] {
+            this.numInitialDataSize.Location = new System.Drawing.Point(184, 112);
+            this.numInitialDataSize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numInitialDataSize.Maximum = new decimal(new int[] {
             2147483647,
             0,
             0,
             0});
-            this.numericUpDownInitialDataSize.Minimum = new decimal(new int[] {
+            this.numInitialDataSize.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDownInitialDataSize.Name = "numericUpDownInitialDataSize";
-            this.numericUpDownInitialDataSize.Size = new System.Drawing.Size(65, 26);
-            this.numericUpDownInitialDataSize.TabIndex = 10;
-            this.numericUpDownInitialDataSize.Value = new decimal(new int[] {
+            this.numInitialDataSize.Name = "numInitialDataSize";
+            this.numInitialDataSize.Size = new System.Drawing.Size(65, 26);
+            this.numInitialDataSize.TabIndex = 10;
+            this.numInitialDataSize.Value = new decimal(new int[] {
             100,
             0,
             0,
             0});
-            this.numericUpDownInitialDataSize.ValueChanged += new System.EventHandler(this.NumericUpDownInitialDataSize_ValueChanged);
+            this.numInitialDataSize.ValueChanged += new System.EventHandler(this.InitialDataSizeChanged);
             // 
-            // numericUpDownHorizon
+            // numHorizon
             // 
-            this.numericUpDownHorizon.Location = new System.Drawing.Point(184, 21);
-            this.numericUpDownHorizon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numericUpDownHorizon.Maximum = new decimal(new int[] {
+            this.numHorizon.Location = new System.Drawing.Point(184, 21);
+            this.numHorizon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numHorizon.Maximum = new decimal(new int[] {
             2147483647,
             0,
             0,
             0});
-            this.numericUpDownHorizon.Minimum = new decimal(new int[] {
+            this.numHorizon.Minimum = new decimal(new int[] {
             3,
             0,
             0,
             0});
-            this.numericUpDownHorizon.Name = "numericUpDownHorizon";
-            this.numericUpDownHorizon.Size = new System.Drawing.Size(65, 26);
-            this.numericUpDownHorizon.TabIndex = 4;
-            this.numericUpDownHorizon.Value = new decimal(new int[] {
+            this.numHorizon.Name = "numHorizon";
+            this.numHorizon.Size = new System.Drawing.Size(65, 26);
+            this.numHorizon.TabIndex = 4;
+            this.numHorizon.Value = new decimal(new int[] {
             100,
             0,
             0,
             0});
-            this.numericUpDownHorizon.ValueChanged += new System.EventHandler(this.NumericUpDownHorizon_ValueChanged);
+            this.numHorizon.ValueChanged += new System.EventHandler(this.HorizonChanged);
             // 
             // label2
             // 
@@ -440,49 +440,49 @@ namespace UCB
             this.label2.TabIndex = 3;
             this.label2.Text = "Горизонт N:";
             // 
-            // groupBoxBordersDeviationExp
+            // grpBordersDeviationExp
             // 
-            this.groupBoxBordersDeviationExp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxBordersDeviationExp.Controls.Add(this.numericUpDownDeviationExpCount);
-            this.groupBoxBordersDeviationExp.Controls.Add(this.label8);
-            this.groupBoxBordersDeviationExp.Controls.Add(this.numericUpDownDeviationExpDelta);
-            this.groupBoxBordersDeviationExp.Controls.Add(this.label9);
-            this.groupBoxBordersDeviationExp.Controls.Add(this.numericUpDownDeviationExp0);
-            this.groupBoxBordersDeviationExp.Controls.Add(this.label10);
-            this.groupBoxBordersDeviationExp.Controls.Add(this.textBoxFinalDeviation);
-            this.groupBoxBordersDeviationExp.Controls.Add(this.label11);
-            this.groupBoxBordersDeviationExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.groupBoxBordersDeviationExp.ForeColor = System.Drawing.Color.White;
-            this.groupBoxBordersDeviationExp.Location = new System.Drawing.Point(824, 110);
-            this.groupBoxBordersDeviationExp.Name = "groupBoxBordersDeviationExp";
-            this.groupBoxBordersDeviationExp.Size = new System.Drawing.Size(264, 151);
-            this.groupBoxBordersDeviationExp.TabIndex = 2;
-            this.groupBoxBordersDeviationExp.TabStop = false;
-            this.groupBoxBordersDeviationExp.Text = "Откл. от мат. ождидания d";
+            this.grpBordersDeviationExp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpBordersDeviationExp.Controls.Add(this.numDeviationExpCount);
+            this.grpBordersDeviationExp.Controls.Add(this.label8);
+            this.grpBordersDeviationExp.Controls.Add(this.numDeviationExpDelta);
+            this.grpBordersDeviationExp.Controls.Add(this.label9);
+            this.grpBordersDeviationExp.Controls.Add(this.numDeviationExp0);
+            this.grpBordersDeviationExp.Controls.Add(this.label10);
+            this.grpBordersDeviationExp.Controls.Add(this.txtFinalDeviation);
+            this.grpBordersDeviationExp.Controls.Add(this.label11);
+            this.grpBordersDeviationExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.grpBordersDeviationExp.ForeColor = System.Drawing.Color.White;
+            this.grpBordersDeviationExp.Location = new System.Drawing.Point(824, 110);
+            this.grpBordersDeviationExp.Name = "grpBordersDeviationExp";
+            this.grpBordersDeviationExp.Size = new System.Drawing.Size(264, 151);
+            this.grpBordersDeviationExp.TabIndex = 2;
+            this.grpBordersDeviationExp.TabStop = false;
+            this.grpBordersDeviationExp.Text = "Откл. от мат. ождидания d";
             // 
-            // numericUpDownDeviationExpCount
+            // numDeviationExpCount
             // 
-            this.numericUpDownDeviationExpCount.Location = new System.Drawing.Point(193, 81);
-            this.numericUpDownDeviationExpCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numericUpDownDeviationExpCount.Maximum = new decimal(new int[] {
+            this.numDeviationExpCount.Location = new System.Drawing.Point(193, 81);
+            this.numDeviationExpCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numDeviationExpCount.Maximum = new decimal(new int[] {
             500,
             0,
             0,
             0});
-            this.numericUpDownDeviationExpCount.Minimum = new decimal(new int[] {
+            this.numDeviationExpCount.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDownDeviationExpCount.Name = "numericUpDownDeviationExpCount";
-            this.numericUpDownDeviationExpCount.Size = new System.Drawing.Size(65, 26);
-            this.numericUpDownDeviationExpCount.TabIndex = 15;
-            this.numericUpDownDeviationExpCount.Value = new decimal(new int[] {
+            this.numDeviationExpCount.Name = "numDeviationExpCount";
+            this.numDeviationExpCount.Size = new System.Drawing.Size(65, 26);
+            this.numDeviationExpCount.TabIndex = 15;
+            this.numDeviationExpCount.Value = new decimal(new int[] {
             51,
             0,
             0,
             0});
-            this.numericUpDownDeviationExpCount.ValueChanged += new System.EventHandler(this.NumericUpDownDeviationExp_ValueChanged);
+            this.numDeviationExpCount.ValueChanged += new System.EventHandler(this.DeviationChanged);
             // 
             // label8
             // 
@@ -493,35 +493,35 @@ namespace UCB
             this.label8.TabIndex = 7;
             this.label8.Text = "Начальное значение:";
             // 
-            // numericUpDownDeviationExpDelta
+            // numDeviationExpDelta
             // 
-            this.numericUpDownDeviationExpDelta.DecimalPlaces = 1;
-            this.numericUpDownDeviationExpDelta.Increment = new decimal(new int[] {
+            this.numDeviationExpDelta.DecimalPlaces = 1;
+            this.numDeviationExpDelta.Increment = new decimal(new int[] {
             1,
             0,
             0,
             65536});
-            this.numericUpDownDeviationExpDelta.Location = new System.Drawing.Point(193, 51);
-            this.numericUpDownDeviationExpDelta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numericUpDownDeviationExpDelta.Maximum = new decimal(new int[] {
+            this.numDeviationExpDelta.Location = new System.Drawing.Point(193, 51);
+            this.numDeviationExpDelta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numDeviationExpDelta.Maximum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDownDeviationExpDelta.Minimum = new decimal(new int[] {
+            this.numDeviationExpDelta.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             65536});
-            this.numericUpDownDeviationExpDelta.Name = "numericUpDownDeviationExpDelta";
-            this.numericUpDownDeviationExpDelta.Size = new System.Drawing.Size(65, 26);
-            this.numericUpDownDeviationExpDelta.TabIndex = 14;
-            this.numericUpDownDeviationExpDelta.Value = new decimal(new int[] {
+            this.numDeviationExpDelta.Name = "numDeviationExpDelta";
+            this.numDeviationExpDelta.Size = new System.Drawing.Size(65, 26);
+            this.numDeviationExpDelta.TabIndex = 14;
+            this.numDeviationExpDelta.Value = new decimal(new int[] {
             3,
             0,
             0,
             65536});
-            this.numericUpDownDeviationExpDelta.ValueChanged += new System.EventHandler(this.NumericUpDownDeviationExp_ValueChanged);
+            this.numDeviationExpDelta.ValueChanged += new System.EventHandler(this.DeviationChanged);
             // 
             // label9
             // 
@@ -532,25 +532,25 @@ namespace UCB
             this.label9.TabIndex = 8;
             this.label9.Text = "Шаг изменения:";
             // 
-            // numericUpDownDeviationExp0
+            // numDeviationExp0
             // 
-            this.numericUpDownDeviationExp0.DecimalPlaces = 1;
-            this.numericUpDownDeviationExp0.Increment = new decimal(new int[] {
+            this.numDeviationExp0.DecimalPlaces = 1;
+            this.numDeviationExp0.Increment = new decimal(new int[] {
             1,
             0,
             0,
             65536});
-            this.numericUpDownDeviationExp0.Location = new System.Drawing.Point(193, 21);
-            this.numericUpDownDeviationExp0.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numericUpDownDeviationExp0.Minimum = new decimal(new int[] {
+            this.numDeviationExp0.Location = new System.Drawing.Point(193, 21);
+            this.numDeviationExp0.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numDeviationExp0.Minimum = new decimal(new int[] {
             100,
             0,
             0,
             -2147483648});
-            this.numericUpDownDeviationExp0.Name = "numericUpDownDeviationExp0";
-            this.numericUpDownDeviationExp0.Size = new System.Drawing.Size(65, 26);
-            this.numericUpDownDeviationExp0.TabIndex = 13;
-            this.numericUpDownDeviationExp0.ValueChanged += new System.EventHandler(this.NumericUpDownDeviationExp_ValueChanged);
+            this.numDeviationExp0.Name = "numDeviationExp0";
+            this.numDeviationExp0.Size = new System.Drawing.Size(65, 26);
+            this.numDeviationExp0.TabIndex = 13;
+            this.numDeviationExp0.ValueChanged += new System.EventHandler(this.DeviationChanged);
             // 
             // label10
             // 
@@ -561,13 +561,13 @@ namespace UCB
             this.label10.TabIndex = 9;
             this.label10.Text = "Число точек:";
             // 
-            // textBoxFinalDeviation
+            // txtFinalDeviation
             // 
-            this.textBoxFinalDeviation.Location = new System.Drawing.Point(193, 112);
-            this.textBoxFinalDeviation.Name = "textBoxFinalDeviation";
-            this.textBoxFinalDeviation.ReadOnly = true;
-            this.textBoxFinalDeviation.Size = new System.Drawing.Size(65, 26);
-            this.textBoxFinalDeviation.TabIndex = 13;
+            this.txtFinalDeviation.Location = new System.Drawing.Point(193, 112);
+            this.txtFinalDeviation.Name = "txtFinalDeviation";
+            this.txtFinalDeviation.ReadOnly = true;
+            this.txtFinalDeviation.Size = new System.Drawing.Size(65, 26);
+            this.txtFinalDeviation.TabIndex = 13;
             // 
             // label11
             // 
@@ -578,71 +578,71 @@ namespace UCB
             this.label11.TabIndex = 10;
             this.label11.Text = "Конечное значение:";
             // 
-            // groupBoxParameter
+            // grpParameter
             // 
-            this.groupBoxParameter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxParameter.Controls.Add(this.numericUpDownParameter0);
-            this.groupBoxParameter.Controls.Add(this.numericUpDownParameterDelta);
-            this.groupBoxParameter.Controls.Add(this.label12);
-            this.groupBoxParameter.Controls.Add(this.label13);
-            this.groupBoxParameter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.groupBoxParameter.ForeColor = System.Drawing.Color.White;
-            this.groupBoxParameter.Location = new System.Drawing.Point(557, 424);
-            this.groupBoxParameter.Name = "groupBoxParameter";
-            this.groupBoxParameter.Size = new System.Drawing.Size(255, 94);
-            this.groupBoxParameter.TabIndex = 3;
-            this.groupBoxParameter.TabStop = false;
-            this.groupBoxParameter.Text = "Параметр стратегии а";
+            this.grpParameter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpParameter.Controls.Add(this.numParameter0);
+            this.grpParameter.Controls.Add(this.numParameterDelta);
+            this.grpParameter.Controls.Add(this.label12);
+            this.grpParameter.Controls.Add(this.label13);
+            this.grpParameter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.grpParameter.ForeColor = System.Drawing.Color.White;
+            this.grpParameter.Location = new System.Drawing.Point(557, 424);
+            this.grpParameter.Name = "grpParameter";
+            this.grpParameter.Size = new System.Drawing.Size(255, 94);
+            this.grpParameter.TabIndex = 3;
+            this.grpParameter.TabStop = false;
+            this.grpParameter.Text = "Параметр стратегии а";
             // 
-            // numericUpDownParameter0
+            // numParameter0
             // 
-            this.numericUpDownParameter0.DecimalPlaces = 2;
-            this.numericUpDownParameter0.Increment = new decimal(new int[] {
+            this.numParameter0.DecimalPlaces = 2;
+            this.numParameter0.Increment = new decimal(new int[] {
             1,
             0,
             0,
             131072});
-            this.numericUpDownParameter0.Location = new System.Drawing.Point(184, 24);
-            this.numericUpDownParameter0.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numericUpDownParameter0.Name = "numericUpDownParameter0";
-            this.numericUpDownParameter0.Size = new System.Drawing.Size(65, 26);
-            this.numericUpDownParameter0.TabIndex = 20;
-            this.numericUpDownParameter0.Value = new decimal(new int[] {
+            this.numParameter0.Location = new System.Drawing.Point(184, 24);
+            this.numParameter0.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numParameter0.Name = "numParameter0";
+            this.numParameter0.Size = new System.Drawing.Size(65, 26);
+            this.numParameter0.TabIndex = 20;
+            this.numParameter0.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDownParameter0.ValueChanged += new System.EventHandler(this.NumericUpDownParameter_ValueChanged);
+            this.numParameter0.ValueChanged += new System.EventHandler(this.ChangeParameters);
             // 
-            // numericUpDownParameterDelta
+            // numParameterDelta
             // 
-            this.numericUpDownParameterDelta.DecimalPlaces = 2;
-            this.numericUpDownParameterDelta.Increment = new decimal(new int[] {
+            this.numParameterDelta.DecimalPlaces = 2;
+            this.numParameterDelta.Increment = new decimal(new int[] {
             1,
             0,
             0,
             131072});
-            this.numericUpDownParameterDelta.Location = new System.Drawing.Point(184, 56);
-            this.numericUpDownParameterDelta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numericUpDownParameterDelta.Maximum = new decimal(new int[] {
+            this.numParameterDelta.Location = new System.Drawing.Point(184, 56);
+            this.numParameterDelta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numParameterDelta.Maximum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDownParameterDelta.Minimum = new decimal(new int[] {
+            this.numParameterDelta.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             131072});
-            this.numericUpDownParameterDelta.Name = "numericUpDownParameterDelta";
-            this.numericUpDownParameterDelta.Size = new System.Drawing.Size(65, 26);
-            this.numericUpDownParameterDelta.TabIndex = 22;
-            this.numericUpDownParameterDelta.Value = new decimal(new int[] {
+            this.numParameterDelta.Name = "numParameterDelta";
+            this.numParameterDelta.Size = new System.Drawing.Size(65, 26);
+            this.numParameterDelta.TabIndex = 22;
+            this.numParameterDelta.Value = new decimal(new int[] {
             1,
             0,
             0,
             131072});
-            this.numericUpDownParameterDelta.ValueChanged += new System.EventHandler(this.NumericUpDownParameter_ValueChanged);
+            this.numParameterDelta.ValueChanged += new System.EventHandler(this.ChangeParameters);
             // 
             // label12
             // 
@@ -671,48 +671,48 @@ namespace UCB
             this.label14.TabIndex = 18;
             this.label14.Text = "Число бандитов:";
             // 
-            // numericUpDownBanditsCount
+            // numBanditsCount
             // 
-            this.numericUpDownBanditsCount.Location = new System.Drawing.Point(171, 21);
-            this.numericUpDownBanditsCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numericUpDownBanditsCount.Maximum = new decimal(new int[] {
+            this.numBanditsCount.Location = new System.Drawing.Point(171, 21);
+            this.numBanditsCount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numBanditsCount.Maximum = new decimal(new int[] {
             500,
             0,
             0,
             0});
-            this.numericUpDownBanditsCount.Minimum = new decimal(new int[] {
+            this.numBanditsCount.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDownBanditsCount.Name = "numericUpDownBanditsCount";
-            this.numericUpDownBanditsCount.Size = new System.Drawing.Size(87, 26);
-            this.numericUpDownBanditsCount.TabIndex = 23;
-            this.numericUpDownBanditsCount.Value = new decimal(new int[] {
+            this.numBanditsCount.Name = "numBanditsCount";
+            this.numBanditsCount.Size = new System.Drawing.Size(87, 26);
+            this.numBanditsCount.TabIndex = 23;
+            this.numBanditsCount.Value = new decimal(new int[] {
             5,
             0,
             0,
             0});
-            this.numericUpDownBanditsCount.ValueChanged += new System.EventHandler(this.NumericUpDownBanditsCount_ValueChanged);
+            this.numBanditsCount.ValueChanged += new System.EventHandler(this.BanditsCountChanged);
             // 
-            // numericUpDownCountThreads
+            // numCountThreads
             // 
-            this.numericUpDownCountThreads.Location = new System.Drawing.Point(171, 51);
-            this.numericUpDownCountThreads.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.numericUpDownCountThreads.Maximum = new decimal(new int[] {
+            this.numCountThreads.Location = new System.Drawing.Point(171, 51);
+            this.numCountThreads.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.numCountThreads.Maximum = new decimal(new int[] {
             10,
             0,
             0,
             0});
-            this.numericUpDownCountThreads.Minimum = new decimal(new int[] {
+            this.numCountThreads.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDownCountThreads.Name = "numericUpDownCountThreads";
-            this.numericUpDownCountThreads.Size = new System.Drawing.Size(87, 26);
-            this.numericUpDownCountThreads.TabIndex = 25;
-            this.numericUpDownCountThreads.Value = new decimal(new int[] {
+            this.numCountThreads.Name = "numCountThreads";
+            this.numCountThreads.Size = new System.Drawing.Size(87, 26);
+            this.numCountThreads.TabIndex = 25;
+            this.numCountThreads.Value = new decimal(new int[] {
             5,
             0,
             0,
@@ -727,114 +727,114 @@ namespace UCB
             this.label16.TabIndex = 24;
             this.label16.Text = "Число потоков:";
             // 
-            // buttonStart
+            // btnStart
             // 
-            this.buttonStart.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonStart.BackColor = System.Drawing.Color.White;
-            this.buttonStart.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
-            this.buttonStart.ForeColor = System.Drawing.Color.Black;
-            this.buttonStart.Location = new System.Drawing.Point(21, 78);
-            this.buttonStart.Name = "buttonStart";
-            this.buttonStart.Size = new System.Drawing.Size(222, 45);
-            this.buttonStart.TabIndex = 4;
-            this.buttonStart.Text = "Запуск";
-            this.buttonStart.UseVisualStyleBackColor = false;
-            this.buttonStart.EnabledChanged += new System.EventHandler(this.Button_EnabledChanged);
-            this.buttonStart.Click += new System.EventHandler(this.ButtonStart_Click);
+            this.btnStart.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnStart.BackColor = System.Drawing.Color.White;
+            this.btnStart.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.btnStart.ForeColor = System.Drawing.Color.Black;
+            this.btnStart.Location = new System.Drawing.Point(21, 78);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(222, 45);
+            this.btnStart.TabIndex = 4;
+            this.btnStart.Text = "Запуск";
+            this.btnStart.UseVisualStyleBackColor = false;
+            this.btnStart.EnabledChanged += new System.EventHandler(this.OnButtonEnabledChanged);
+            this.btnStart.Click += new System.EventHandler(this.OnStartClick);
             // 
-            // buttonSave
+            // btnSave
             // 
-            this.buttonSave.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonSave.BackColor = System.Drawing.Color.White;
-            this.buttonSave.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
-            this.buttonSave.ForeColor = System.Drawing.Color.Black;
-            this.buttonSave.Location = new System.Drawing.Point(21, 278);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(222, 45);
-            this.buttonSave.TabIndex = 7;
-            this.buttonSave.Text = "Сохранить";
-            this.buttonSave.UseVisualStyleBackColor = false;
-            this.buttonSave.EnabledChanged += new System.EventHandler(this.Button_EnabledChanged);
-            this.buttonSave.Click += new System.EventHandler(this.ButtonSave_Click);
+            this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSave.BackColor = System.Drawing.Color.White;
+            this.btnSave.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.btnSave.ForeColor = System.Drawing.Color.Black;
+            this.btnSave.Location = new System.Drawing.Point(21, 278);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(222, 45);
+            this.btnSave.TabIndex = 7;
+            this.btnSave.Text = "Сохранить";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.EnabledChanged += new System.EventHandler(this.OnButtonEnabledChanged);
+            this.btnSave.Click += new System.EventHandler(this.OnSaveClick);
             // 
-            // buttonCancel
+            // btnCancel
             // 
-            this.buttonCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonCancel.BackColor = System.Drawing.Color.White;
-            this.buttonCancel.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
-            this.buttonCancel.ForeColor = System.Drawing.Color.Black;
-            this.buttonCancel.Location = new System.Drawing.Point(21, 178);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(222, 45);
-            this.buttonCancel.TabIndex = 6;
-            this.buttonCancel.Text = "Отмена";
-            this.buttonCancel.UseVisualStyleBackColor = false;
-            this.buttonCancel.EnabledChanged += new System.EventHandler(this.Button_EnabledChanged);
-            this.buttonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
+            this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCancel.BackColor = System.Drawing.Color.White;
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.btnCancel.ForeColor = System.Drawing.Color.Black;
+            this.btnCancel.Location = new System.Drawing.Point(21, 178);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(222, 45);
+            this.btnCancel.TabIndex = 6;
+            this.btnCancel.Text = "Отмена";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.EnabledChanged += new System.EventHandler(this.OnButtonEnabledChanged);
+            this.btnCancel.Click += new System.EventHandler(this.OnCancelClick);
             // 
-            // groupBoxButtons
+            // grpButtons
             // 
-            this.groupBoxButtons.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.grpButtons.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxButtons.Controls.Add(this.buttonNew);
-            this.groupBoxButtons.Controls.Add(this.buttonOpen);
-            this.groupBoxButtons.Controls.Add(this.buttonPause);
-            this.groupBoxButtons.Controls.Add(this.buttonStart);
-            this.groupBoxButtons.Controls.Add(this.buttonCancel);
-            this.groupBoxButtons.Controls.Add(this.buttonSave);
-            this.groupBoxButtons.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.groupBoxButtons.ForeColor = System.Drawing.Color.White;
-            this.groupBoxButtons.Location = new System.Drawing.Point(824, 424);
-            this.groupBoxButtons.Name = "groupBoxButtons";
-            this.groupBoxButtons.Size = new System.Drawing.Size(264, 335);
-            this.groupBoxButtons.TabIndex = 8;
-            this.groupBoxButtons.TabStop = false;
-            this.groupBoxButtons.Text = "Управление";
+            this.grpButtons.Controls.Add(this.btnNew);
+            this.grpButtons.Controls.Add(this.btnOpen);
+            this.grpButtons.Controls.Add(this.btnPause);
+            this.grpButtons.Controls.Add(this.btnStart);
+            this.grpButtons.Controls.Add(this.btnCancel);
+            this.grpButtons.Controls.Add(this.btnSave);
+            this.grpButtons.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.grpButtons.ForeColor = System.Drawing.Color.White;
+            this.grpButtons.Location = new System.Drawing.Point(824, 424);
+            this.grpButtons.Name = "grpButtons";
+            this.grpButtons.Size = new System.Drawing.Size(264, 335);
+            this.grpButtons.TabIndex = 8;
+            this.grpButtons.TabStop = false;
+            this.grpButtons.Text = "Управление";
             // 
-            // buttonNew
+            // btnNew
             // 
-            this.buttonNew.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonNew.BackColor = System.Drawing.Color.White;
-            this.buttonNew.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
-            this.buttonNew.ForeColor = System.Drawing.Color.Black;
-            this.buttonNew.Location = new System.Drawing.Point(21, 28);
-            this.buttonNew.Name = "buttonNew";
-            this.buttonNew.Size = new System.Drawing.Size(222, 45);
-            this.buttonNew.TabIndex = 47;
-            this.buttonNew.Text = "Новый";
-            this.buttonNew.UseVisualStyleBackColor = false;
-            this.buttonNew.EnabledChanged += new System.EventHandler(this.Button_EnabledChanged);
-            this.buttonNew.Click += new System.EventHandler(this.ButtonNew_Click);
+            this.btnNew.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnNew.BackColor = System.Drawing.Color.White;
+            this.btnNew.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.btnNew.ForeColor = System.Drawing.Color.Black;
+            this.btnNew.Location = new System.Drawing.Point(21, 28);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(222, 45);
+            this.btnNew.TabIndex = 47;
+            this.btnNew.Text = "Новый";
+            this.btnNew.UseVisualStyleBackColor = false;
+            this.btnNew.EnabledChanged += new System.EventHandler(this.OnButtonEnabledChanged);
+            this.btnNew.Click += new System.EventHandler(this.OnNewClick);
             // 
-            // buttonOpen
+            // btnOpen
             // 
-            this.buttonOpen.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonOpen.BackColor = System.Drawing.Color.White;
-            this.buttonOpen.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
-            this.buttonOpen.ForeColor = System.Drawing.Color.Black;
-            this.buttonOpen.Location = new System.Drawing.Point(21, 228);
-            this.buttonOpen.Name = "buttonOpen";
-            this.buttonOpen.Size = new System.Drawing.Size(222, 45);
-            this.buttonOpen.TabIndex = 46;
-            this.buttonOpen.Text = "Открыть";
-            this.buttonOpen.UseVisualStyleBackColor = false;
-            this.buttonOpen.EnabledChanged += new System.EventHandler(this.Button_EnabledChanged);
-            this.buttonOpen.Click += new System.EventHandler(this.ButtonOpen_Click);
+            this.btnOpen.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnOpen.BackColor = System.Drawing.Color.White;
+            this.btnOpen.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.btnOpen.ForeColor = System.Drawing.Color.Black;
+            this.btnOpen.Location = new System.Drawing.Point(21, 228);
+            this.btnOpen.Name = "btnOpen";
+            this.btnOpen.Size = new System.Drawing.Size(222, 45);
+            this.btnOpen.TabIndex = 46;
+            this.btnOpen.Text = "Открыть";
+            this.btnOpen.UseVisualStyleBackColor = false;
+            this.btnOpen.EnabledChanged += new System.EventHandler(this.OnButtonEnabledChanged);
+            this.btnOpen.Click += new System.EventHandler(this.OnOpenClick);
             // 
-            // buttonPause
+            // btnPause
             // 
-            this.buttonPause.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonPause.BackColor = System.Drawing.Color.White;
-            this.buttonPause.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
-            this.buttonPause.ForeColor = System.Drawing.Color.Black;
-            this.buttonPause.Location = new System.Drawing.Point(21, 128);
-            this.buttonPause.Name = "buttonPause";
-            this.buttonPause.Size = new System.Drawing.Size(222, 45);
-            this.buttonPause.TabIndex = 45;
-            this.buttonPause.Text = "Пауза";
-            this.buttonPause.UseVisualStyleBackColor = false;
-            this.buttonPause.EnabledChanged += new System.EventHandler(this.Button_EnabledChanged);
-            this.buttonPause.Click += new System.EventHandler(this.ButtonPause_Click);
+            this.btnPause.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnPause.BackColor = System.Drawing.Color.White;
+            this.btnPause.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.btnPause.ForeColor = System.Drawing.Color.Black;
+            this.btnPause.Location = new System.Drawing.Point(21, 128);
+            this.btnPause.Name = "btnPause";
+            this.btnPause.Size = new System.Drawing.Size(222, 45);
+            this.btnPause.TabIndex = 45;
+            this.btnPause.Text = "Пауза";
+            this.btnPause.UseVisualStyleBackColor = false;
+            this.btnPause.EnabledChanged += new System.EventHandler(this.OnButtonEnabledChanged);
+            this.btnPause.Click += new System.EventHandler(this.OnPauseClick);
             // 
             // progressBar
             // 
@@ -846,162 +846,162 @@ namespace UCB
             this.progressBar.TabIndex = 10;
             this.progressBar.Visible = false;
             // 
-            // checkBoxSoundPlay
+            // chkSoundPlay
             // 
-            this.checkBoxSoundPlay.AutoSize = true;
-            this.checkBoxSoundPlay.Checked = true;
-            this.checkBoxSoundPlay.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxSoundPlay.Location = new System.Drawing.Point(78, 114);
-            this.checkBoxSoundPlay.Name = "checkBoxSoundPlay";
-            this.checkBoxSoundPlay.Size = new System.Drawing.Size(180, 24);
-            this.checkBoxSoundPlay.TabIndex = 0;
-            this.checkBoxSoundPlay.Text = "Сигнал завершения";
-            this.checkBoxSoundPlay.UseVisualStyleBackColor = false;
-            this.checkBoxSoundPlay.CheckedChanged += new System.EventHandler(this.CheckBoxSoundPlay_CheckedChanged);
+            this.chkSoundPlay.AutoSize = true;
+            this.chkSoundPlay.Checked = true;
+            this.chkSoundPlay.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkSoundPlay.Location = new System.Drawing.Point(78, 114);
+            this.chkSoundPlay.Name = "chkSoundPlay";
+            this.chkSoundPlay.Size = new System.Drawing.Size(180, 24);
+            this.chkSoundPlay.TabIndex = 0;
+            this.chkSoundPlay.Text = "Сигнал завершения";
+            this.chkSoundPlay.UseVisualStyleBackColor = false;
+            this.chkSoundPlay.CheckedChanged += new System.EventHandler(this.OnCheckBoxCheckedChanged);
             // 
-            // groupBoxGeneralParameters
+            // grpGeneralParameters
             // 
-            this.groupBoxGeneralParameters.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxGeneralParameters.Controls.Add(this.buttonSettingsEstimationDispersion);
-            this.groupBoxGeneralParameters.Controls.Add(this.labelStateDispersion);
-            this.groupBoxGeneralParameters.Controls.Add(this.numericUpDownBanditArms);
-            this.groupBoxGeneralParameters.Controls.Add(this.numericUpDownMathExp);
-            this.groupBoxGeneralParameters.Controls.Add(this.label24);
-            this.groupBoxGeneralParameters.Controls.Add(this.labelMathExp);
-            this.groupBoxGeneralParameters.Controls.Add(this.numericUpDownMaxDispersion);
-            this.groupBoxGeneralParameters.Controls.Add(this.label20);
-            this.groupBoxGeneralParameters.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.groupBoxGeneralParameters.ForeColor = System.Drawing.Color.White;
-            this.groupBoxGeneralParameters.Location = new System.Drawing.Point(557, 110);
-            this.groupBoxGeneralParameters.Name = "groupBoxGeneralParameters";
-            this.groupBoxGeneralParameters.Size = new System.Drawing.Size(255, 151);
-            this.groupBoxGeneralParameters.TabIndex = 42;
-            this.groupBoxGeneralParameters.TabStop = false;
-            this.groupBoxGeneralParameters.Text = "Общие параметры";
+            this.grpGeneralParameters.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpGeneralParameters.Controls.Add(this.btnEstimationDispersion);
+            this.grpGeneralParameters.Controls.Add(this.lblStateDispersion);
+            this.grpGeneralParameters.Controls.Add(this.numBanditArms);
+            this.grpGeneralParameters.Controls.Add(this.numMathExp);
+            this.grpGeneralParameters.Controls.Add(this.label24);
+            this.grpGeneralParameters.Controls.Add(this.labelMathExp);
+            this.grpGeneralParameters.Controls.Add(this.numMaxDispersion);
+            this.grpGeneralParameters.Controls.Add(this.label20);
+            this.grpGeneralParameters.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.grpGeneralParameters.ForeColor = System.Drawing.Color.White;
+            this.grpGeneralParameters.Location = new System.Drawing.Point(557, 110);
+            this.grpGeneralParameters.Name = "grpGeneralParameters";
+            this.grpGeneralParameters.Size = new System.Drawing.Size(255, 151);
+            this.grpGeneralParameters.TabIndex = 42;
+            this.grpGeneralParameters.TabStop = false;
+            this.grpGeneralParameters.Text = "Общие параметры";
             // 
-            // buttonSettingsEstimationDispersion
+            // btnSettingsEstimationDispersion
             // 
-            this.buttonSettingsEstimationDispersion.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.buttonSettingsEstimationDispersion.BackColor = System.Drawing.Color.White;
-            this.buttonSettingsEstimationDispersion.BackgroundImage = global::UCB.Properties.Resources.Settings;
-            this.buttonSettingsEstimationDispersion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonSettingsEstimationDispersion.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
-            this.buttonSettingsEstimationDispersion.ForeColor = System.Drawing.Color.Black;
-            this.buttonSettingsEstimationDispersion.Location = new System.Drawing.Point(28, 110);
-            this.buttonSettingsEstimationDispersion.Name = "buttonSettingsEstimationDispersion";
-            this.buttonSettingsEstimationDispersion.Size = new System.Drawing.Size(30, 30);
-            this.buttonSettingsEstimationDispersion.TabIndex = 48;
-            this.buttonSettingsEstimationDispersion.UseVisualStyleBackColor = false;
-            this.buttonSettingsEstimationDispersion.EnabledChanged += new System.EventHandler(this.Button_EnabledChanged);
-            this.buttonSettingsEstimationDispersion.Click += new System.EventHandler(this.ButtonSettingsEstimationDispersion_Click);
+            this.btnEstimationDispersion.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnEstimationDispersion.BackColor = System.Drawing.Color.White;
+            this.btnEstimationDispersion.BackgroundImage = global::UCB.Properties.Resources.Settings;
+            this.btnEstimationDispersion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnEstimationDispersion.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.btnEstimationDispersion.ForeColor = System.Drawing.Color.Black;
+            this.btnEstimationDispersion.Location = new System.Drawing.Point(28, 110);
+            this.btnEstimationDispersion.Name = "btnSettingsEstimationDispersion";
+            this.btnEstimationDispersion.Size = new System.Drawing.Size(30, 30);
+            this.btnEstimationDispersion.TabIndex = 48;
+            this.btnEstimationDispersion.UseVisualStyleBackColor = false;
+            this.btnEstimationDispersion.EnabledChanged += new System.EventHandler(this.OnButtonEnabledChanged);
+            this.btnEstimationDispersion.Click += new System.EventHandler(this.OnEstimationDispersionClick);
             // 
             // labelStateDispersion
             // 
-            this.labelStateDispersion.AutoSize = true;
-            this.labelStateDispersion.Location = new System.Drawing.Point(64, 115);
-            this.labelStateDispersion.Name = "labelStateDispersion";
-            this.labelStateDispersion.Size = new System.Drawing.Size(167, 20);
-            this.labelStateDispersion.TabIndex = 34;
-            this.labelStateDispersion.Text = "Дисперсии известны";
+            this.lblStateDispersion.AutoSize = true;
+            this.lblStateDispersion.Location = new System.Drawing.Point(64, 115);
+            this.lblStateDispersion.Name = "labelStateDispersion";
+            this.lblStateDispersion.Size = new System.Drawing.Size(167, 20);
+            this.lblStateDispersion.TabIndex = 34;
+            this.lblStateDispersion.Text = "Дисперсии известны";
             // 
-            // groupBoxHorizon
+            // grpHorizon
             // 
-            this.groupBoxHorizon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxHorizon.Controls.Add(this.numericUpDownHorizon);
-            this.groupBoxHorizon.Controls.Add(this.label2);
-            this.groupBoxHorizon.Controls.Add(this.numericUpDownNumberBatches);
-            this.groupBoxHorizon.Controls.Add(this.numericUpDownInitialDataSize);
-            this.groupBoxHorizon.Controls.Add(this.label6);
-            this.groupBoxHorizon.Controls.Add(this.label5);
-            this.groupBoxHorizon.Controls.Add(this.numericUpDownBatchSize);
-            this.groupBoxHorizon.Controls.Add(this.label4);
-            this.groupBoxHorizon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.groupBoxHorizon.ForeColor = System.Drawing.Color.White;
-            this.groupBoxHorizon.Location = new System.Drawing.Point(557, 267);
-            this.groupBoxHorizon.Name = "groupBoxHorizon";
-            this.groupBoxHorizon.Size = new System.Drawing.Size(255, 151);
-            this.groupBoxHorizon.TabIndex = 43;
-            this.groupBoxHorizon.TabStop = false;
-            this.groupBoxHorizon.Text = "Горизонт";
+            this.grpHorizon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpHorizon.Controls.Add(this.numHorizon);
+            this.grpHorizon.Controls.Add(this.label2);
+            this.grpHorizon.Controls.Add(this.numNumberBatches);
+            this.grpHorizon.Controls.Add(this.numInitialDataSize);
+            this.grpHorizon.Controls.Add(this.label6);
+            this.grpHorizon.Controls.Add(this.label5);
+            this.grpHorizon.Controls.Add(this.numBatchSize);
+            this.grpHorizon.Controls.Add(this.label4);
+            this.grpHorizon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.grpHorizon.ForeColor = System.Drawing.Color.White;
+            this.grpHorizon.Location = new System.Drawing.Point(557, 267);
+            this.grpHorizon.Name = "grpHorizon";
+            this.grpHorizon.Size = new System.Drawing.Size(255, 151);
+            this.grpHorizon.TabIndex = 43;
+            this.grpHorizon.TabStop = false;
+            this.grpHorizon.Text = "Горизонт";
             // 
-            // groupBoxSimulationSettings
+            // grpSimulationSettings
             // 
-            this.groupBoxSimulationSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBoxSimulationSettings.Controls.Add(this.checkBoxSoundPlay);
-            this.groupBoxSimulationSettings.Controls.Add(this.numericUpDownCountThreads);
-            this.groupBoxSimulationSettings.Controls.Add(this.label3);
-            this.groupBoxSimulationSettings.Controls.Add(this.numericUpDownNumberSimulations);
-            this.groupBoxSimulationSettings.Controls.Add(this.label14);
-            this.groupBoxSimulationSettings.Controls.Add(this.label16);
-            this.groupBoxSimulationSettings.Controls.Add(this.numericUpDownBanditsCount);
-            this.groupBoxSimulationSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.groupBoxSimulationSettings.ForeColor = System.Drawing.Color.White;
-            this.groupBoxSimulationSettings.Location = new System.Drawing.Point(824, 267);
-            this.groupBoxSimulationSettings.Name = "groupBoxSimulationSettings";
-            this.groupBoxSimulationSettings.Size = new System.Drawing.Size(264, 151);
-            this.groupBoxSimulationSettings.TabIndex = 44;
-            this.groupBoxSimulationSettings.TabStop = false;
-            this.groupBoxSimulationSettings.Text = "Настройки симуляций";
+            this.grpSimulationSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpSimulationSettings.Controls.Add(this.chkSoundPlay);
+            this.grpSimulationSettings.Controls.Add(this.numCountThreads);
+            this.grpSimulationSettings.Controls.Add(this.label3);
+            this.grpSimulationSettings.Controls.Add(this.numNumberSimulations);
+            this.grpSimulationSettings.Controls.Add(this.label14);
+            this.grpSimulationSettings.Controls.Add(this.label16);
+            this.grpSimulationSettings.Controls.Add(this.numBanditsCount);
+            this.grpSimulationSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.grpSimulationSettings.ForeColor = System.Drawing.Color.White;
+            this.grpSimulationSettings.Location = new System.Drawing.Point(824, 267);
+            this.grpSimulationSettings.Name = "grpSimulationSettings";
+            this.grpSimulationSettings.Size = new System.Drawing.Size(264, 151);
+            this.grpSimulationSettings.TabIndex = 44;
+            this.grpSimulationSettings.TabStop = false;
+            this.grpSimulationSettings.Text = "Настройки симуляций";
             // 
-            // labelInfo
+            // lblDialog
             // 
-            this.labelInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblDialog.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelInfo.BackColor = System.Drawing.Color.White;
-            this.labelInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.labelInfo.ForeColor = System.Drawing.Color.Black;
-            this.labelInfo.Location = new System.Drawing.Point(557, 521);
-            this.labelInfo.Name = "labelInfo";
-            this.labelInfo.Size = new System.Drawing.Size(255, 235);
-            this.labelInfo.TabIndex = 47;
-            this.labelInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDialog.BackColor = System.Drawing.Color.White;
+            this.lblDialog.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.lblDialog.ForeColor = System.Drawing.Color.Black;
+            this.lblDialog.Location = new System.Drawing.Point(557, 521);
+            this.lblDialog.Name = "lblDialog";
+            this.lblDialog.Size = new System.Drawing.Size(255, 235);
+            this.lblDialog.TabIndex = 47;
+            this.lblDialog.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dataGridView
             // 
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AllowUserToResizeColumns = false;
             this.dataGridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.MediumPurple;
-            this.dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.MediumPurple;
+            this.dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView.BackgroundColor = System.Drawing.SystemColors.ControlDark;
             this.dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Indigo;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Indigo;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView.EnableHeadersVisualStyles = false;
             this.dataGridView.Location = new System.Drawing.Point(12, 12);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersVisible = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.BlueViolet;
-            this.dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.BlueViolet;
+            this.dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView.RowTemplate.Height = 30;
             this.dataGridView.Size = new System.Drawing.Size(539, 747);
             this.dataGridView.TabIndex = 48;
-            this.dataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView_CellValueChanged);
-            this.dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataGridView_DataError);
-            this.dataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DataGridView_KeyDown);
+            this.dataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.OnCellValueChanged);
+            this.dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataError);
+            this.dataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OnKeyDown);
             // 
             // timer
             // 
             this.timer.Interval = 1000;
-            this.timer.Tick += new System.EventHandler(this.Timer_Tick);
+            this.timer.Tick += new System.EventHandler(this.OnTimerTick);
             // 
             // FormModeling
             // 
@@ -1009,16 +1009,16 @@ namespace UCB
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1100, 808);
-            this.Controls.Add(this.labelInfo);
+            this.Controls.Add(this.lblDialog);
             this.Controls.Add(this.dataGridView);
-            this.Controls.Add(this.groupBoxSimulationSettings);
-            this.Controls.Add(this.groupBoxHorizon);
-            this.Controls.Add(this.groupBoxGeneralParameters);
-            this.Controls.Add(this.groupBoxButtons);
+            this.Controls.Add(this.grpSimulationSettings);
+            this.Controls.Add(this.grpHorizon);
+            this.Controls.Add(this.grpGeneralParameters);
+            this.Controls.Add(this.grpButtons);
             this.Controls.Add(this.progressBar);
-            this.Controls.Add(this.groupBoxParameter);
-            this.Controls.Add(this.groupBoxBordersDeviationExp);
-            this.Controls.Add(this.groupBoxTypeBandit);
+            this.Controls.Add(this.grpParameter);
+            this.Controls.Add(this.grpBordersDeviationExp);
+            this.Controls.Add(this.grpTypeBandit);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -1026,34 +1026,34 @@ namespace UCB
             this.Name = "FormModeling";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UCB";
-            this.groupBoxTypeBandit.ResumeLayout(false);
-            this.groupBoxTypeBandit.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBanditArms)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMaxDispersion)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMathExp)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumberSimulations)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBatchSize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownNumberBatches)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownInitialDataSize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownHorizon)).EndInit();
-            this.groupBoxBordersDeviationExp.ResumeLayout(false);
-            this.groupBoxBordersDeviationExp.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDeviationExpCount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDeviationExpDelta)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownDeviationExp0)).EndInit();
-            this.groupBoxParameter.ResumeLayout(false);
-            this.groupBoxParameter.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownParameter0)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownParameterDelta)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBanditsCount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCountThreads)).EndInit();
-            this.groupBoxButtons.ResumeLayout(false);
-            this.groupBoxGeneralParameters.ResumeLayout(false);
-            this.groupBoxGeneralParameters.PerformLayout();
-            this.groupBoxHorizon.ResumeLayout(false);
-            this.groupBoxHorizon.PerformLayout();
-            this.groupBoxSimulationSettings.ResumeLayout(false);
-            this.groupBoxSimulationSettings.PerformLayout();
+            this.grpTypeBandit.ResumeLayout(false);
+            this.grpTypeBandit.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numBanditArms)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMaxDispersion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numMathExp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numNumberSimulations)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numBatchSize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numNumberBatches)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numInitialDataSize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numHorizon)).EndInit();
+            this.grpBordersDeviationExp.ResumeLayout(false);
+            this.grpBordersDeviationExp.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numDeviationExpCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numDeviationExpDelta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numDeviationExp0)).EndInit();
+            this.grpParameter.ResumeLayout(false);
+            this.grpParameter.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numParameter0)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numParameterDelta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numBanditsCount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numCountThreads)).EndInit();
+            this.grpButtons.ResumeLayout(false);
+            this.grpGeneralParameters.ResumeLayout(false);
+            this.grpGeneralParameters.PerformLayout();
+            this.grpHorizon.ResumeLayout(false);
+            this.grpHorizon.PerformLayout();
+            this.grpSimulationSettings.ResumeLayout(false);
+            this.grpSimulationSettings.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 
@@ -1061,61 +1061,61 @@ namespace UCB
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBoxTypeBandit;
+        private System.Windows.Forms.GroupBox grpTypeBandit;
         private System.Windows.Forms.Label labelMathExp;
-        private System.Windows.Forms.NumericUpDown numericUpDownMathExp;
-        private System.Windows.Forms.NumericUpDown numericUpDownHorizon;
+        private System.Windows.Forms.NumericUpDown numMathExp;
+        private System.Windows.Forms.NumericUpDown numHorizon;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown numericUpDownNumberSimulations;
-        private System.Windows.Forms.ComboBox comboBoxTypeBandit;
+        private System.Windows.Forms.NumericUpDown numNumberSimulations;
+        private System.Windows.Forms.ComboBox cmbDistribution;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.NumericUpDown numericUpDownNumberBatches;
-        private System.Windows.Forms.NumericUpDown numericUpDownBatchSize;
+        private System.Windows.Forms.NumericUpDown numNumberBatches;
+        private System.Windows.Forms.NumericUpDown numBatchSize;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown numericUpDownInitialDataSize;
+        private System.Windows.Forms.NumericUpDown numInitialDataSize;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.GroupBox groupBoxBordersDeviationExp;
+        private System.Windows.Forms.GroupBox grpBordersDeviationExp;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBoxFinalDeviation;
-        private System.Windows.Forms.NumericUpDown numericUpDownDeviationExp0;
-        private System.Windows.Forms.NumericUpDown numericUpDownDeviationExpDelta;
-        private System.Windows.Forms.NumericUpDown numericUpDownDeviationExpCount;
-        private System.Windows.Forms.GroupBox groupBoxParameter;
-        private System.Windows.Forms.NumericUpDown numericUpDownBanditsCount;
+        private System.Windows.Forms.TextBox txtFinalDeviation;
+        private System.Windows.Forms.NumericUpDown numDeviationExp0;
+        private System.Windows.Forms.NumericUpDown numDeviationExpDelta;
+        private System.Windows.Forms.NumericUpDown numDeviationExpCount;
+        private System.Windows.Forms.GroupBox grpParameter;
+        private System.Windows.Forms.NumericUpDown numBanditsCount;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.NumericUpDown numericUpDownParameterDelta;
+        private System.Windows.Forms.NumericUpDown numParameterDelta;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.NumericUpDown numericUpDownParameter0;
+        private System.Windows.Forms.NumericUpDown numParameter0;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.NumericUpDown numericUpDownCountThreads;
+        private System.Windows.Forms.NumericUpDown numCountThreads;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Button buttonStart;
-        private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.GroupBox groupBoxButtons;
+        private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.GroupBox grpButtons;
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.CheckBox checkBoxSoundPlay;
-        private System.Windows.Forms.ComboBox comboBoxTypeBernStrategy;
+        private System.Windows.Forms.CheckBox chkSoundPlay;
+        private System.Windows.Forms.ComboBox cmbTypeBernStrategy;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.NumericUpDown numericUpDownBanditArms;
+        private System.Windows.Forms.NumericUpDown numBanditArms;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.NumericUpDown numericUpDownMaxDispersion;
+        private System.Windows.Forms.NumericUpDown numMaxDispersion;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.GroupBox groupBoxGeneralParameters;
-        private System.Windows.Forms.GroupBox groupBoxHorizon;
-        private System.Windows.Forms.GroupBox groupBoxSimulationSettings;
-        private System.Windows.Forms.Button buttonPause;
-        private System.Windows.Forms.Label labelInfo;
+        private System.Windows.Forms.GroupBox grpGeneralParameters;
+        private System.Windows.Forms.GroupBox grpHorizon;
+        private System.Windows.Forms.GroupBox grpSimulationSettings;
+        private System.Windows.Forms.Button btnPause;
+        private System.Windows.Forms.Label lblDialog;
         private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.Button buttonOpen;
-        private System.Windows.Forms.Button buttonNew;
-        private System.Windows.Forms.Label labelStateDispersion;
-        private System.Windows.Forms.Button buttonSettingsEstimationDispersion;
+        private System.Windows.Forms.Button btnOpen;
+        private System.Windows.Forms.Button btnNew;
+        private System.Windows.Forms.Label lblStateDispersion;
+        private System.Windows.Forms.Button btnEstimationDispersion;
         private System.Windows.Forms.Timer timer;
     }
 }
