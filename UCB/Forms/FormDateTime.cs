@@ -1,0 +1,20 @@
+﻿using System;
+using System.Windows.Forms;
+
+namespace UCB
+{
+    partial class FormDateTime : Form
+    {
+        public FormDateTime()
+        {
+            InitializeComponent();
+            OnTimerTick(null, null);
+
+            _lblDate.Text = DateTime.Now.ToString("dddd") + Environment.NewLine + DateTime.Now.ToString("D");
+            _timer.Start();
+        }
+
+        private void OnTimerTick(object sender, EventArgs e) =>
+            _lblTime.Text = DateTime.Now.ToString("HH:mm:ss");
+    }
+}

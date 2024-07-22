@@ -53,86 +53,80 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Arm.cs" />
-    <Compile Include="Bandit.cs" />
-    <Compile Include="BatchProcessing.cs" />
-    <Compile Include="BanditGauss.cs" />
-    <Compile Include="FormEstimationDispersion.cs">
+    <Compile Include="Strategy\Arm.cs" />
+    <Compile Include="Strategy\Bandit.cs" />
+    <Compile Include="Others\ModifyProgressBarColor.cs" />
+    <Compile Include="Forms\FormInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormEstimationDispersion.Designer.cs">
-      <DependentUpon>FormEstimationDispersion.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ModifyProgressBarColor.cs" />
-    <Compile Include="FormInfo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormInfo.Designer.cs">
+    <Compile Include="Forms\FormInfo.Designer.cs">
       <DependentUpon>FormInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormModeling.cs">
+    <Compile Include="Forms\FormModeling.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormModeling.Designer.cs">
+    <Compile Include="Forms\FormModeling.Designer.cs">
       <DependentUpon>FormModeling.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormChart.cs">
+    <Compile Include="Forms\FormChart.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormChart.Designer.cs">
+    <Compile Include="Forms\FormChart.Designer.cs">
       <DependentUpon>FormChart.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormLineSettings.cs">
+    <Compile Include="Forms\FormLineSettings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLineSettings.Designer.cs">
+    <Compile Include="Forms\FormLineSettings.Designer.cs">
       <DependentUpon>FormLineSettings.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormControl.cs">
+    <Compile Include="Forms\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormControl.Designer.cs">
-      <DependentUpon>FormControl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormMain.Designer.cs">
+    <Compile Include="Forms\FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormDateTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormDateTime.Designer.cs">
+      <DependentUpon>FormDateTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Strategy\OneStepIncome.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormEstimationDispersion.resx">
-      <DependentUpon>FormEstimationDispersion.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormInfo.resx">
+    <Compile Include="Strategy\Player.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Strategy\RegretTable.cs" />
+    <Compile Include="Others\FileHandler.cs" />
+    <Compile Include="Others\Sound.cs" />
+    <EmbeddedResource Include="Forms\FormInfo.resx">
       <DependentUpon>FormInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormModeling.resx">
+    <EmbeddedResource Include="Forms\FormModeling.resx">
       <DependentUpon>FormModeling.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormChart.resx">
+    <EmbeddedResource Include="Forms\FormChart.resx">
       <DependentUpon>FormChart.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormLineSettings.resx">
+    <EmbeddedResource Include="Forms\FormLineSettings.resx">
       <DependentUpon>FormLineSettings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormControl.resx">
-      <DependentUpon>FormControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormMain.resx">
+    <EmbeddedResource Include="Forms\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormDateTime.resx">
+      <DependentUpon>FormDateTime.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>
     </None>
@@ -151,50 +145,48 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Main.png" />
+    <None Include="Resources\png\Main.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\AboutProgramm.png" />
+    <None Include="Resources\png\AboutProgramm.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Calculate.png" />
+    <None Include="Resources\png\Calculate.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Exit.png" />
+    <None Include="Resources\png\Exit.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Graph.png" />
+    <None Include="Resources\png\Graph.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\SoundDone.gz" />
-    <None Include="Resources\Strategy.png" />
+    <None Include="Resources\gz\SoundDone.gz" />
+    <None Include="Resources\png\Strategy.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icon.png" />
+    <None Include="Resources\png\Icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Close.png" />
+    <None Include="Resources\png\Close.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Minimize.png" />
+    <None Include="Resources\png\Minimize.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Resize_Max.png" />
+    <None Include="Resources\png\Resize_Max.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Resize_Min.png" />
+    <None Include="Resources\png\Resize_Min.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Resize.png" />
+    <None Include="Resources\png\Resize.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\AboutProgram.txt" />
+    <None Include="Resources\txt\AboutProgram.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\AboutStrategy.txt" />
+    <None Include="Resources\txt\AboutStrategy.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Settings.png" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

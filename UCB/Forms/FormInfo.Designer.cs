@@ -29,29 +29,29 @@ namespace UCB
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox = new System.Windows.Forms.TextBox();
+            this._txtBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textBox
             // 
-            this.textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.textBox.ForeColor = System.Drawing.Color.White;
-            this.textBox.Location = new System.Drawing.Point(0, 0);
-            this.textBox.Multiline = true;
-            this.textBox.Name = "textBox";
-            this.textBox.ReadOnly = true;
-            this.textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox.Size = new System.Drawing.Size(318, 217);
-            this.textBox.TabIndex = 1;
+            this._txtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this._txtBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._txtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this._txtBox.ForeColor = System.Drawing.Color.White;
+            this._txtBox.Location = new System.Drawing.Point(0, 0);
+            this._txtBox.Multiline = true;
+            this._txtBox.Name = "textBox";
+            this._txtBox.ReadOnly = true;
+            this._txtBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this._txtBox.Size = new System.Drawing.Size(318, 217);
+            this._txtBox.TabIndex = 1;
             // 
             // FormAboutProgram
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(318, 217);
-            this.Controls.Add(this.textBox);
+            this.Controls.Add(this._txtBox);
             this.Name = "FormAboutProgram";
             this.Text = "FormAboutProgram";
             this.ResumeLayout(false);
@@ -61,6 +61,6 @@ namespace UCB
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox;
+        private System.Windows.Forms.TextBox _txtBox;
     }
 }

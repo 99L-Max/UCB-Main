@@ -19,7 +19,7 @@ namespace UCB.Properties {
     // с помощью такого средства, как ResGen или Visual Studio.
     // Чтобы добавить или удалить член, измените файл .ResX и снова запустите ResGen
     // с параметром /str или перестройте свой проект VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -66,7 +66,7 @@ namespace UCB.Properties {
         ////t/1. Главное окно. Отображает логотип и название программы, а также текущая дата, время и день недели. Выполняет роль обложки.
         ////t/2. Моделирование.  Основная форма взаимодействия пользователя с программой. Подробное руководство описано в параграфе «2 Моделирование».
         ////t/3. График. Форма отображения графиков потерь. Подробное руководство описано в параграфе «3 Работа с графиками».
-        ////t/4. Стратегия. Содержит теоретическое описание задачи о многоруком б [остаток строки не уместился]&quot;;.
+        ////t/4. Стратегия. Содержит теоретическое описание задачи о многоруком бандит [остаток строки не уместился]&quot;;.
         /// </summary>
         internal static string AboutProgram {
             get {
@@ -87,7 +87,7 @@ namespace UCB.Properties {
         /// <summary>
         ///   Ищет локализованную строку, похожую на 1) ВВЕДЕНИЕ
         ////t/Одно из сравнительно новых направлений в математике – управление в случайной среде. Например, когда из двух действий нужно выбрать лучшее, но при этом оно заранее неизвестно. Такая задача получила название «Задача о двуруком бандите», в которой вводится модель игрального автомата с двумя рукоятками. Обычно рассматривается случай, когда рукоятей две, но в программе рассмотрена модификация задачи при числе вариантов больше двух.
-        ////t/Задача имеет несколько применений. Например, в экономике её м [остаток строки не уместился]&quot;;.
+        ////t/Задача имеет несколько применений. Например, в экономике её мож [остаток строки не уместился]&quot;;.
         /// </summary>
         internal static string AboutStrategy {
             get {
@@ -138,9 +138,9 @@ namespace UCB.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Logo {
+        internal static System.Drawing.Bitmap Icon {
             get {
-                object obj = ResourceManager.GetObject("Logo", resourceCulture);
+                object obj = ResourceManager.GetObject("Icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -191,16 +191,6 @@ namespace UCB.Properties {
         internal static System.Drawing.Bitmap Resize_Min {
             get {
                 object obj = ResourceManager.GetObject("Resize_Min", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Settings {
-            get {
-                object obj = ResourceManager.GetObject("Settings", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
