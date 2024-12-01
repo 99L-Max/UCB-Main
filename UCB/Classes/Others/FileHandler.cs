@@ -13,16 +13,16 @@ namespace UCB
     {
         public static Player Open()
         {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            using (var ofDialog = new OpenFileDialog())
             {
-                openFileDialog.Filter = "Файлы Json|*.json";
+                ofDialog.Filter = "Файлы Json|*.json";
 
-                if (openFileDialog.ShowDialog() != DialogResult.OK)
+                if (ofDialog.ShowDialog() != DialogResult.OK)
                     return null;
 
                 try
                 {
-                    var jObj = JObject.Parse(File.ReadAllText(openFileDialog.FileName));
+                    var jObj = JObject.Parse(File.ReadAllText(ofDialog.FileName));
                     var jArr = JArray.Parse(JToken.FromObject(jObj.SelectToken("Bandits")).ToString());
 
                     var distribution = (Distribution)jObj["Distribution"].Value<int>();
@@ -58,17 +58,17 @@ namespace UCB
 
         public static void Save(Player player, out bool isSaved)
         {
-            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            using (var sfDialog = new SaveFileDialog())
             {
                 isSaved = false;
-                saveFileDialog.Filter = "Файлы Json|*.json";
+                sfDialog.Filter = "Файлы Json|*.json";
 
-                if (saveFileDialog.ShowDialog() != DialogResult.OK)
+                if (sfDialog.ShowDialog() != DialogResult.OK)
                     return;
 
                 try
                 {
-                    File.WriteAllText(saveFileDialog.FileName, player.GetJsonString());
+                    File.WriteAllText(sfDialog.FileName, player.ToString());
                     isSaved = true;
                 }
                 catch (Exception exc)
@@ -80,16 +80,16 @@ namespace UCB
 
         public static void Save(RegretTable table)
         {
-            using (SaveFileDialog SVDialog = new SaveFileDialog())
+            using (var sfDialog = new SaveFileDialog())
             {
-                SVDialog.Filter = "Текстовые файлы|*.txt";
+                sfDialog.Filter = "Текстовые файлы|*.txt";
 
-                if (SVDialog.ShowDialog() != DialogResult.OK)
+                if (sfDialog.ShowDialog() != DialogResult.OK)
                     return;
 
                 try
                 {
-                    using (StreamWriter writer = new StreamWriter(SVDialog.FileName))
+                    using (StreamWriter writer = new StreamWriter(sfDialog.FileName))
                         writer.WriteLine(table.ToString());
                 }
                 catch (Exception exc)
@@ -101,14 +101,14 @@ namespace UCB
 
         public static void Save(Chart chart)
         {
-            using (SaveFileDialog SVDialog = new SaveFileDialog())
+            using (var sfDialog = new SaveFileDialog())
             {
-                SVDialog.Filter = "Изображения|*.png";
+                sfDialog.Filter = "Изображения|*.png";
 
-                if (SVDialog.ShowDialog() != DialogResult.OK)
+                if (sfDialog.ShowDialog() != DialogResult.OK)
                     return;
 
-                chart.SaveImage(SVDialog.FileName, ImageFormat.Png);
+                chart.SaveImage(sfDialog.FileName, ImageFormat.Png);
             }
         }
     }

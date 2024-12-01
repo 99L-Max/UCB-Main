@@ -204,7 +204,7 @@ namespace UCB
             // 
             this._btnResize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._btnResize.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this._btnResize.BackgroundImage = global::UCB.Properties.Resources.Resize_Max;
+            this._btnResize.BackgroundImage = global::UCB.Properties.Resources.Resize_Min;
             this._btnResize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this._btnResize.FlatAppearance.BorderColor = System.Drawing.Color.MediumSlateBlue;
             this._btnResize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

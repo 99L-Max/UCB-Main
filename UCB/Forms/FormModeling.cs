@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace UCB
@@ -26,9 +25,9 @@ namespace UCB
             OnDeviationChanged(_numDeviationStart, EventArgs.Empty);
         }
 
-        public bool IsFinished { get; private set; } = true;
+        public bool IsSimulationFinished { get; private set; } = true;
 
-        public bool IsSaved { get; private set; } = true;
+        public bool IsDataSaved { get; private set; } = true;
 
         public RegretTable RegretTable =>
             _player.RegretTable;
@@ -106,7 +105,7 @@ namespace UCB
             }
 
             OnBanditsCountChanged(null, EventArgs.Empty);
-            OnBanditArmsChanged(null, EventArgs.Empty);
+            OnCountArmsChanged(null, EventArgs.Empty);
             OnNumberBatchesChanged(null, EventArgs.Empty);
             OnBatchSizeChanged(null, EventArgs.Empty);
             OnParametersChanged(null, EventArgs.Empty);
@@ -125,7 +124,7 @@ namespace UCB
         {
             _timer.Stop();
 
-            if (_player != null) 
+            if (_player != null)
                 _player.ProgressChanged -= UpdateProgressBar;
 
             if (isCorrect)
@@ -140,9 +139,9 @@ namespace UCB
 
             _progressBar.Value = _progressBar.Minimum;
             _btnSave.Enabled = isCorrect;
-            _btnStart.Enabled = ControlsEnabled = IsSaved = !isCorrect;
+            _btnStart.Enabled = ControlsEnabled = IsDataSaved = !isCorrect;
 
-            ButtonsEnabled = IsFinished = true;
+            ButtonsEnabled = IsSimulationFinished = true;
         }
 
         private void DisposePlayer()
@@ -171,9 +170,15 @@ namespace UCB
             return arr;
         }
 
+        private void SetColumn<T>(string nameColumn, T value)
+        {
+            foreach (DataGridViewRow row in _dataGridView.Rows)
+                row.Cells[nameColumn].Value = value;
+        }
+
         private void OnNewClick(object sender, EventArgs e)
         {
-            if (!IsSaved && MessageBox.Show($"Несохранённые данные будут удалены.\nПродолжить?", "Данные не сохранены", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            if (!IsDataSaved && DialogResult.No == MessageBox.Show($"Несохранённые данные будут удалены.\nПродолжить?", "Данные не сохранены", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                 return;
 
             ClearChart?.Invoke();
@@ -182,20 +187,20 @@ namespace UCB
             _lblDialog.Text = string.Empty;
             _btnSave.Enabled = false;
 
-            IsSaved = ControlsEnabled = _btnStart.Enabled = true;
+            IsDataSaved = ControlsEnabled = _btnStart.Enabled = true;
         }
 
         [Obsolete]
         private void OnStartClick(object sender, EventArgs e)
         {
             DisposePlayer();
-            ControlsEnabled = ButtonsEnabled = IsFinished = IsSaved = _btnStart.Enabled = false;
+            ControlsEnabled = ButtonsEnabled = IsSimulationFinished = IsDataSaved = _btnStart.Enabled = false;
 
             var distribution = (Distribution)_cmbDistribution.SelectedIndex;
             var expectation = (double)_numExpectation.Value;
             var maxVariance = (double)_numMaxVariance.Value;
             var deviationStart = (double)_numDeviationStart.Value;
-            var deviationDelta = (double)_numDeviationDelta.Value;
+            var deviationStep = (double)_numDeviationDelta.Value;
             var deviationCount = (int)_numDeviationCount.Value;
             var typeProcessingData = (TypeProcessingData)_cmbTypeProcessingData.SelectedIndex;
             var variancesKnown = !_chkVariancesKnown.Checked;
@@ -205,7 +210,7 @@ namespace UCB
             var batchSize = GetColumn<int>("BatchSize");
             var parameters = GetColumn<double>("Parameter");
 
-            var deviations = Enumerable.Range(0, deviationCount).Select(i => Math.Round(deviationStart + i * deviationDelta, 1)).ToArray();
+            var deviations = CollectionHandler.CreateArray(deviationStart, deviationStep, deviationCount, 1);
             var countGames = (int)_numNumberSimulations.Value;
             var countThreads = (int)_numCountThreads.Value;
 
@@ -226,7 +231,7 @@ namespace UCB
         [Obsolete]
         private void OnCancelClick(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Вы действительно хотите отменить вычисления?", "Отмена операции", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            if (DialogResult.No == MessageBox.Show("Вы действительно хотите отменить вычисления?", "Отмена операции", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                 return;
 
             if (_player.IsPaused)
@@ -260,7 +265,7 @@ namespace UCB
 
         private void OnOpenClick(object sender, EventArgs e)
         {
-            if (!IsSaved && MessageBox.Show($"Несохранённые данные будут удалены.\nПродолжить?", "Данные не сохранены", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            if (!IsDataSaved && DialogResult.No == MessageBox.Show($"Несохранённые данные будут удалены.\nПродолжить?", "Данные не сохранены", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                 return;
 
             Player player = FileHandler.Open();
@@ -274,7 +279,7 @@ namespace UCB
 
             var deviations = _player.Deviations;
 
-            _numBanditsCount.Value = _player.BanditCount;
+            _numBanditsCount.Value = _player.BanditsCount;
             _cmbDistribution.SelectedIndex = (int)_player.Distribution;
             _cmbTypeProcessingData.SelectedIndex = (int)_player.TypeProcessingData;
             _numDeviationStart.Value = (decimal)deviations[0];
@@ -286,13 +291,13 @@ namespace UCB
             _chkVariancesKnown.Checked = _player.VariancesKnown;
 
             ShowResult();
-            IsSaved = true;
+            IsDataSaved = true;
         }
 
         private void OnSaveClick(object sender, EventArgs e)
         {
             FileHandler.Save(_player, out bool isSaved);
-            IsSaved = isSaved;
+            IsDataSaved = isSaved;
         }
 
         private void OnDistributionChanged(object sender, EventArgs e)
@@ -327,45 +332,27 @@ namespace UCB
             }
         }
 
-        private void OnBanditArmsChanged(object sender, EventArgs e)
-        {
-            var value = (int)_numBanditArms.Value;
+        private void OnCountArmsChanged(object sender, EventArgs e) =>
+            SetColumn("Arms", (int)_numBanditArms.Value);
 
-            foreach (DataGridViewRow row in _dataGridView.Rows)
-                row.Cells["Arms"].Value = value;
-        }
+        private void OnNumberBatchesChanged(object sender, EventArgs e) =>
+            SetColumn("NumberBatches", (int)_numNumberBatches.Value);
 
-        private void OnNumberBatchesChanged(object sender, EventArgs e)
-        {
-            var value = (int)_numNumberBatches.Value;
-
-            foreach (DataGridViewRow row in _dataGridView.Rows)
-                row.Cells["NumberBatches"].Value = value;
-        }
-
-        private void OnBatchSizeChanged(object sender, EventArgs e)
-        {
-            var value = (int)_numBatchSize.Value;
-
-            foreach (DataGridViewRow row in _dataGridView.Rows)
-                row.Cells["BatchSize"].Value = value;
-        }
+        private void OnBatchSizeChanged(object sender, EventArgs e) =>
+            SetColumn("BatchSize", (int)_numBatchSize.Value);
 
         private void OnDeviationChanged(object sender, EventArgs e) =>
             _txtFinalDeviation.Text = $"{_numDeviationStart.Value + _numDeviationDelta.Value * (_numDeviationCount.Value - 1):f1}";
 
         private void OnParametersChanged(object sender, EventArgs e)
         {
-            double a = (double)_numParameterStart.Value;
-            double da = (double)numParameterDelta.Value;
+            var start = (double)_numParameterStart.Value;
+            var step = (double)numParameterDelta.Value;
+            var count = _dataGridView.RowCount;
+            var array = CollectionHandler.CreateArray(start, step, count, 2);
 
-            _dataGridView.Rows[0].Cells["Parameter"].Value = a;
-
-            for (int i = 1; i < _dataGridView.RowCount; i++)
-            {
-                a += da;
-                _dataGridView.Rows[i].Cells["Parameter"].Value = a;
-            }
+            for (int i = 0; i < count; i++)
+                _dataGridView.Rows[i].Cells["Parameter"].Value = array[i];
         }
 
         private void OnBanditsCountChanged(object sender, EventArgs e)
@@ -406,9 +393,9 @@ namespace UCB
         {
             if (e.Control && e.KeyCode == Keys.V)
             {
-                string[] lines = Clipboard.GetText(TextDataFormat.Text).Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
-                int rowIndex = _dataGridView.CurrentCell.RowIndex;
-                int colIndex = _dataGridView.Columns.IndexOf(_dataGridView.CurrentCell.OwningColumn);
+                var lines = Clipboard.GetText(TextDataFormat.Text).Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
+                var rowIndex = _dataGridView.CurrentCell.RowIndex;
+                var colIndex = _dataGridView.Columns.IndexOf(_dataGridView.CurrentCell.OwningColumn);
 
                 if (_dataGridView.Columns[colIndex].Name == "NumberRow")
                     return;
@@ -439,10 +426,10 @@ namespace UCB
                 switch (nameColumn)
                 {
                     case "Arms":
-                        if (Convert.ToInt32(_dataGridView.Rows[e.RowIndex].Cells["Arms"].Value) < Bandit.MinBanditArms)
+                        if (Convert.ToInt32(_dataGridView.Rows[e.RowIndex].Cells["Arms"].Value) < Bandit.MinCountArms)
                         {
-                            _dataGridView.Rows[e.RowIndex].Cells["Arms"].Value = Bandit.MinBanditArms;
-                            throw new ArgumentException($"Число рук J должно быть не меньше {Bandit.MinBanditArms}.");
+                            _dataGridView.Rows[e.RowIndex].Cells["Arms"].Value = Bandit.MinCountArms;
+                            throw new ArgumentException($"Число рук J должно быть не меньше {Bandit.MinCountArms}.");
                         }
                         break;
 

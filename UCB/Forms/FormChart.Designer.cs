@@ -40,7 +40,6 @@ namespace UCB
             this._lbl9 = new System.Windows.Forms.Label();
             this._txtNameX = new System.Windows.Forms.TextBox();
             this._btnLineSettings = new System.Windows.Forms.Button();
-            this._cmbSize = new System.Windows.Forms.ComboBox();
             this._grpBoxAxis = new System.Windows.Forms.GroupBox();
             this._grpBox3 = new System.Windows.Forms.GroupBox();
             this._lbl11 = new System.Windows.Forms.Label();
@@ -92,6 +91,7 @@ namespace UCB
             this._btnSaveGraph.TabIndex = 2;
             this._btnSaveGraph.Text = "Сохранить график";
             this._btnSaveGraph.UseVisualStyleBackColor = false;
+            this._btnSaveGraph.EnabledChanged += new System.EventHandler(this.OnButtonEnabledChanged);
             this._btnSaveGraph.Click += new System.EventHandler(this.OnSaveGraphClick);
             // 
             // _lbl8
@@ -182,25 +182,8 @@ namespace UCB
             this._btnLineSettings.TabIndex = 19;
             this._btnLineSettings.Text = "Настройки линий";
             this._btnLineSettings.UseVisualStyleBackColor = false;
+            this._btnLineSettings.EnabledChanged += new System.EventHandler(this.OnButtonEnabledChanged);
             this._btnLineSettings.Click += new System.EventHandler(this.OnLineSettingsClick);
-            // 
-            // _cmbSize
-            // 
-            this._cmbSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this._cmbSize.BackColor = System.Drawing.Color.White;
-            this._cmbSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this._cmbSize.ForeColor = System.Drawing.Color.Black;
-            this._cmbSize.FormattingEnabled = true;
-            this._cmbSize.Items.AddRange(new object[] {
-            "16:9",
-            "16:10",
-            "4:3",
-            "3:2"});
-            this._cmbSize.Location = new System.Drawing.Point(15, 38);
-            this._cmbSize.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this._cmbSize.Name = "_cmbSize";
-            this._cmbSize.Size = new System.Drawing.Size(165, 28);
-            this._cmbSize.TabIndex = 20;
             // 
             // _grpBoxAxis
             // 
@@ -436,12 +419,11 @@ namespace UCB
             // 
             this._grpBoxOther.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this._grpBoxOther.Controls.Add(this._rbAllGraph);
-            this._grpBoxOther.Controls.Add(this._cmbSize);
             this._grpBoxOther.Controls.Add(this._rbOneGraph);
             this._grpBoxOther.ForeColor = System.Drawing.Color.White;
             this._grpBoxOther.Location = new System.Drawing.Point(787, 508);
             this._grpBoxOther.Name = "_grpBoxOther";
-            this._grpBoxOther.Size = new System.Drawing.Size(192, 139);
+            this._grpBoxOther.Size = new System.Drawing.Size(192, 88);
             this._grpBoxOther.TabIndex = 24;
             this._grpBoxOther.TabStop = false;
             this._grpBoxOther.Text = "Прочее";
@@ -449,7 +431,7 @@ namespace UCB
             // _rbAllGraph
             // 
             this._rbAllGraph.AutoSize = true;
-            this._rbAllGraph.Location = new System.Drawing.Point(15, 103);
+            this._rbAllGraph.Location = new System.Drawing.Point(10, 55);
             this._rbAllGraph.Name = "_rbAllGraph";
             this._rbAllGraph.Size = new System.Drawing.Size(125, 24);
             this._rbAllGraph.TabIndex = 21;
@@ -460,7 +442,7 @@ namespace UCB
             // _rbOneGraph
             // 
             this._rbOneGraph.AutoSize = true;
-            this._rbOneGraph.Location = new System.Drawing.Point(15, 73);
+            this._rbOneGraph.Location = new System.Drawing.Point(10, 25);
             this._rbOneGraph.Name = "_rbOneGraph";
             this._rbOneGraph.Size = new System.Drawing.Size(147, 24);
             this._rbOneGraph.TabIndex = 22;
@@ -481,6 +463,7 @@ namespace UCB
             this._btnSaveData.TabIndex = 25;
             this._btnSaveData.Text = "Сохранить данные";
             this._btnSaveData.UseVisualStyleBackColor = false;
+            this._btnSaveData.EnabledChanged += new System.EventHandler(this.OnButtonEnabledChanged);
             this._btnSaveData.Click += new System.EventHandler(this.OnSaveDataClick);
             // 
             // _chart
@@ -526,13 +509,14 @@ namespace UCB
             this.Controls.Add(this._btnSaveGraph);
             this.Controls.Add(this._grpBoxAxis);
             this.Controls.Add(this._chart);
+            this.Enabled = false;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "FormChart";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Графики";
-            this.Load += new System.EventHandler(this.OnFormLoad);
+            this.ResizeEnd += new System.EventHandler(this.OnResizeEnd);
             ((System.ComponentModel.ISupportInitialize)(this._numFontSize)).EndInit();
             this._grpBoxAxis.ResumeLayout(false);
             this._grpBoxAxis.PerformLayout();
@@ -561,7 +545,6 @@ namespace UCB
         private System.Windows.Forms.Label _lbl8;
         private System.Windows.Forms.NumericUpDown _numFontSize;
         private System.Windows.Forms.Button _btnLineSettings;
-        private System.Windows.Forms.ComboBox _cmbSize;
         private System.Windows.Forms.CheckBox _chkItalics;
         private System.Windows.Forms.Label _lbl10;
         private System.Windows.Forms.TextBox _txtNameY;

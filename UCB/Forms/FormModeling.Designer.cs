@@ -209,7 +209,7 @@ namespace UCB
             0,
             0,
             0});
-            this._numBanditArms.ValueChanged += new System.EventHandler(this.OnBanditArmsChanged);
+            this._numBanditArms.ValueChanged += new System.EventHandler(this.OnCountArmsChanged);
             // 
             // _numMaxVariance
             // 

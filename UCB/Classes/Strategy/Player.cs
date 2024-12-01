@@ -9,40 +9,35 @@ namespace UCB
 {
     class Player : IDisposable
     {
-        private readonly Stopwatch _stopWatch = new Stopwatch();
         private readonly Bandit[] _bandits;
+        private readonly Stopwatch _stopWatch = new Stopwatch();
         private readonly Dictionary<Bandit, Thread> _threads = new Dictionary<Bandit, Thread>();
 
-        private double[] _deviations;
         private int _countProcessedBandits;
         private int _countProcessedPoints;
         private int _totalCountPoints;
+        private double[] _deviations;
         private Queue<Bandit> _waitingBandits;
 
-        public readonly Distribution Distribution;
-        public readonly TypeProcessingData TypeProcessingData;
+        public readonly bool VariancesKnown;
         public readonly double Expectation;
         public readonly double MaxVariance;
-        public readonly bool VariancesKnown;
+        public readonly Distribution Distribution;
+        public readonly TypeProcessingData TypeProcessingData;
 
         public Action ProgressChanged;
 
         public RegretTable RegretTable { get; private set; }
-
         public int GamesCount { get; private set; }
-
         public int PercentProgress { get; private set; }
-
         public string GameResult { get; private set; }
-
         public bool IsPaused { get; private set; }
-
         public bool IsPlaying { get; private set; }
 
         public double[] Deviations =>
             (double[])_deviations.Clone();
 
-        public int BanditCount =>
+        public int BanditsCount =>
             _bandits.Length;
 
         public string GameInformation =>
@@ -65,7 +60,7 @@ namespace UCB
         public Player(double expectation, double maxVariance, Distribution distribution, TypeProcessingData type, bool variancesKnown, int[] countArms, int[] numberBatches, int[] batchSize, double[] parameters) :
             this(expectation, maxVariance, distribution, type, !variancesKnown)
         {
-            if (!CheckArraysLength(countArms, numberBatches, batchSize, parameters))
+            if (!CollectionHandler.CheckArraysLength(countArms, numberBatches, batchSize, parameters))
                 throw new ArgumentException("Несовпадение размером массивов.");
 
             _bandits = new Bandit[countArms.Length];
@@ -74,10 +69,10 @@ namespace UCB
                 _bandits[i] = new Bandit(expectation, maxVariance, distribution, type, countArms[i], numberBatches[i], batchSize[i], parameters[i], variancesKnown);
         }
 
-        public Player(double expectation, double maxVariance, Distribution distribution, TypeProcessingData type, bool variancesKnown, double[] deviations, int gamesCount, Bandit[] bandits, string gameResult) :
+        public Player(double expectation, double maxVariance, Distribution distribution, TypeProcessingData type, bool variancesKnown, IEnumerable<double> deviations, int gamesCount, Bandit[] bandits, string gameResult) :
             this(expectation, maxVariance, distribution, type, variancesKnown)
         {
-            _deviations = (double[])deviations.Clone();
+            _deviations = deviations.ToArray();
             _bandits = bandits;
 
             GameResult = gameResult;
@@ -95,9 +90,6 @@ namespace UCB
                 b.SimulationFinished -= FinishThread;
             }
         }
-
-        private bool CheckArraysLength(params Array[] arrays) =>
-            arrays.All(arr => arr.Length == arrays[0].Length);
 
         private void UpdateProgress()
         {
@@ -147,7 +139,7 @@ namespace UCB
             }
         }
 
-        public void Play(double[] deviations, int countGames, int countThreads)
+        public void Play(IEnumerable<double> deviations, int countGames, int countThreads)
         {
             PercentProgress = 0;
             GamesCount = countGames;
@@ -155,9 +147,9 @@ namespace UCB
             IsPaused = false;
             IsPlaying = true;
 
-            _deviations = (double[])deviations.Clone();
+            _deviations = deviations.ToArray();
             _countProcessedBandits = _countProcessedPoints = 0;
-            _totalCountPoints = deviations.Length * _bandits.Length;
+            _totalCountPoints = _deviations.Length * _bandits.Length;
             _waitingBandits = new Queue<Bandit>(_bandits);
 
             int maxCountThreads = Math.Min(countThreads, _waitingBandits.Count);
@@ -197,14 +189,13 @@ namespace UCB
             {
                 th.Key.PointProcessed -= UpdateProgress;
                 th.Key.SimulationFinished -= FinishThread;
-
                 th.Value.Abort();
             }
 
             IsPlaying = IsPaused = false;
         }
 
-        public string GetJsonString()
+        public override string ToString()
         {
             var banditsData = _bandits.Select(b => new
             {

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -11,8 +10,9 @@ namespace UCB
 {
     partial class FormChart : Form
     {
-        private readonly RegretTable _regrets;
+        private readonly Size _aspectRatioChart = new Size(16, 9);
 
+        private RegretTable _regretTable;
         private Font _fontLabel;
         private Font _fontTitle;
 
@@ -34,28 +34,23 @@ namespace UCB
         public FormChart()
         {
             InitializeComponent();
+            OnDecimalPlacesChanged(_numDecimalPlaces, EventArgs.Empty);
 
-            _grpBoxAxis.Enabled = false;
-            _grpBox_numerics.Enabled = false;
-            _grpBoxOther.Enabled = false;
-            _btnLineSettings.Enabled = false;
-            _btnSaveData.Enabled = false;
-            _btnSaveGraph.Enabled = false;
-
-            _btnLineSettings.BackColor = Color.Gray;
-            _btnSaveData.BackColor = Color.Gray;
-            _btnSaveGraph.BackColor = Color.Gray;
-        }
-
-        public FormChart(RegretTable regrets)
-        {
-            InitializeComponent();
-
-            _regrets = regrets;
             _fontLabel = _chart.ChartAreas[0].AxisX.LabelStyle.Font;
             _fontTitle = _chart.ChartAreas[0].AxisX.TitleFont;
+        }
 
-            _rbOneGraph.Checked = true;
+        public void BuildChart(RegretTable regrets)
+        {
+            _regretTable = regrets;
+            Enabled = _rbOneGraph.Checked = true;
+        }
+
+        public void ClearChart()
+        {
+            _chart.Series.Clear();
+            _regretTable = null;
+            Enabled = false;
         }
 
         private void AddSeries(Dictionary<double, double> pointsXY, Color color)
@@ -75,14 +70,6 @@ namespace UCB
                 _chart.Series[indexSeries].Points.AddXY(pair.Key, pair.Value);
         }
 
-        private void OnFormLoad(object sender, EventArgs e)
-        {
-            _cmbSize.SelectedIndex = 0;
-            _cmbSize.SelectedIndexChanged += OnSizeChanged;
-
-            OnDecimalPlacesChanged(_numDecimalPlaces, EventArgs.Empty);
-        }
-
         private void OnRadioButtonChanged(object sender, EventArgs e)
         {
             Dictionary<double, double> points;
@@ -92,16 +79,16 @@ namespace UCB
 
             if (_rbOneGraph.Checked)
             {
-                points = _regrets.GetRegrets(_regrets.IndexMinMax);
+                points = _regretTable.GetRegrets(_regretTable.IndexMinMax);
                 yMax = points.Values.Max();
 
                 AddSeries(points, Color.Blue);//По умолчанию
             }
             else
             {
-                for (int i = 0; i < _regrets.CountColumns; i++)
+                for (int i = 0; i < _regretTable.CountColumns; i++)
                 {
-                    points = _regrets.GetRegrets(_regrets.IndexMinMax);
+                    points = _regretTable.GetRegrets(_regretTable.IndexMinMax);
                     yMax = Math.Max(points.Values.Max(), yMax);
 
                     AddSeries(points, s_colorsDefault[i % s_colorsDefault.Count]);
@@ -110,8 +97,8 @@ namespace UCB
 
             yMax = Math.Ceiling(yMax);
 
-            _numXMin.Value = (decimal)_regrets.GetDeviation(0);
-            _numXMax.Value = (decimal)_regrets.GetDeviation(_regrets.CountRows - 1);
+            _numXMin.Value = (decimal)_regretTable.GetDeviation(0);
+            _numXMax.Value = (decimal)_regretTable.GetDeviation(_regretTable.CountRows - 1);
             _numYMax.Value = (decimal)(yMax == 0d ? 1d : yMax);
             _numYMin.Value = 0m;
 
@@ -124,16 +111,10 @@ namespace UCB
             new FormLineSettings(_chart.Series).ShowDialog();
 
         private void OnSaveDataClick(object sender, EventArgs e) =>
-            FileHandler.Save(_regrets);
+            FileHandler.Save(_regretTable);
 
         private void OnSaveGraphClick(object sender, EventArgs e) =>
             FileHandler.Save(_chart);
-
-        private void OnSizeChanged(object sender, EventArgs e)
-        {
-            var size = _cmbSize.SelectedItem.ToString().Split(':').Select(x => Convert.ToInt32(x)).ToArray();
-            _chart.Height = _chart.Width * size[1] / size[0];
-        }
 
         private void OnDecimalPlacesChanged(object sender, EventArgs e)
         {
@@ -201,5 +182,14 @@ namespace UCB
             _fontLabel = labelFont;
             _fontTitle = axisFont;
         }
+
+        private void OnButtonEnabledChanged(object sender, EventArgs e)
+        {
+            if (sender is Button btn)
+                btn.BackColor = btn.Enabled ? Color.White : Color.Gray;
+        }
+
+        private void OnResizeEnd(object sender, EventArgs e) =>
+            _chart.Height = _chart.Width * _aspectRatioChart.Height / _aspectRatioChart.Width;
     }
 }

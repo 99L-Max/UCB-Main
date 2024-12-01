@@ -5,58 +5,53 @@ using UCB.Properties;
 
 namespace UCB
 {
+    enum TypeForm { DateTime, Modeling, Chart, AboutStrategy, AboutProgram }
+
     partial class FormMain : Form
     {
         private readonly FormModeling _formModeling;
+        private readonly FormChart _formChart;
 
         private bool _isDrag = false;
         private bool _isResize = false;
         private Point _startPoint;
+        private TypeForm? _typeForm = null;
         private Form _activeForm;
-        private FormChart _formChart = new FormChart();
 
         public FormMain()
         {
             InitializeComponent();
 
             _formModeling = new FormModeling(BackColor);
-            _formModeling.ResultChanged += BuildChart;
-            _formModeling.ClearChart += ClearChart;
+            _formChart = new FormChart();
+
+            _formModeling.ResultChanged += () => _formChart.BuildChart(_formModeling.RegretTable);
+            _formModeling.ClearChart += () => _formChart.ClearChart();
 
             OnMainToolClick(MainMenuStrip, EventArgs.Empty);
         }
 
-        private void OpenChildForm(Form childForm)
+        private void OpenChildForm(Form childForm, TypeForm typeForm)
         {
-            if (!(_activeForm is FormModeling || _activeForm is FormChart))
-                _activeForm?.Close();
+            if (typeForm != _typeForm)
+            {
+                if (!(_activeForm is FormModeling || _activeForm is FormChart))
+                    _activeForm?.Close();
 
-            _activeForm = childForm;
+                _activeForm = childForm;
+                _typeForm = typeForm;
 
-            childForm.BackColor = BackColor;
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
+                childForm.BackColor = BackColor;
+                childForm.TopLevel = false;
+                childForm.FormBorderStyle = FormBorderStyle.None;
+                childForm.Dock = DockStyle.Fill;
 
-            _pnlDesctopPanel.Controls.Clear();
-            _pnlDesctopPanel.Controls.Add(_pnlResize);
-            _pnlDesctopPanel.Controls.Add(childForm);
+                _pnlDesctopPanel.Controls.Clear();
+                _pnlDesctopPanel.Controls.Add(_pnlResize);
+                _pnlDesctopPanel.Controls.Add(childForm);
 
-            childForm.Show();
-        }
-
-        private void BuildChart()
-        {
-            _formChart = new FormChart(_formModeling.RegretTable);
-
-            if (_activeForm is FormChart)
-                OpenChildForm(_formChart);
-        }
-
-        private void ClearChart()
-        {
-            _formChart.Close();
-            _formChart = new FormChart();
+                childForm.Show();
+            }
         }
 
         private void OnMenuStripClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -66,19 +61,19 @@ namespace UCB
         }
 
         private void OnMainToolClick(object sender, EventArgs e) =>
-            OpenChildForm(new FormDateTime());
+            OpenChildForm(new FormDateTime(), TypeForm.DateTime);
 
         private void OnCalculateClick(object sender, EventArgs e) =>
-            OpenChildForm(_formModeling);
+            OpenChildForm(_formModeling, TypeForm.Modeling);
 
         private void OnChartClick(object sender, EventArgs e) =>
-            OpenChildForm(_formChart);
+            OpenChildForm(_formChart, TypeForm.Chart);
 
         private void OnAboutStrategyClick(object sender, EventArgs e) =>
-            OpenChildForm(new FormInfo(Resources.AboutStrategy, BackColor));
+            OpenChildForm(new FormInfo(Resources.AboutStrategy, BackColor), TypeForm.AboutStrategy);
 
         private void OnAboutProgramClick(object sender, EventArgs e) =>
-            OpenChildForm(new FormInfo(Resources.AboutProgram, BackColor));
+            OpenChildForm(new FormInfo(Resources.AboutProgram, BackColor), TypeForm.AboutProgram);
 
         private void OnExitClick(object sender, EventArgs e) =>
             Close();
@@ -134,17 +129,17 @@ namespace UCB
 
         private void OnFormClosing(object sender, FormClosingEventArgs e)
         {
-            if (_formModeling.IsFinished && _formModeling.IsSaved)
+            if (_formModeling.IsSimulationFinished && _formModeling.IsDataSaved)
                 return;
 
-            if (!_formModeling.IsFinished)
+            if (!_formModeling.IsSimulationFinished)
             {
                 MessageBox.Show($"Процесс не завершён.\nДождитесь завершения процесса или отмените его.", "Закрытие невозможно", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 e.Cancel = true;
                 return;
             }
 
-            if (MessageBox.Show($"Несохранённые данные будут удалены.\nПродолжить?", "Данные не сохранены", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            if (DialogResult.No == MessageBox.Show($"Несохранённые данные будут удалены.\nПродолжить?", "Данные не сохранены", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                 e.Cancel = true;
         }
     }

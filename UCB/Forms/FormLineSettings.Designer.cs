@@ -70,7 +70,7 @@ namespace UCB
             ((System.ComponentModel.ISupportInitialize)(this._numB)).BeginInit();
             this.SuspendLayout();
             // 
-            // numNumberLine
+            // _numNumberLine
             // 
             this._numNumberLine.Location = new System.Drawing.Point(165, 9);
             this._numNumberLine.Minimum = new decimal(new int[] {
@@ -78,7 +78,7 @@ namespace UCB
             0,
             0,
             0});
-            this._numNumberLine.Name = "numNumberLine";
+            this._numNumberLine.Name = "_numNumberLine";
             this._numNumberLine.Size = new System.Drawing.Size(56, 26);
             this._numNumberLine.TabIndex = 3;
             this._numNumberLine.Value = new decimal(new int[] {
@@ -88,25 +88,25 @@ namespace UCB
             0});
             this._numNumberLine.ValueChanged += new System.EventHandler(this.OnLineChanged);
             // 
-            // lbl1
+            // _lbl1
             // 
             this._lbl1.AutoSize = true;
             this._lbl1.Location = new System.Drawing.Point(26, 11);
-            this._lbl1.Name = "lbl1";
+            this._lbl1.Name = "_lbl1";
             this._lbl1.Size = new System.Drawing.Size(133, 20);
             this._lbl1.TabIndex = 4;
             this._lbl1.Text = "Номер графика:";
             // 
-            // lbl2
+            // _lbl2
             // 
             this._lbl2.AutoSize = true;
             this._lbl2.Location = new System.Drawing.Point(7, 76);
-            this._lbl2.Name = "lbl2";
+            this._lbl2.Name = "_lbl2";
             this._lbl2.Size = new System.Drawing.Size(90, 20);
             this._lbl2.TabIndex = 5;
             this._lbl2.Text = "Тип линии:";
             // 
-            // cmbTypeLine
+            // _cmbTypeLine
             // 
             this._cmbTypeLine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this._cmbTypeLine.FormattingEnabled = true;
@@ -114,21 +114,21 @@ namespace UCB
             "Сплошная",
             "Пунктир"});
             this._cmbTypeLine.Location = new System.Drawing.Point(103, 73);
-            this._cmbTypeLine.Name = "cmbTypeLine";
+            this._cmbTypeLine.Name = "_cmbTypeLine";
             this._cmbTypeLine.Size = new System.Drawing.Size(118, 28);
             this._cmbTypeLine.TabIndex = 6;
             this._cmbTypeLine.SelectedIndexChanged += new System.EventHandler(this.OnTypeLineChanged);
             // 
-            // lbl5
+            // _lbl5
             // 
             this._lbl5.AutoSize = true;
             this._lbl5.Location = new System.Drawing.Point(78, 43);
-            this._lbl5.Name = "lbl5";
+            this._lbl5.Name = "_lbl5";
             this._lbl5.Size = new System.Drawing.Size(81, 20);
             this._lbl5.TabIndex = 10;
             this._lbl5.Text = "Толщина:";
             // 
-            // numBorderWidth
+            // _numBorderWidth
             // 
             this._numBorderWidth.Location = new System.Drawing.Point(165, 41);
             this._numBorderWidth.Minimum = new decimal(new int[] {
@@ -136,7 +136,7 @@ namespace UCB
             0,
             0,
             0});
-            this._numBorderWidth.Name = "numBorderWidth";
+            this._numBorderWidth.Name = "_numBorderWidth";
             this._numBorderWidth.Size = new System.Drawing.Size(56, 26);
             this._numBorderWidth.TabIndex = 11;
             this._numBorderWidth.Value = new decimal(new int[] {
@@ -146,276 +146,296 @@ namespace UCB
             0});
             this._numBorderWidth.ValueChanged += new System.EventHandler(this.OnBorderWidthChanged);
             // 
-            // lbl4
+            // _lbl4
             // 
             this._lbl4.AutoSize = true;
             this._lbl4.BackColor = System.Drawing.Color.Red;
             this._lbl4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._lbl4.Cursor = System.Windows.Forms.Cursors.Hand;
             this._lbl4.Location = new System.Drawing.Point(150, 114);
             this._lbl4.MinimumSize = new System.Drawing.Size(30, 30);
-            this._lbl4.Name = "lbl4";
+            this._lbl4.Name = "_lbl4";
             this._lbl4.Size = new System.Drawing.Size(30, 30);
             this._lbl4.TabIndex = 32;
             this._lbl4.Click += new System.EventHandler(this.OnColorClick);
             // 
-            // lbl6
+            // _lbl6
             // 
             this._lbl6.AutoSize = true;
             this._lbl6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this._lbl6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._lbl6.Cursor = System.Windows.Forms.Cursors.Hand;
             this._lbl6.Location = new System.Drawing.Point(186, 114);
             this._lbl6.MinimumSize = new System.Drawing.Size(30, 30);
-            this._lbl6.Name = "lbl6";
+            this._lbl6.Name = "_lbl6";
             this._lbl6.Size = new System.Drawing.Size(30, 30);
             this._lbl6.TabIndex = 33;
             this._lbl6.Click += new System.EventHandler(this.OnColorClick);
             // 
-            // lbl7
+            // _lbl7
             // 
             this._lbl7.AutoSize = true;
             this._lbl7.BackColor = System.Drawing.Color.Green;
             this._lbl7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._lbl7.Cursor = System.Windows.Forms.Cursors.Hand;
             this._lbl7.Location = new System.Drawing.Point(258, 114);
             this._lbl7.MinimumSize = new System.Drawing.Size(30, 30);
-            this._lbl7.Name = "lbl7";
+            this._lbl7.Name = "_lbl7";
             this._lbl7.Size = new System.Drawing.Size(30, 30);
             this._lbl7.TabIndex = 35;
             this._lbl7.Click += new System.EventHandler(this.OnColorClick);
             // 
-            // lbl8
+            // _lbl8
             // 
             this._lbl8.AutoSize = true;
             this._lbl8.BackColor = System.Drawing.Color.Yellow;
             this._lbl8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._lbl8.Cursor = System.Windows.Forms.Cursors.Hand;
             this._lbl8.Location = new System.Drawing.Point(222, 114);
             this._lbl8.MinimumSize = new System.Drawing.Size(30, 30);
-            this._lbl8.Name = "lbl8";
+            this._lbl8.Name = "_lbl8";
             this._lbl8.Size = new System.Drawing.Size(30, 30);
             this._lbl8.TabIndex = 34;
             this._lbl8.Click += new System.EventHandler(this.OnColorClick);
             // 
-            // lbl9
+            // _lbl9
             // 
             this._lbl9.AutoSize = true;
             this._lbl9.BackColor = System.Drawing.Color.DeepSkyBlue;
             this._lbl9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._lbl9.Cursor = System.Windows.Forms.Cursors.Hand;
             this._lbl9.Location = new System.Drawing.Point(294, 114);
             this._lbl9.MinimumSize = new System.Drawing.Size(30, 30);
-            this._lbl9.Name = "lbl9";
+            this._lbl9.Name = "_lbl9";
             this._lbl9.Size = new System.Drawing.Size(30, 30);
             this._lbl9.TabIndex = 36;
             this._lbl9.Click += new System.EventHandler(this.OnColorClick);
             // 
-            // lbl10
+            // _lbl10
             // 
             this._lbl10.AutoSize = true;
             this._lbl10.BackColor = System.Drawing.Color.Maroon;
             this._lbl10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._lbl10.Cursor = System.Windows.Forms.Cursors.Hand;
             this._lbl10.Location = new System.Drawing.Point(114, 114);
             this._lbl10.MinimumSize = new System.Drawing.Size(30, 30);
-            this._lbl10.Name = "lbl10";
+            this._lbl10.Name = "_lbl10";
             this._lbl10.Size = new System.Drawing.Size(30, 30);
             this._lbl10.TabIndex = 41;
             this._lbl10.Click += new System.EventHandler(this.OnColorClick);
             // 
-            // lbl11
+            // _lbl11
             // 
             this._lbl11.AutoSize = true;
             this._lbl11.BackColor = System.Drawing.Color.Gray;
             this._lbl11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._lbl11.Cursor = System.Windows.Forms.Cursors.Hand;
             this._lbl11.Location = new System.Drawing.Point(78, 114);
             this._lbl11.MinimumSize = new System.Drawing.Size(30, 30);
-            this._lbl11.Name = "lbl11";
+            this._lbl11.Name = "_lbl11";
             this._lbl11.Size = new System.Drawing.Size(30, 30);
             this._lbl11.TabIndex = 40;
             this._lbl11.Click += new System.EventHandler(this.OnColorClick);
             // 
-            // lbl12
+            // _lbl12
             // 
             this._lbl12.AutoSize = true;
             this._lbl12.BackColor = System.Drawing.Color.Black;
             this._lbl12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._lbl12.Cursor = System.Windows.Forms.Cursors.Hand;
             this._lbl12.Location = new System.Drawing.Point(42, 114);
             this._lbl12.MinimumSize = new System.Drawing.Size(30, 30);
-            this._lbl12.Name = "lbl12";
+            this._lbl12.Name = "_lbl12";
             this._lbl12.Size = new System.Drawing.Size(30, 30);
             this._lbl12.TabIndex = 39;
             this._lbl12.Click += new System.EventHandler(this.OnColorClick);
             // 
-            // lbl13
+            // _lbl13
             // 
             this._lbl13.AutoSize = true;
             this._lbl13.BackColor = System.Drawing.Color.Purple;
             this._lbl13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._lbl13.Cursor = System.Windows.Forms.Cursors.Hand;
             this._lbl13.Location = new System.Drawing.Point(366, 114);
             this._lbl13.MinimumSize = new System.Drawing.Size(30, 30);
-            this._lbl13.Name = "lbl13";
+            this._lbl13.Name = "_lbl13";
             this._lbl13.Size = new System.Drawing.Size(30, 30);
             this._lbl13.TabIndex = 38;
             this._lbl13.Click += new System.EventHandler(this.OnColorClick);
             // 
-            // lbl14
+            // _lbl14
             // 
             this._lbl14.AutoSize = true;
             this._lbl14.BackColor = System.Drawing.Color.Blue;
             this._lbl14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._lbl14.Cursor = System.Windows.Forms.Cursors.Hand;
             this._lbl14.Location = new System.Drawing.Point(330, 114);
             this._lbl14.MinimumSize = new System.Drawing.Size(30, 30);
-            this._lbl14.Name = "lbl14";
+            this._lbl14.Name = "_lbl14";
             this._lbl14.Size = new System.Drawing.Size(30, 30);
             this._lbl14.TabIndex = 37;
             this._lbl14.Click += new System.EventHandler(this.OnColorClick);
             // 
-            // lbl15
+            // _lbl15
             // 
             this._lbl15.AutoSize = true;
             this._lbl15.BackColor = System.Drawing.Color.Peru;
             this._lbl15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._lbl15.Cursor = System.Windows.Forms.Cursors.Hand;
             this._lbl15.Location = new System.Drawing.Point(114, 153);
             this._lbl15.MinimumSize = new System.Drawing.Size(30, 30);
-            this._lbl15.Name = "lbl15";
+            this._lbl15.Name = "_lbl15";
             this._lbl15.Size = new System.Drawing.Size(30, 30);
             this._lbl15.TabIndex = 51;
             this._lbl15.Click += new System.EventHandler(this.OnColorClick);
             // 
-            // lbl16
+            // _lbl16
             // 
             this._lbl16.AutoSize = true;
             this._lbl16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this._lbl16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._lbl16.Cursor = System.Windows.Forms.Cursors.Hand;
             this._lbl16.Location = new System.Drawing.Point(78, 153);
             this._lbl16.MinimumSize = new System.Drawing.Size(30, 30);
-            this._lbl16.Name = "lbl16";
+            this._lbl16.Name = "_lbl16";
             this._lbl16.Size = new System.Drawing.Size(30, 30);
             this._lbl16.TabIndex = 50;
             this._lbl16.Click += new System.EventHandler(this.OnColorClick);
             // 
-            // lbl17
+            // _lbl17
             // 
             this._lbl17.AutoSize = true;
             this._lbl17.BackColor = System.Drawing.Color.White;
             this._lbl17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._lbl17.Cursor = System.Windows.Forms.Cursors.Hand;
             this._lbl17.Location = new System.Drawing.Point(42, 153);
             this._lbl17.MinimumSize = new System.Drawing.Size(30, 30);
-            this._lbl17.Name = "lbl17";
+            this._lbl17.Name = "_lbl17";
             this._lbl17.Size = new System.Drawing.Size(30, 30);
             this._lbl17.TabIndex = 49;
             this._lbl17.Click += new System.EventHandler(this.OnColorClick);
             // 
-            // lbl18
+            // _lbl18
             // 
             this._lbl18.AutoSize = true;
             this._lbl18.BackColor = System.Drawing.Color.MediumOrchid;
             this._lbl18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._lbl18.Cursor = System.Windows.Forms.Cursors.Hand;
             this._lbl18.Location = new System.Drawing.Point(366, 153);
             this._lbl18.MinimumSize = new System.Drawing.Size(30, 30);
-            this._lbl18.Name = "lbl18";
+            this._lbl18.Name = "_lbl18";
             this._lbl18.Size = new System.Drawing.Size(30, 30);
             this._lbl18.TabIndex = 48;
             this._lbl18.Click += new System.EventHandler(this.OnColorClick);
             // 
-            // lbl19
+            // _lbl19
             // 
             this._lbl19.AutoSize = true;
             this._lbl19.BackColor = System.Drawing.Color.CornflowerBlue;
             this._lbl19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._lbl19.Cursor = System.Windows.Forms.Cursors.Hand;
             this._lbl19.Location = new System.Drawing.Point(330, 153);
             this._lbl19.MinimumSize = new System.Drawing.Size(30, 30);
-            this._lbl19.Name = "lbl19";
+            this._lbl19.Name = "_lbl19";
             this._lbl19.Size = new System.Drawing.Size(30, 30);
             this._lbl19.TabIndex = 47;
             this._lbl19.Click += new System.EventHandler(this.OnColorClick);
             // 
-            // lbl20
+            // _lbl20
             // 
             this._lbl20.AutoSize = true;
             this._lbl20.BackColor = System.Drawing.Color.Cyan;
             this._lbl20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._lbl20.Cursor = System.Windows.Forms.Cursors.Hand;
             this._lbl20.Location = new System.Drawing.Point(294, 153);
             this._lbl20.MinimumSize = new System.Drawing.Size(30, 30);
-            this._lbl20.Name = "lbl20";
+            this._lbl20.Name = "_lbl20";
             this._lbl20.Size = new System.Drawing.Size(30, 30);
             this._lbl20.TabIndex = 46;
             this._lbl20.Click += new System.EventHandler(this.OnColorClick);
             // 
-            // lbl21
+            // _lbl21
             // 
             this._lbl21.AutoSize = true;
             this._lbl21.BackColor = System.Drawing.Color.Lime;
             this._lbl21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._lbl21.Cursor = System.Windows.Forms.Cursors.Hand;
             this._lbl21.Location = new System.Drawing.Point(258, 153);
             this._lbl21.MinimumSize = new System.Drawing.Size(30, 30);
-            this._lbl21.Name = "lbl21";
+            this._lbl21.Name = "_lbl21";
             this._lbl21.Size = new System.Drawing.Size(30, 30);
             this._lbl21.TabIndex = 45;
             this._lbl21.Click += new System.EventHandler(this.OnColorClick);
             // 
-            // lbl22
+            // _lbl22
             // 
             this._lbl22.AutoSize = true;
             this._lbl22.BackColor = System.Drawing.Color.LemonChiffon;
             this._lbl22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._lbl22.Cursor = System.Windows.Forms.Cursors.Hand;
             this._lbl22.Location = new System.Drawing.Point(222, 153);
             this._lbl22.MinimumSize = new System.Drawing.Size(30, 30);
-            this._lbl22.Name = "lbl22";
+            this._lbl22.Name = "_lbl22";
             this._lbl22.Size = new System.Drawing.Size(30, 30);
             this._lbl22.TabIndex = 44;
             this._lbl22.Click += new System.EventHandler(this.OnColorClick);
             // 
-            // lbl23
+            // _lbl23
             // 
             this._lbl23.AutoSize = true;
             this._lbl23.BackColor = System.Drawing.Color.Gold;
             this._lbl23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._lbl23.Cursor = System.Windows.Forms.Cursors.Hand;
             this._lbl23.Location = new System.Drawing.Point(186, 153);
             this._lbl23.MinimumSize = new System.Drawing.Size(30, 30);
-            this._lbl23.Name = "lbl23";
+            this._lbl23.Name = "_lbl23";
             this._lbl23.Size = new System.Drawing.Size(30, 30);
             this._lbl23.TabIndex = 43;
             this._lbl23.Click += new System.EventHandler(this.OnColorClick);
             // 
-            // lbl24
+            // _lbl24
             // 
             this._lbl24.AutoSize = true;
             this._lbl24.BackColor = System.Drawing.Color.Fuchsia;
             this._lbl24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._lbl24.Cursor = System.Windows.Forms.Cursors.Hand;
             this._lbl24.Location = new System.Drawing.Point(150, 153);
             this._lbl24.MinimumSize = new System.Drawing.Size(30, 30);
-            this._lbl24.Name = "lbl24";
+            this._lbl24.Name = "_lbl24";
             this._lbl24.Size = new System.Drawing.Size(30, 30);
             this._lbl24.TabIndex = 42;
             this._lbl24.Click += new System.EventHandler(this.OnColorClick);
             // 
-            // btnOK
+            // _btnOK
             // 
             this._btnOK.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this._btnOK.Location = new System.Drawing.Point(150, 186);
-            this._btnOK.Name = "btnOK";
+            this._btnOK.Name = "_btnOK";
             this._btnOK.Size = new System.Drawing.Size(138, 35);
             this._btnOK.TabIndex = 62;
             this._btnOK.Text = "ОК";
             this._btnOK.UseVisualStyleBackColor = true;
             // 
-            // lblCurrentColor
+            // _lblCurrentColor
             // 
             this._lblCurrentColor.AutoSize = true;
             this._lblCurrentColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this._lblCurrentColor.Location = new System.Drawing.Point(234, 9);
             this._lblCurrentColor.MinimumSize = new System.Drawing.Size(95, 95);
-            this._lblCurrentColor.Name = "lblCurrentColor";
+            this._lblCurrentColor.Name = "_lblCurrentColor";
             this._lblCurrentColor.Size = new System.Drawing.Size(95, 95);
             this._lblCurrentColor.TabIndex = 63;
             // 
-            // lbl3
+            // _lbl3
             // 
             this._lbl3.AutoSize = true;
             this._lbl3.Location = new System.Drawing.Point(335, 13);
-            this._lbl3.Name = "lbl3";
+            this._lbl3.Name = "_lbl3";
             this._lbl3.Size = new System.Drawing.Size(25, 20);
             this._lbl3.TabIndex = 64;
             this._lbl3.Text = "R:";
             // 
-            // numRed
+            // _numR
             // 
             this._numR.Location = new System.Drawing.Point(366, 11);
             this._numR.Maximum = new decimal(new int[] {
@@ -423,7 +443,7 @@ namespace UCB
             0,
             0,
             0});
-            this._numR.Name = "numRed";
+            this._numR.Name = "_numR";
             this._numR.Size = new System.Drawing.Size(57, 26);
             this._numR.TabIndex = 65;
             this._numR.Value = new decimal(new int[] {
@@ -433,7 +453,7 @@ namespace UCB
             0});
             this._numR.ValueChanged += new System.EventHandler(this.OnRGBChanged);
             // 
-            // numGreen
+            // _numG
             // 
             this._numG.Location = new System.Drawing.Point(366, 43);
             this._numG.Maximum = new decimal(new int[] {
@@ -441,7 +461,7 @@ namespace UCB
             0,
             0,
             0});
-            this._numG.Name = "numGreen";
+            this._numG.Name = "_numG";
             this._numG.Size = new System.Drawing.Size(57, 26);
             this._numG.TabIndex = 67;
             this._numG.Value = new decimal(new int[] {
@@ -451,16 +471,16 @@ namespace UCB
             0});
             this._numG.ValueChanged += new System.EventHandler(this.OnRGBChanged);
             // 
-            // lbl25
+            // _lbl25
             // 
             this._lbl25.AutoSize = true;
             this._lbl25.Location = new System.Drawing.Point(334, 45);
-            this._lbl25.Name = "lbl25";
+            this._lbl25.Name = "_lbl25";
             this._lbl25.Size = new System.Drawing.Size(26, 20);
             this._lbl25.TabIndex = 66;
             this._lbl25.Text = "G:";
             // 
-            // numBlue
+            // _numB
             // 
             this._numB.Location = new System.Drawing.Point(366, 75);
             this._numB.Maximum = new decimal(new int[] {
@@ -468,7 +488,7 @@ namespace UCB
             0,
             0,
             0});
-            this._numB.Name = "numBlue";
+            this._numB.Name = "_numB";
             this._numB.Size = new System.Drawing.Size(57, 26);
             this._numB.TabIndex = 69;
             this._numB.Value = new decimal(new int[] {
@@ -478,11 +498,11 @@ namespace UCB
             0});
             this._numB.ValueChanged += new System.EventHandler(this.OnRGBChanged);
             // 
-            // lbl26
+            // _lbl26
             // 
             this._lbl26.AutoSize = true;
             this._lbl26.Location = new System.Drawing.Point(337, 77);
-            this._lbl26.Name = "lbl26";
+            this._lbl26.Name = "_lbl26";
             this._lbl26.Size = new System.Drawing.Size(24, 20);
             this._lbl26.TabIndex = 68;
             this._lbl26.Text = "B:";

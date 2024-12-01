@@ -11,11 +11,11 @@ namespace UCB
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.ThreadException += new ThreadExceptionEventHandler(ShowMessage);
+            Application.ThreadException += new ThreadExceptionEventHandler(ShowErrorMessage);
             Application.Run(new FormMain());
         }
 
-        private static void ShowMessage(object sender, ThreadExceptionEventArgs e) =>
+        private static void ShowErrorMessage(object sender, ThreadExceptionEventArgs e) =>
             MessageBox.Show(e.Exception.ToString());
     }
 }

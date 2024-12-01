@@ -111,6 +111,7 @@ namespace UCB
             this.Controls.Add(this._pbLogo);
             this.Name = "FormDateTime";
             this.Text = "FormMain";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnFormClosing);
             ((System.ComponentModel.ISupportInitialize)(this._pbLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -53,9 +53,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Strategy\Arm.cs" />
-    <Compile Include="Strategy\Bandit.cs" />
-    <Compile Include="Others\ModifyProgressBarColor.cs" />
+    <Compile Include="Classes\Others\CollectionHandler.cs" />
+    <Compile Include="Classes\Others\FileHandler.cs" />
+    <Compile Include="Classes\Others\ModifyProgressBarColor.cs" />
+    <Compile Include="Classes\Others\Sound.cs" />
+    <Compile Include="Classes\Strategy\Arm.cs" />
+    <Compile Include="Classes\Strategy\Bandit.cs" />
+    <Compile Include="Classes\Strategy\OneStepIncome.cs" />
+    <Compile Include="Classes\Strategy\Player.cs" />
+    <Compile Include="Classes\Strategy\RegretTable.cs" />
     <Compile Include="Forms\FormInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,18 +98,13 @@
     <Compile Include="Forms\FormDateTime.Designer.cs">
       <DependentUpon>FormDateTime.cs</DependentUpon>
     </Compile>
-    <Compile Include="Strategy\OneStepIncome.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Strategy\Player.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Strategy\RegretTable.cs" />
-    <Compile Include="Others\FileHandler.cs" />
-    <Compile Include="Others\Sound.cs" />
     <EmbeddedResource Include="Forms\FormInfo.resx">
       <DependentUpon>FormInfo.cs</DependentUpon>
     </EmbeddedResource>

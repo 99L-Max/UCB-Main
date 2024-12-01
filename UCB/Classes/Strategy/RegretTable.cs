@@ -12,17 +12,12 @@ namespace UCB
         private readonly double[,] _regrets;
 
         public readonly int IndexMinMax;
-        public readonly int CountRows;
-        public readonly int CountColumns;
 
-        public RegretTable(double[] deviations, Bandit[] bandits)
+        public RegretTable(IEnumerable<double> deviations, Bandit[] bandits)
         {
             _deviations = deviations.OrderBy(x => x).ToArray();
             _parameters = bandits.Select(b => b.Parameter).ToArray();
-            _regrets = new double[deviations.Length, bandits.Length];
-
-            CountRows = deviations.Length;
-            CountColumns = bandits.Length;
+            _regrets = new double[_deviations.Length, bandits.Length];
 
             double max, minMax = double.MaxValue;
 
@@ -34,8 +29,8 @@ namespace UCB
                 {
                     var reg = bandits[j].Regrets;
 
-                    if (reg.ContainsKey(deviations[i]))
-                        _regrets[i, j] = reg[deviations[i]];
+                    if (reg.ContainsKey(_deviations[i]))
+                        _regrets[i, j] = reg[_deviations[i]];
 
                     if (max < _regrets[i, j])
                         max = _regrets[i, j];
@@ -48,6 +43,12 @@ namespace UCB
                 }
             }
         }
+
+        public int CountRows => 
+            _deviations.Length;
+
+        public int CountColumns =>
+            _parameters.Length;
 
         public double GetDeviation(int index) =>
             _deviations[index];

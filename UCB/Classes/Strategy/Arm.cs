@@ -14,13 +14,13 @@ namespace UCB
         public readonly bool EstimationVariance;
         public readonly TypeProcessingData TypeProcessingData;
 
-        public Arm(Distribution distribution, double expectation, double dispersion, int batchSize, double parameter, TypeProcessingData type, bool estimation)
+        public Arm(Distribution distribution, double expectation, double maxVariance, int batchSize, double parameter, TypeProcessingData type, bool estimation)
         {
             _oneStepIncome = new OneStepIncome(distribution);
             _deltaCounter = type == TypeProcessingData.TotalNumberData ? batchSize : 1;
 
             Expectation = expectation;
-            Variance = dispersion;
+            Variance = maxVariance;
             BatchSize = batchSize;
             Parameter = parameter;
             TypeProcessingData = type;
@@ -54,7 +54,7 @@ namespace UCB
             for (int i = 0; i < BatchSize; i++)
                 Income += _oneStepIncome.GetIncome(Expectation);
 
-            if (EstimationVariance)
+            if (EstimationVariance && Distribution == Distribution.Bernoulli)
                 if (TypeProcessingData == TypeProcessingData.TotalNumberData)
                 {
                     Variance = Income * (Counter - Income) / (Counter * (Counter - 1));

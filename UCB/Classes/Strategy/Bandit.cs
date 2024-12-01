@@ -6,7 +6,7 @@ namespace UCB
 {
     class Bandit
     {
-        public const int MinBanditArms = 2;
+        public const int MinCountArms = 2;
 
         private readonly Arm[] _arms;
         private readonly double _sqrtDivDN;
@@ -30,8 +30,8 @@ namespace UCB
 
         public Bandit(double expectation, double maxVariance, Distribution distribution, TypeProcessingData typeProcessingData, int countArms, int numberBatches, int batchSize, double parameter, bool estimationVariance, Dictionary<double, double> regrets = null)
         {
-            if (countArms < MinBanditArms)
-                throw new ArgumentException($"Минимальное число рук бандита J = {MinBanditArms}.");
+            if (countArms < MinCountArms)
+                throw new ArgumentException($"Минимальное число рук бандита J = {MinCountArms}.");
 
             Expectation = expectation;
             MaxVariance = maxVariance;
@@ -50,7 +50,7 @@ namespace UCB
             if (regrets != null)
             {
                 _regrets = regrets;
-                (MaxDeviation, MaxRegrets) = GetMaxPair(_regrets);
+                (MaxDeviation, MaxRegrets) = CollectionHandler.GetPairMaxValue(_regrets);
             }
         }
 
@@ -64,13 +64,7 @@ namespace UCB
         public int CountArms =>
             _arms.Length;
 
-        private (double, double) GetMaxPair(Dictionary<double, double> dict)
-        {
-            var pair = dict.Aggregate((max, next) => next.Value > max.Value ? next : max);
-            return (pair.Key, pair.Value);
-        }
-
-        public void Play(double[] deviations, int countGames)
+        public void Play(IEnumerable<double> deviations, int countGames)
         {
             double maxIncome;
             _regrets = deviations.ToDictionary(k => k, v => 0d);
@@ -113,7 +107,7 @@ namespace UCB
                 PointProcessed?.Invoke();
             }
 
-            (MaxDeviation, MaxRegrets) = GetMaxPair(_regrets);
+            (MaxDeviation, MaxRegrets) = CollectionHandler.GetPairMaxValue(_regrets);
             SimulationFinished?.Invoke(this);
         }
     }
