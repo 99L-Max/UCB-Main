@@ -515,7 +515,7 @@ namespace UCB
             this.MaximizeBox = false;
             this.Name = "FormChart";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Графики";
+            this.Text = "FormChart";
             this.ResizeEnd += new System.EventHandler(this.OnResizeEnd);
             ((System.ComponentModel.ISupportInitialize)(this._numFontSize)).EndInit();
             this._grpBoxAxis.ResumeLayout(false);

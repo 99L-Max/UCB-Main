@@ -258,7 +258,7 @@ namespace UCB
             this._lblMathExp.TabIndex = 1;
             this._lblMathExp.Text = "Мат. ожидание m:";
             // 
-            // _numMathExp
+            // _numExpectation
             // 
             this._numExpectation.DecimalPlaces = 2;
             this._numExpectation.Increment = new decimal(new int[] {
@@ -268,7 +268,7 @@ namespace UCB
             131072});
             this._numExpectation.Location = new System.Drawing.Point(184, 51);
             this._numExpectation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this._numExpectation.Name = "_numMathExp";
+            this._numExpectation.Name = "_numExpectation";
             this._numExpectation.Size = new System.Drawing.Size(65, 26);
             this._numExpectation.TabIndex = 2;
             // 
@@ -934,7 +934,7 @@ namespace UCB
             this.MaximizeBox = false;
             this.Name = "FormModeling";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "UCB";
+            this.Text = "FormModeling";
             this._grpTypeBandit.ResumeLayout(false);
             this._grpTypeBandit.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this._numBanditArms)).EndInit();

@@ -40,11 +40,8 @@ namespace UCB
 
         public double UCB { get; private set; }
 
-        public void Reset()
-        {
-            Counter = 0;
-            UCB = Income = 0d;
-        }
+        public void Reset() =>
+            UCB = Income = Counter = 0;
 
         public void Play(ref int sumCounter)
         {

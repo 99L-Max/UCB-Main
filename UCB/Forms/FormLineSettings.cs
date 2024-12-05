@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
@@ -18,6 +19,7 @@ namespace UCB
 
             _series = series;
             _numNumberLine.Maximum = _series.Count;
+            _cmbBorderDashStyle.Items.AddRange(Enum.GetValues(typeof(ChartDashStyle)).Cast<ChartDashStyle>().Select(x => x.ToString()).ToArray());
 
             OnLineChanged(_numNumberLine, EventArgs.Empty);
         }
@@ -39,13 +41,13 @@ namespace UCB
         {
             _selectedIndex = (int)_numNumberLine.Value - 1;
             _numBorderWidth.Value = _series[_selectedIndex].BorderWidth;
-            _cmbTypeLine.SelectedIndex = Convert.ToInt32(_series[_selectedIndex].BorderDashStyle != ChartDashStyle.Solid);
+            _cmbBorderDashStyle.SelectedIndex = (int)_series[_selectedIndex].BorderDashStyle;
 
             SetColorLineOnForm();
         }
 
-        private void OnTypeLineChanged(object sender, EventArgs e) =>
-            _series[_selectedIndex].BorderDashStyle = _cmbTypeLine.SelectedIndex == 0 ? ChartDashStyle.Solid : ChartDashStyle.Dash;
+        private void OnBorderDashStyleChanged(object sender, EventArgs e) =>
+            _series[_selectedIndex].BorderDashStyle = (ChartDashStyle)_cmbBorderDashStyle.SelectedIndex;
 
         private void OnBorderWidthChanged(object sender, EventArgs e) =>
             _series[_selectedIndex].BorderWidth = (int)_numBorderWidth.Value;

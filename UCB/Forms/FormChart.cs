@@ -58,7 +58,7 @@ namespace UCB
             var series = new Series
             {
                 BorderWidth = 3,//По умолчанию
-                ChartType = SeriesChartType.Spline,//По умолчанию
+                ChartType = SeriesChartType.Spline,
                 Color = color
             };
 

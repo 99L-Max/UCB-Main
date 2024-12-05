@@ -176,6 +176,13 @@ namespace UCB
                 row.Cells[nameColumn].Value = value;
         }
 
+        private void SetColumn<T>(string nameColumn, T[] value)
+        {
+            var i = 0;
+            foreach (DataGridViewRow row in _dataGridView.Rows)
+                row.Cells[nameColumn].Value = value[i++];
+        }
+
         private void OnNewClick(object sender, EventArgs e)
         {
             if (!IsDataSaved && DialogResult.No == MessageBox.Show($"Несохранённые данные будут удалены.\nПродолжить?", "Данные не сохранены", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
@@ -289,6 +296,11 @@ namespace UCB
             _numMaxVariance.Value = (decimal)_player.MaxVariance;
             _numNumberSimulations.Value = _player.GamesCount;
             _chkVariancesKnown.Checked = _player.VariancesKnown;
+
+            SetColumn("Arms", _player.CountArms);
+            SetColumn("NumberBatches", _player.NumbersBatches);
+            SetColumn("BatchSize", _player.BatchSizes);
+            SetColumn("Parameter", _player.Parameters);
 
             ShowResult();
             IsDataSaved = true;

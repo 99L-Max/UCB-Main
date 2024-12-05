@@ -32,7 +32,7 @@ namespace UCB
             this._numNumberLine = new System.Windows.Forms.NumericUpDown();
             this._lbl1 = new System.Windows.Forms.Label();
             this._lbl2 = new System.Windows.Forms.Label();
-            this._cmbTypeLine = new System.Windows.Forms.ComboBox();
+            this._cmbBorderDashStyle = new System.Windows.Forms.ComboBox();
             this._lbl5 = new System.Windows.Forms.Label();
             this._numBorderWidth = new System.Windows.Forms.NumericUpDown();
             this._lbl4 = new System.Windows.Forms.Label();
@@ -106,18 +106,15 @@ namespace UCB
             this._lbl2.TabIndex = 5;
             this._lbl2.Text = "Тип линии:";
             // 
-            // _cmbTypeLine
+            // _cmbBorderDashStyle
             // 
-            this._cmbTypeLine.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this._cmbTypeLine.FormattingEnabled = true;
-            this._cmbTypeLine.Items.AddRange(new object[] {
-            "Сплошная",
-            "Пунктир"});
-            this._cmbTypeLine.Location = new System.Drawing.Point(103, 73);
-            this._cmbTypeLine.Name = "_cmbTypeLine";
-            this._cmbTypeLine.Size = new System.Drawing.Size(118, 28);
-            this._cmbTypeLine.TabIndex = 6;
-            this._cmbTypeLine.SelectedIndexChanged += new System.EventHandler(this.OnTypeLineChanged);
+            this._cmbBorderDashStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this._cmbBorderDashStyle.FormattingEnabled = true;
+            this._cmbBorderDashStyle.Location = new System.Drawing.Point(103, 73);
+            this._cmbBorderDashStyle.Name = "_cmbBorderDashStyle";
+            this._cmbBorderDashStyle.Size = new System.Drawing.Size(118, 28);
+            this._cmbBorderDashStyle.TabIndex = 6;
+            this._cmbBorderDashStyle.SelectedIndexChanged += new System.EventHandler(this.OnBorderDashStyleChanged);
             // 
             // _lbl5
             // 
@@ -544,7 +541,7 @@ namespace UCB
             this.Controls.Add(this._lbl4);
             this.Controls.Add(this._numBorderWidth);
             this.Controls.Add(this._lbl5);
-            this.Controls.Add(this._cmbTypeLine);
+            this.Controls.Add(this._cmbBorderDashStyle);
             this.Controls.Add(this._lbl2);
             this.Controls.Add(this._lbl1);
             this.Controls.Add(this._numNumberLine);
@@ -571,7 +568,7 @@ namespace UCB
         private System.Windows.Forms.NumericUpDown _numNumberLine;
         private System.Windows.Forms.Label _lbl1;
         private System.Windows.Forms.Label _lbl2;
-        private System.Windows.Forms.ComboBox _cmbTypeLine;
+        private System.Windows.Forms.ComboBox _cmbBorderDashStyle;
         private System.Windows.Forms.Label _lbl5;
         private System.Windows.Forms.NumericUpDown _numBorderWidth;
         private System.Windows.Forms.Label _lbl4;

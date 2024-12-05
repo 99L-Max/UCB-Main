@@ -52,8 +52,8 @@ namespace UCB
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(318, 217);
             this.Controls.Add(this._txtBox);
-            this.Name = "FormAboutProgram";
-            this.Text = "FormAboutProgram";
+            this.Name = "FormInfo";
+            this.Text = "FormInfo";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -37,6 +37,18 @@ namespace UCB
         public double[] Deviations =>
             (double[])_deviations.Clone();
 
+        public int[] CountArms =>
+            _bandits.Select(b => b.CountArms).ToArray();
+
+        public int[] NumbersBatches =>
+            _bandits.Select(b => b.NumberBatches).ToArray();
+
+        public int[] BatchSizes =>
+            _bandits.Select(b => b.BatchSize).ToArray();
+
+        public double[] Parameters =>
+            _bandits.Select(b => b.Parameter).ToArray();
+
         public int BanditsCount =>
             _bandits.Length;
 
